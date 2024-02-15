@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teshigoto.Generators", "Teshigoto.Generators\Teshigoto.Generators.csproj", "{C6E4FC73-39B2-4A21-B392-D9A9DA45DFFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teshigoto.Annotation", "Teshigoto.Annotation\Teshigoto.Annotation.csproj", "{8891797C-86A4-4479-B2AD-A904990288A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teshigoto.UnitTests", "Teshigoto.UnitTests\Teshigoto.UnitTests.csproj", "{F5151925-64A9-4B06-AE20-491F67FB6FE5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teshigoto.CompilationTests", "Teshigoto.CompilationTests\Teshigoto.CompilationTests.csproj", "{44481064-7D15-40D6-917F-EB45AE51CCBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3135B811-7C9E-4408-9BE4-B7B359EDE28C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generator", "Generator", "{76E7B2F5-E740-4886-97DF-A6CBE7AF959E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{815DC310-1D5A-482E-8A42-F4AC9ECA6015}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		StyleCop.Debug.ruleset = StyleCop.Debug.ruleset
+		stylecop.json = stylecop.json
+		StyleCop.Release.ruleset = StyleCop.Release.ruleset
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6E4FC73-39B2-4A21-B392-D9A9DA45DFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E4FC73-39B2-4A21-B392-D9A9DA45DFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E4FC73-39B2-4A21-B392-D9A9DA45DFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E4FC73-39B2-4A21-B392-D9A9DA45DFFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8891797C-86A4-4479-B2AD-A904990288A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8891797C-86A4-4479-B2AD-A904990288A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8891797C-86A4-4479-B2AD-A904990288A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8891797C-86A4-4479-B2AD-A904990288A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5151925-64A9-4B06-AE20-491F67FB6FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5151925-64A9-4B06-AE20-491F67FB6FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5151925-64A9-4B06-AE20-491F67FB6FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5151925-64A9-4B06-AE20-491F67FB6FE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44481064-7D15-40D6-917F-EB45AE51CCBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44481064-7D15-40D6-917F-EB45AE51CCBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44481064-7D15-40D6-917F-EB45AE51CCBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44481064-7D15-40D6-917F-EB45AE51CCBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C6E4FC73-39B2-4A21-B392-D9A9DA45DFFA} = {76E7B2F5-E740-4886-97DF-A6CBE7AF959E}
+		{8891797C-86A4-4479-B2AD-A904990288A0} = {76E7B2F5-E740-4886-97DF-A6CBE7AF959E}
+		{F5151925-64A9-4B06-AE20-491F67FB6FE5} = {3135B811-7C9E-4408-9BE4-B7B359EDE28C}
+		{44481064-7D15-40D6-917F-EB45AE51CCBC} = {3135B811-7C9E-4408-9BE4-B7B359EDE28C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC65D149-2387-43F6-BB0B-9EDF7872471E}
+	EndGlobalSection
+EndGlobal

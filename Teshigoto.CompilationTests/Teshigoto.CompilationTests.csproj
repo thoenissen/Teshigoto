@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+   <PropertyGroup>
+      <TargetFramework>net8.0</TargetFramework>
+      <Nullable>enable</Nullable>
+
+      <IsPackable>false</IsPackable>
+      <IsTestProject>true</IsTestProject>
+   </PropertyGroup>
+
+   <ItemGroup>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+      <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.8.0" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
+   </ItemGroup>
+
+   <ItemGroup>
+      <ProjectReference Include="..\Teshigoto.Annotation\Teshigoto.Annotation.csproj" />
+      <ProjectReference Include="..\Teshigoto.Generators\Teshigoto.Generators.csproj" />
+
+
+      <ProjectReference Include="..\Teshigoto.Annotation\Teshigoto.Annotation.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+      <ProjectReference Include="..\Teshigoto.Generators\Teshigoto.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+   </ItemGroup>
+
+</Project>
