@@ -44,11 +44,7 @@ public class EquableGenerator : IIncrementalGenerator
                     continue;
                 }
 
-                var generator = node switch
-                                {
-                                    ClassDeclarationSyntax _ => new ClassEquableGenerator(metaData),
-                                    _ => throw new NotSupportedException($"The type '{node.GetType()}' is not supported")
-                                };
+                var generator = EquableGeneratorFactory.Create(node, metaData);
 
                 var source = generator.Generate(symbol);
 

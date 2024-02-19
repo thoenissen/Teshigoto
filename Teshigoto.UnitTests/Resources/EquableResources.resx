@@ -118,10 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ClassWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  
+   <data name="ClassWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\Teshigoto.CompilationTests\Equable\ClassWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="ClassWithOnePropertyGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Equable\ClassWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+     <value>Equable\ClassWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+
+   <data name="RecordClassWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\RecordClassWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+  <data name="RecordClassWithOnePropertyGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+     <value>Equable\RecordClassWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+
+  <data name="RecordStructWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+     <value>..\..\Teshigoto.CompilationTests\Equable\RecordStructWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RecordStructWithOnePropertyGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+     <value>Equable\RecordStructWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+
+   <data name="StructWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+     <value>..\..\Teshigoto.CompilationTests\Equable\StructWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="StructWithOnePropertyGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Equable\StructWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+   
 </root>

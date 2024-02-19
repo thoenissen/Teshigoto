@@ -4,9 +4,9 @@ using Teshigoto.Generators.Core.Extensions;
 namespace Teshigoto.Generators.Equable;
 
 /// <summary>
-/// Generation of IEquatable implementation for a class
+/// Generation of IEquatable implementation for a struct
 /// </summary>
-internal class ClassEquableGenerator : EquableGeneratorBase
+internal class StructEquableGenerator : EquableGeneratorBase
 {
     #region Constructor
 
@@ -14,7 +14,7 @@ internal class ClassEquableGenerator : EquableGeneratorBase
     /// Constructor
     /// </summary>
     /// <param name="metaData">Meta information</param>
-    public ClassEquableGenerator(CompilationMetaData metaData)
+    public StructEquableGenerator(CompilationMetaData metaData)
         : base(metaData)
     {
     }
@@ -53,13 +53,8 @@ internal class ClassEquableGenerator : EquableGeneratorBase
         WriteLine("/// <param name=\"right\">The second value to compare.</param>");
         WriteLine("/// <returns>true if the <paramref name=\"left\"/> and <paramref name=\"right\"/> parameters have the same value; otherwise, false.</returns>");
         WriteGeneratedCodeAttribute();
-        WriteLine($"public static bool operator ==({SymbolName}? left, {SymbolName}? right)");
+        WriteLine($"public static bool operator ==({SymbolName} left, {SymbolName} right)");
         WriteOpenBracket();
-        WriteLine("if (left is null)");
-        WriteOpenBracket();
-        WriteLine("return false;");
-        WriteCloseBracket();
-        WriteLine();
         WriteLine("return left.Equals(right);");
         WriteCloseBracket();
         WriteLine();
@@ -77,13 +72,8 @@ internal class ClassEquableGenerator : EquableGeneratorBase
         WriteLine("/// <param name=\"right\">The second value to compare.</param>");
         WriteLine("/// <returns>true if <paramref name=\"left\"/> and <paramref name=\"right\"/> are not equal; otherwise, false.</returns>");
         WriteGeneratedCodeAttribute();
-        WriteLine($"public static bool operator !=({SymbolName}? left, {SymbolName}? right)");
+        WriteLine($"public static bool operator !=({SymbolName} left, {SymbolName} right)");
         WriteOpenBracket();
-        WriteLine("if (left is null)");
-        WriteOpenBracket();
-        WriteLine("return true;");
-        WriteCloseBracket();
-        WriteLine();
         WriteLine("return left.Equals(right) == false;");
         WriteCloseBracket();
         WriteLine();
@@ -98,7 +88,8 @@ internal class ClassEquableGenerator : EquableGeneratorBase
         WriteGeneratedCodeAttribute();
         WriteLine("public override bool Equals(object? obj)");
         WriteOpenBracket();
-        WriteLine($"return Equals(obj as {SymbolName});");
+        WriteLine($"return obj is {SymbolName} other");
+        WriteLine("       && Equals(other);");
         WriteCloseBracket();
         WriteLine();
     }
@@ -110,49 +101,13 @@ internal class ClassEquableGenerator : EquableGeneratorBase
     {
         WriteLine("/// <inheritdoc />");
         WriteGeneratedCodeAttribute();
-
-        if (Symbol.IsSealed)
-        {
-            WriteLine($"public bool Equals({SymbolName}? other)");
-        }
-        else
-        {
-            WriteLine($"public virtual bool Equals({SymbolName}? other)");
-        }
-
+        WriteLine($"public bool Equals({SymbolName} other)");
         WriteOpenBracket();
-        WriteLine("if (other is null)");
-        WriteOpenBracket();
-        WriteLine("return false;");
-        WriteCloseBracket();
-        WriteLine();
-        WriteLine("if (ReferenceEquals(this, other))");
-        WriteOpenBracket();
-        WriteLine("return true;");
-        WriteCloseBracket();
-        WriteLine();
 
-        var baseTypeName = Symbol.BaseType?.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
-
-        if (baseTypeName == "object")
-        {
-            if (Symbol.IsSealed)
-            {
-                Write($"return other is {SymbolName}");
-            }
-            else
-            {
-                Write("return other.GetType() == this.GetType()");
-            }
-        }
-        else
-        {
-            Write($"return base.Equals(other as {baseTypeName})");
-        }
-
+        Write("return ");
         IncrementIndention("return ".Length);
 
-        WriteMembersEqualityComparison(true);
+        WriteMembersEqualityComparison(false);
         WriteLine(";");
 
         DecrementIndention("return ".Length);
@@ -206,7 +161,7 @@ internal class ClassEquableGenerator : EquableGeneratorBase
     protected override void WriteImplementation()
     {
         WriteDeclaredAccessibility(Symbol.DeclaredAccessibility);
-        WriteLine($"partial class {Symbol.ToDisplayString(SymbolDisplayFormat.MinimallyQualifiedFormat)} : global::System.IEquatable<{SymbolName}>");
+        WriteLine($"partial struct {Symbol.ToDisplayString(SymbolDisplayFormat.MinimallyQualifiedFormat)} : global::System.IEquatable<{SymbolName}>");
         WriteOpenBracket();
         WriteEquals();
         WriteLine();

@@ -178,22 +178,29 @@ internal abstract class EquableGeneratorBase
     /// <summary>
     /// Write the equality comparison of each member
     /// </summary>
-    protected void WriteMembersEqualityComparison()
+    /// <param name="addAndOperator">Should the && operator added on the first member?</param>
+    protected void WriteMembersEqualityComparison(bool addAndOperator)
     {
         foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol))
         {
+            if (addAndOperator)
+            {
+                WriteLine();
+                Write("&& ");
+            }
+
+            addAndOperator = true;
+
             switch (member)
             {
                 case IPropertySymbol propertySymbol:
                     {
-                        WriteLine();
                         WriteEqualityComparison(propertySymbol, propertySymbol.Type);
                     }
                     break;
 
                 case IFieldSymbol fieldSymbol:
                     {
-                        WriteLine();
                         WriteEqualityComparison(fieldSymbol, fieldSymbol.Type);
                     }
                     break;
@@ -340,7 +347,7 @@ internal abstract class EquableGeneratorBase
         var symbolName = symbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat.WithMiscellaneousOptions(SymbolDisplayMiscellaneousOptions.IncludeNullableReferenceTypeModifier));
         var symbolType = type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
 
-        Write($"&& global::System.Collections.Generic.EqualityComparer<{symbolType}>.Default.Equals(this.{symbolName}, other.{symbolName})");
+        Write($"global::System.Collections.Generic.EqualityComparer<{symbolType}>.Default.Equals(this.{symbolName}, other.{symbolName})");
     }
 
     /// <summary>

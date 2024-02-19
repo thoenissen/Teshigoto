@@ -26,7 +26,7 @@ public class SourceGeneratorTestBase<TGenerator>
     {
         var runResult = RunCompilation(source);
 
-        Assert.AreEqual(runResult.Diagnostics.Length, 0, $"Compilation failed with {runResult.Diagnostics.Length} diagnostics:{Environment.NewLine}{string.Join(Environment.NewLine, runResult.Diagnostics)}");    
+        Assert.AreEqual(runResult.Diagnostics.Length, 0, $"Compilation failed with {runResult.Diagnostics.Length} diagnostics:{Environment.NewLine}{string.Join(Environment.NewLine, runResult.Diagnostics)}");
         Assert.AreEqual(1, runResult.Results.Length, "Count of generator results mismatched");
         Assert.AreEqual(1, runResult.Results[0].GeneratedSources.Length, "Count of generated sources mismatched");
         Assert.AreEqual(expectedGeneratedSource, runResult.Results[0].GeneratedSources[0].SourceText.ToString());

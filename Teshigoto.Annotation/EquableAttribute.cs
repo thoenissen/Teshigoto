@@ -7,7 +7,7 @@ namespace Teshigoto.Annotation;
 /// Automatically implements the <see cref="IEquatable{T}"/>-interface for the class
 /// </summary>
 [Conditional("Teshigoto")]
-[AttributeUsage(AttributeTargets.Class, Inherited = false)]
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, Inherited = false)]
 public class EquableAttribute : Attribute
 {
 }

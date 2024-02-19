@@ -11,8 +11,26 @@ namespace Teshigoto.UnitTests;
 public class EquableGeneratorTests : SourceGeneratorTestBase<EquableGenerator>
 {
     /// <summary>
-    /// Class with one reference type property
+    /// Class with one <see cref="ValueType"/>-property
     /// </summary>
     [TestMethod]
     public void ClassWithOneProperty() => AssertGenerationResult(EquableResources.ClassWithOneProperty, EquableResources.ClassWithOnePropertyGenerated);
+
+    /// <summary>
+    /// Record class with one <see cref="ValueType"/>-property
+    /// </summary>
+    [TestMethod]
+    public void RecordClassWithOneProperty() => AssertGenerationResult(EquableResources.RecordClassWithOneProperty, EquableResources.RecordClassWithOnePropertyGenerated);
+
+    /// <summary>
+    /// Struct with one <see cref="ValueType"/>-property
+    /// </summary>
+    [TestMethod]
+    public void StructWithOneProperty() => AssertGenerationResult(EquableResources.StructWithOneProperty, EquableResources.StructWithOnePropertyGenerated);
+
+    /// <summary>
+    /// Record struct with one <see cref="ValueType"/>-property
+    /// </summary>
+    [TestMethod]
+    public void RecordStructWithOneProperty() => AssertGenerationResult(EquableResources.RecordStructWithOneProperty, EquableResources.RecordStructWithOnePropertyGenerated);
 }

@@ -10,9 +10,15 @@
 
   <ItemGroup>
     <Compile Remove="Resources\Equable\ClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Equable\RecordClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Equable\RecordStructWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Equable\StructWithOneProperty.Generated.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Resources\Equable\RecordStructWithOneProperty.Generated.cs" />
+    <None Include="Resources\Equable\RecordClassWithOneProperty.Generated.cs" />
+    <None Include="Resources\Equable\StructWithOneProperty.Generated.cs" />
     <None Include="Resources\Equable\ClassWithOneProperty.Generated.cs" />
   </ItemGroup>
 
