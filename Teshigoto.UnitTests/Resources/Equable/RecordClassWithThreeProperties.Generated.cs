@@ -9,11 +9,11 @@
 
 namespace Teshigoto.CompilationTests.Equable;
 
-internal partial record class RecordClassWithOneProperty : global::System.IEquatable<global::Teshigoto.CompilationTests.Equable.RecordClassWithOneProperty>
+internal partial record class RecordClassWithThreeProperties : global::System.IEquatable<global::Teshigoto.CompilationTests.Equable.RecordClassWithThreeProperties>
 {
     /// <inheritdoc />
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Teshigoto.Generators", "1.0.0.0")]
-    public virtual bool Equals(global::Teshigoto.CompilationTests.Equable.RecordClassWithOneProperty? other)
+    public virtual bool Equals(global::Teshigoto.CompilationTests.Equable.RecordClassWithThreeProperties? other)
     {
         if (other is null)
         {
@@ -26,7 +26,9 @@ internal partial record class RecordClassWithOneProperty : global::System.IEquat
         }
 
         return global::System.Collections.Generic.EqualityComparer<global::System.Type>.Default.Equals(this.EqualityContract, other.EqualityContract)
-               && global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.Property, other.Property);
+               && global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.PropertyOne, other.PropertyOne)
+               && global::System.Collections.Generic.EqualityComparer<global::System.String>.Default.Equals(this.PropertyTwo, other.PropertyTwo)
+               && global::System.Collections.Generic.EqualityComparer<global::Teshigoto.CompilationTests.DummyTypes.EmptyRecordClass?>.Default.Equals(this.PropertyThree, other.PropertyThree);
     }
 
     /// <inheritdoc />
@@ -36,7 +38,9 @@ internal partial record class RecordClassWithOneProperty : global::System.IEquat
         var hash = new global::System.HashCode();
 
         hash.Add(this.EqualityContract);
-        hash.Add(this.Property);
+        hash.Add(this.PropertyOne);
+        hash.Add(this.PropertyTwo);
+        hash.Add(this.PropertyThree);
 
         return hash.ToHashCode();
     }

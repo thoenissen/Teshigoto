@@ -9,39 +9,29 @@
 
 namespace Teshigoto.CompilationTests.Equable;
 
-internal partial class ClassWithOneProperty : global::System.IEquatable<global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty>
+internal partial struct StructWithTwoProperties : global::System.IEquatable<global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties>
 {
     /// <summary>
-    /// Returns a value that indicates whether the values of two <see cref="global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty"/> objects are equal.
+    /// Returns a value that indicates whether the values of two <see cref="global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties"/> objects are equal.
     /// </summary>
     /// <param name="left">The first value to compare.</param>
     /// <param name="right">The second value to compare.</param>
     /// <returns>true if the <paramref name="left"/> and <paramref name="right"/> parameters have the same value; otherwise, false.</returns>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Teshigoto.Generators", "1.0.0.0")]
-    public static bool operator ==(global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty? left, global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty? right)
+    public static bool operator ==(global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties left, global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties right)
     {
-        if (left is null)
-        {
-            return false;
-        }
-
         return left.Equals(right);
     }
 
     /// <summary>
-    /// Returns a value that indicates whether the values of two <see cref="global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty"/> objects have different values.
+    /// Returns a value that indicates whether the values of two <see cref="global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties"/> objects have different values.
     /// </summary>
     /// <param name="left">The first value to compare.</param>
     /// <param name="right">The second value to compare.</param>
     /// <returns>true if <paramref name="left"/> and <paramref name="right"/> are not equal; otherwise, false.</returns>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Teshigoto.Generators", "1.0.0.0")]
-    public static bool operator !=(global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty? left, global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty? right)
+    public static bool operator !=(global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties left, global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties right)
     {
-        if (left is null)
-        {
-            return true;
-        }
-
         return left.Equals(right) == false;
     }
 
@@ -49,25 +39,16 @@ internal partial class ClassWithOneProperty : global::System.IEquatable<global::
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Teshigoto.Generators", "1.0.0.0")]
     public override bool Equals(object? obj)
     {
-        return Equals(obj as global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty);
+        return obj is global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties other
+               && Equals(other);
     }
 
     /// <inheritdoc />
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Teshigoto.Generators", "1.0.0.0")]
-    public virtual bool Equals(global::Teshigoto.CompilationTests.Equable.ClassWithOneProperty? other)
+    public bool Equals(global::Teshigoto.CompilationTests.Equable.StructWithTwoProperties other)
     {
-        if (other is null)
-        {
-            return false;
-        }
-
-        if (ReferenceEquals(this, other))
-        {
-            return true;
-        }
-
-        return other.GetType() == this.GetType()
-               && global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.Property, other.Property);
+        return global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.PropertyOne, other.PropertyOne)
+               && global::System.Collections.Generic.EqualityComparer<global::System.String>.Default.Equals(this.PropertyTwo, other.PropertyTwo);
     }
 
     /// <inheritdoc />
@@ -76,7 +57,8 @@ internal partial class ClassWithOneProperty : global::System.IEquatable<global::
     {
         var hash = new global::System.HashCode();
 
-        hash.Add(this.Property);
+        hash.Add(this.PropertyOne);
+        hash.Add(this.PropertyTwo);
 
         return hash.ToHashCode();
     }

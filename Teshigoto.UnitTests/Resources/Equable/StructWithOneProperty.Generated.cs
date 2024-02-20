@@ -47,7 +47,7 @@ internal partial struct StructWithOneProperty : global::System.IEquatable<global
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Teshigoto.Generators", "1.0.0.0")]
     public bool Equals(global::Teshigoto.CompilationTests.Equable.StructWithOneProperty other)
     {
-        return global::System.Collections.Generic.EqualityComparer<int>.Default.Equals(this.Property, other.Property);
+        return global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.Property, other.Property);
     }
 
     /// <inheritdoc />

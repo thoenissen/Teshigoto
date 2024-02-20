@@ -4,6 +4,8 @@ using System.Reflection;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
+using Teshigoto.UnitTests.Resources;
+
 namespace Teshigoto.UnitTests.Base;
 
 /// <summary>
@@ -95,10 +97,22 @@ public class SourceGeneratorTestBase<TGenerator>
     {
         var syntaxTree = CSharpSyntaxTree.ParseText(source);
         var compilation = CSharpCompilation.Create("SourceGeneratorTestBase_TestAssembly",
-                                                   [syntaxTree],
+                                                   GetAdditionalSources().Concat([syntaxTree]),
                                                    GetMetadataReferences(),
                                                    new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
         return compilation;
+    }
+
+    /// <summary>
+    /// Get additional sources
+    /// </summary>
+    /// <returns>List of <see cref="SyntaxTree"/>-objects of all additional sources</returns>
+    private IEnumerable<SyntaxTree> GetAdditionalSources()
+    {
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.EmptyClass);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.EmptyRecordClass);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.EmptyRecordStruct);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.EmptyStruct);
     }
 
     #endregion // Private methods

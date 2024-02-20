@@ -9,13 +9,14 @@
 
 namespace Teshigoto.CompilationTests.Equable;
 
-internal partial record struct RecordStructWithOneProperty : global::System.IEquatable<global::Teshigoto.CompilationTests.Equable.RecordStructWithOneProperty>
+internal partial record struct RecordStructWithTwoProperties : global::System.IEquatable<global::Teshigoto.CompilationTests.Equable.RecordStructWithTwoProperties>
 {
     /// <inheritdoc />
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Teshigoto.Generators", "1.0.0.0")]
-    public bool Equals(global::Teshigoto.CompilationTests.Equable.RecordStructWithOneProperty other)
+    public bool Equals(global::Teshigoto.CompilationTests.Equable.RecordStructWithTwoProperties other)
     {
-        return global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.Property, other.Property);
+        return global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.PropertyOne, other.PropertyOne)
+               && global::System.Collections.Generic.EqualityComparer<global::System.String>.Default.Equals(this.PropertyTwo, other.PropertyTwo);
     }
 
     /// <inheritdoc />
@@ -24,7 +25,8 @@ internal partial record struct RecordStructWithOneProperty : global::System.IEqu
     {
         var hash = new global::System.HashCode();
 
-        hash.Add(this.Property);
+        hash.Add(this.PropertyOne);
+        hash.Add(this.PropertyTwo);
 
         return hash.ToHashCode();
     }

@@ -9,17 +9,41 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resources\EmptyClass.cs" />
+    <Compile Remove="Resources\EmptyRecordClass.cs" />
+    <Compile Remove="Resources\EmptyRecordStruct.cs" />
+    <Compile Remove="Resources\EmptyStruct.cs" />
     <Compile Remove="Resources\Equable\ClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Equable\ClassWithThreeProperties.Generated.cs" />
+    <Compile Remove="Resources\Equable\ClassWithTwoProperties.Generated.cs" />
     <Compile Remove="Resources\Equable\RecordClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Equable\RecordClassWithThreeProperties.Generated.cs" />
+    <Compile Remove="Resources\Equable\RecordClassWithTwoProperties.Generated.cs" />
     <Compile Remove="Resources\Equable\RecordStructWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Equable\RecordStructWithThreeProperties.Generated.cs" />
+    <Compile Remove="Resources\Equable\RecordStructWithTwoProperties.Generated.cs" />
     <Compile Remove="Resources\Equable\StructWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Equable\StructWithThreeProperties.Generated.cs" />
+    <Compile Remove="Resources\Equable\StructWithTwoProperties.Generated.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Resources\EmptyClass.cs" />
+    <None Include="Resources\EmptyRecordClass.cs" />
+    <None Include="Resources\EmptyRecordStruct.cs" />
+    <None Include="Resources\EmptyStruct.cs" />
+    <None Include="Resources\Equable\ClassWithThreeProperties.Generated.cs" />
+    <None Include="Resources\Equable\ClassWithTwoProperties.Generated.cs" />
+    <None Include="Resources\Equable\RecordClassWithThreeProperties.Generated.cs" />
+    <None Include="Resources\Equable\RecordClassWithTwoProperties.Generated.cs" />
     <None Include="Resources\Equable\RecordStructWithOneProperty.Generated.cs" />
     <None Include="Resources\Equable\RecordClassWithOneProperty.Generated.cs" />
+    <None Include="Resources\Equable\RecordStructWithThreeProperties.Generated.cs" />
+    <None Include="Resources\Equable\RecordStructWithTwoProperties.Generated.cs" />
     <None Include="Resources\Equable\StructWithOneProperty.Generated.cs" />
     <None Include="Resources\Equable\ClassWithOneProperty.Generated.cs" />
+    <None Include="Resources\Equable\StructWithThreeProperties.Generated.cs" />
+    <None Include="Resources\Equable\StructWithTwoProperties.Generated.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +65,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\DummyTypes.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DummyTypes.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\EquableResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -49,6 +78,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\DummyTypes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DummyTypes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\EquableResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EquableResources.Designer.cs</LastGenOutput>

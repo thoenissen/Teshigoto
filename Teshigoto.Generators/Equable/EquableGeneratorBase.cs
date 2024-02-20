@@ -344,8 +344,8 @@ internal abstract class EquableGeneratorBase
     /// <param name="type">Type of the member</param>
     private void WriteEqualityComparison(ISymbol symbol, ITypeSymbol type)
     {
-        var symbolName = symbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat.WithMiscellaneousOptions(SymbolDisplayMiscellaneousOptions.IncludeNullableReferenceTypeModifier));
-        var symbolType = type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+        var symbolName = symbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+        var symbolType = type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat.WithMiscellaneousOptions(SymbolDisplayMiscellaneousOptions.IncludeNullableReferenceTypeModifier));
 
         Write($"global::System.Collections.Generic.EqualityComparer<{symbolType}>.Default.Equals(this.{symbolName}, other.{symbolName})");
     }
