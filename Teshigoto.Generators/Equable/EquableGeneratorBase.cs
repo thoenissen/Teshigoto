@@ -181,7 +181,8 @@ internal abstract class EquableGeneratorBase
     /// <param name="addAndOperator">Should the && operator added on the first member?</param>
     protected void WriteMembersEqualityComparison(bool addAndOperator)
     {
-        foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol))
+        foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol)
+                                           .OrderBy(obj => obj.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start))
         {
             if (addAndOperator)
             {
