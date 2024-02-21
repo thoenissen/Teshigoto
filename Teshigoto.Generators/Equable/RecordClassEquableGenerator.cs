@@ -66,7 +66,7 @@ internal class RecordClassEquableGenerator : EquableGeneratorBase
 
         if (baseTypeName == "object")
         {
-            Write("return ");
+            Write("return global::System.Collections.Generic.EqualityComparer<global::System.Type>.Default.Equals(this.EqualityContract, other.EqualityContract)");
 
             addAndOperator = false;
         }
@@ -98,38 +98,8 @@ internal class RecordClassEquableGenerator : EquableGeneratorBase
         WriteOpenBracket();
         WriteLine("var hash = new global::System.HashCode();");
         WriteLine();
-
-        if (Symbol.BaseType?.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat) != "object")
-        {
-            WriteLine("hash.Add(base.GetHashCode());");
-        }
-
-        foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol))
-        {
-            if (IsSymbolIgnored(member))
-            {
-                continue;
-            }
-
-            switch (member)
-            {
-                case IPropertySymbol propertySymbol:
-                    {
-                        WriteLine($"hash.Add(this.{propertySymbol.ToFullQualifiedDisplayString()});");
-                    }
-                    break;
-
-                case IFieldSymbol fieldSymbol:
-                    {
-                        WriteLine($"hash.Add(this.{fieldSymbol.ToFullQualifiedDisplayString()});");
-                    }
-                    break;
-
-                default:
-                    throw new NotSupportedException($"Member of type {member.GetType()} not supported");
-            }
-        }
-
+        WriteLine("hash.Add(this.EqualityContract);");
+        WriteMembersGetHashCode();
         WriteLine();
         WriteLine("return hash.ToHashCode();");
         WriteCloseBracket();

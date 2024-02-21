@@ -182,6 +182,10 @@ internal abstract class EquableGeneratorBase
     /// <param name="addAndOperator">Should the && operator added on the first member?</param>
     protected void WriteMembersEqualityComparison(bool addAndOperator)
     {
+        var fields = Symbol.GetMembers()
+                           .OfType<IFieldSymbol>()
+                           .ToList();
+
         foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol)
                                            .OrderBy(obj => obj.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start))
         {
@@ -202,13 +206,57 @@ internal abstract class EquableGeneratorBase
             {
                 case IPropertySymbol propertySymbol:
                     {
-                        WriteEqualityComparison(propertySymbol, propertySymbol.Type);
+                        if (propertySymbol.GetMethod != null
+                            && fields.Any(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, propertySymbol)))
+                        {
+                            WriteEqualityComparison(propertySymbol, propertySymbol.Type);
+                        }
                     }
                     break;
 
                 case IFieldSymbol fieldSymbol:
                     {
                         WriteEqualityComparison(fieldSymbol, fieldSymbol.Type);
+                    }
+                    break;
+
+                default:
+                    throw new NotSupportedException($"Member of type {member.GetType()} not supported");
+            }
+        }
+    }
+
+    /// <summary>
+    /// Write the call of add method for each member
+    /// </summary>
+    protected void WriteMembersGetHashCode()
+    {
+        var fields = Symbol.GetMembers()
+                           .OfType<IFieldSymbol>()
+                           .ToList();
+
+        foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol))
+        {
+            if (IsSymbolIgnored(member))
+            {
+                continue;
+            }
+
+            switch (member)
+            {
+                case IPropertySymbol propertySymbol:
+                    {
+                        if (propertySymbol.GetMethod != null
+                            && fields.Any(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, propertySymbol)))
+                        {
+                            WriteLine($"hash.Add(this.{propertySymbol.ToFullQualifiedDisplayString()});");
+                        }
+                    }
+                    break;
+
+                case IFieldSymbol fieldSymbol:
+                    {
+                        WriteLine($"hash.Add(this.{fieldSymbol.ToFullQualifiedDisplayString()});");
                     }
                     break;
 

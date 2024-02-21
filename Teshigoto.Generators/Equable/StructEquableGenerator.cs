@@ -126,33 +126,7 @@ internal class StructEquableGenerator : EquableGeneratorBase
         WriteOpenBracket();
         WriteLine("var hash = new global::System.HashCode();");
         WriteLine();
-
-        foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol))
-        {
-            if (IsSymbolIgnored(member))
-            {
-                continue;
-            }
-
-            switch (member)
-            {
-                case IPropertySymbol propertySymbol:
-                    {
-                        WriteLine($"hash.Add(this.{propertySymbol.ToFullQualifiedDisplayString()});");
-                    }
-                    break;
-
-                case IFieldSymbol fieldSymbol:
-                    {
-                        WriteLine($"hash.Add(this.{fieldSymbol.ToFullQualifiedDisplayString()});");
-                    }
-                    break;
-
-                default:
-                    throw new NotSupportedException($"Member of type {member.GetType()} not supported");
-            }
-        }
-
+        WriteMembersGetHashCode();
         WriteLine();
         WriteLine("return hash.ToHashCode();");
         WriteCloseBracket();
