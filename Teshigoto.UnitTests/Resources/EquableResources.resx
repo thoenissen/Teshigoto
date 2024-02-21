@@ -190,4 +190,53 @@
    <data name="RecordStructWithThreePropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
       <value>Equable\RecordStructWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
+   <data name="ClassWithIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\ClassWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="ClassWithIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Equable\ClassWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="ClassWithExplicitIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\ClassWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="ClassWithExplicitIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Equable\ClassWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="RecordClassWithIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\RecordClassWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="RecordClassWithIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Equable\RecordClassWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="RecordStructWithIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\RecordStructWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="RecordStructWithIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Equable\RecordStructWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="StructWithIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\StructWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="StructWithIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Equable\StructWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="RecordClassWithExplicitIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\RecordClassWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="RecordClassWithExplicitIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Equable\RecordClassWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="RecordStructWithExplicitIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\RecordStructWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="RecordStructWithExplicitIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Equable\RecordStructWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="StructWithExplicitIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>..\..\Teshigoto.CompilationTests\Equable\StructWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+   <data name="StructWithExplicitIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+      <value>Equable\StructWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+   </data>
+
 </root>

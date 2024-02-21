@@ -16,6 +16,7 @@ internal class CompilationMetaData
     public CompilationMetaData(Compilation compilation)
     {
         EquatableAttribute = compilation.GetTypeByMetadataName(typeof(EquableAttribute).FullName!);
+        IgnoreAttribute = compilation.GetTypeByMetadataName(typeof(IgnoreAttribute).FullName!);
     }
 
     #endregion // Constructor
@@ -26,6 +27,11 @@ internal class CompilationMetaData
     /// Symbol information of <see cref="EquableAttribute"/>
     /// </summary>
     public INamedTypeSymbol EquatableAttribute { get; }
+
+    /// <summary>
+    /// Symbol information of <see cref="IgnoreAttribute"/>
+    /// </summary>
+    public INamedTypeSymbol IgnoreAttribute { get; }
 
     #endregion // Properties
 }

@@ -106,6 +106,11 @@ internal class RecordClassEquableGenerator : EquableGeneratorBase
 
         foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol))
         {
+            if (IsSymbolIgnored(member))
+            {
+                continue;
+            }
+
             switch (member)
             {
                 case IPropertySymbol propertySymbol:

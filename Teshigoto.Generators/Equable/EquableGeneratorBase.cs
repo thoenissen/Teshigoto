@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 
+using Teshigoto.Annotation;
 using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Core.Extensions;
 
@@ -184,6 +185,11 @@ internal abstract class EquableGeneratorBase
         foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol)
                                            .OrderBy(obj => obj.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start))
         {
+            if (IsSymbolIgnored(member))
+            {
+                continue;
+            }
+
             if (addAndOperator)
             {
                 WriteLine();
@@ -231,6 +237,25 @@ internal abstract class EquableGeneratorBase
 
         Write(accessibilityString);
         Write(" ");
+    }
+
+    /// <summary>
+    /// Check if the symbol is ignored
+    /// </summary>
+    /// <param name="symbol">Symbol</param>
+    /// <returns>Is the symbol ignored?</returns>
+    protected bool IsSymbolIgnored(ISymbol symbol)
+    {
+        var ignoreAttribute = symbol.GetAttributes()
+                                    .FirstOrDefault(obj => SymbolEqualityComparer.Default.Equals(obj.AttributeClass, MetaData.IgnoreAttribute));
+
+        if (ignoreAttribute != null)
+        {
+            return ignoreAttribute.ConstructorArguments.Length == 0
+                || ignoreAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable);
+        }
+
+        return false;
     }
 
     #endregion // Protected methods

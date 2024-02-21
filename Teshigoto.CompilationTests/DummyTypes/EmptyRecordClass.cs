@@ -1,9 +1,8 @@
-﻿namespace Teshigoto.CompilationTests.DummyTypes
+﻿namespace Teshigoto.CompilationTests.DummyTypes;
+
+/// <summary>
+/// Empty record class
+/// </summary>
+public record class EmptyRecordClass
 {
-    /// <summary>
-    /// Empty record class
-    /// </summary>
-    public record class EmptyRecordClass
-    {
-    }
 }
