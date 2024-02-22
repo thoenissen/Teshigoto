@@ -6,7 +6,7 @@
 public enum GeneratorType
 {
     /// <summary>
-    /// <see cref="EquableAttribute"/>"/>
+    /// <see cref="EquableAttribute"/>
     /// </summary>
     Equatable
 }

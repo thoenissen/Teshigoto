@@ -16,12 +16,12 @@ internal static class EquableGeneratorFactory
     public static EquableGeneratorBase Create(SyntaxNode node, CompilationMetaData metaData)
     {
         return node switch
-        {
-            ClassDeclarationSyntax _ => new ClassEquableGenerator(metaData),
-            StructDeclarationSyntax _ => new StructEquableGenerator(metaData),
-            RecordDeclarationSyntax _ when node.IsKind(SyntaxKind.RecordStructDeclaration) => new RecordStructEquableGenerator(metaData),
-            RecordDeclarationSyntax _ => new RecordClassEquableGenerator(metaData),
-            _ => throw new NotSupportedException($"The type '{node.GetType()}' is not supported")
-        };
+               {
+                   ClassDeclarationSyntax _ => new ClassEquableGenerator(metaData),
+                   StructDeclarationSyntax _ => new StructEquableGenerator(metaData),
+                   RecordDeclarationSyntax _ when node.IsKind(SyntaxKind.RecordStructDeclaration) => new RecordStructEquableGenerator(metaData),
+                   RecordDeclarationSyntax _ => new RecordClassEquableGenerator(metaData),
+                   _ => throw new NotSupportedException($"The type '{node.GetType()}' is not supported")
+               };
     }
 }

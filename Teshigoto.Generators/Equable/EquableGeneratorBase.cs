@@ -5,6 +5,8 @@ using System.Reflection;
 using Teshigoto.Annotation;
 using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Core.Extensions;
+using Teshigoto.Generators.Data;
+using Teshigoto.Generators.Enumerations;
 
 namespace Teshigoto.Generators.Equable;
 
@@ -66,6 +68,12 @@ internal abstract class EquableGeneratorBase
     /// Fields of the current symbol
     /// </summary>
     protected List<IFieldSymbol> SymbolFields { get; private set; }
+
+    /// <summary>
+    /// Members of the current symbol
+    /// </summary>
+    /// <remarks>The list is already sorted.</remarks>
+    protected List<ISymbol> SymbolMembers { get; private set; }
 
     /// <summary>
     /// Fully qualified name of the symbol
@@ -187,14 +195,8 @@ internal abstract class EquableGeneratorBase
     /// <param name="addAndOperator">Should the && operator added on the first member?</param>
     protected void WriteMembersEqualityComparison(bool addAndOperator)
     {
-        foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol)
-                                           .OrderBy(obj => obj.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start))
+        foreach (var member in SymbolMembers)
         {
-            if (IsSymbolIgnored(member))
-            {
-                continue;
-            }
-
             if (addAndOperator)
             {
                 WriteLine();
@@ -227,6 +229,26 @@ internal abstract class EquableGeneratorBase
     }
 
     /// <summary>
+    /// Create the sorting key for the member
+    /// </summary>
+    /// <param name="symbol">Member symbol</param>
+    /// <returns>Sorting key</returns>
+    private MemberSortingKey GetMemberSortKey(ISymbol symbol)
+    {
+        foreach (var orderAttribute in symbol.GetAttributes()
+                                             .Where(obj => SymbolEqualityComparer.Default.Equals(obj.AttributeClass, MetaData.OrderAttribute)))
+        {
+            if (orderAttribute.ConstructorArguments.Length == 0
+                || orderAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable))
+            {
+                return new MemberSortingKey(MemberSortingType.Attribute, (long?)orderAttribute.ConstructorArguments[1].Value ?? 0);
+            }
+        }
+
+        return new MemberSortingKey(MemberSortingType.Location, symbol.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start ?? 0);
+    }
+
+    /// <summary>
     /// Check if the property relevant for the implementation
     /// </summary>
     /// <param name="symbol">Symbol</param>
@@ -234,7 +256,7 @@ internal abstract class EquableGeneratorBase
     private bool IsPropertyRelevant(IPropertySymbol symbol)
     {
         var isRelevant = symbol.GetMethod != null
-                      && SymbolFields.Any(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, symbol));
+                         && SymbolFields.Any(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, symbol));
 
         if (isRelevant == false)
         {
@@ -244,7 +266,7 @@ internal abstract class EquableGeneratorBase
             if (includeAttribute != null)
             {
                 isRelevant = includeAttribute.ConstructorArguments.Length == 0
-                          || includeAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable);
+                             || includeAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable);
             }
         }
 
@@ -256,13 +278,8 @@ internal abstract class EquableGeneratorBase
     /// </summary>
     protected void WriteMembersGetHashCode()
     {
-        foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol))
+        foreach (var member in SymbolMembers)
         {
-            if (IsSymbolIgnored(member))
-            {
-                continue;
-            }
-
             switch (member)
             {
                 case IPropertySymbol propertySymbol:
@@ -320,7 +337,7 @@ internal abstract class EquableGeneratorBase
         if (ignoreAttribute != null)
         {
             return ignoreAttribute.ConstructorArguments.Length == 0
-                || ignoreAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable);
+                   || ignoreAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable);
         }
 
         return false;
@@ -341,6 +358,10 @@ internal abstract class EquableGeneratorBase
         SymbolFields = Symbol.GetMembers()
                              .OfType<IFieldSymbol>()
                              .ToList();
+        SymbolMembers = SymbolWalker.GetPropertiesAndFields(Symbol)
+                                    .Where(obj => IsSymbolIgnored(obj) == false)
+                                    .OrderBy(GetMemberSortKey)
+                                    .ToList();
 
         _buffer = new StringWriter(new StringBuilder(4096));
         _writer = new IndentedTextWriter(_buffer, " ");

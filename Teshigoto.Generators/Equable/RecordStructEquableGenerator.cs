@@ -1,5 +1,4 @@
 ﻿using Teshigoto.Generators.Core;
-using Teshigoto.Generators.Core.Extensions;
 
 namespace Teshigoto.Generators.Equable;
 

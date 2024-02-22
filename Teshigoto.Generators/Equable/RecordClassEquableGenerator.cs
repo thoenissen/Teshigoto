@@ -1,5 +1,4 @@
 ﻿using Teshigoto.Generators.Core;
-using Teshigoto.Generators.Core.Extensions;
 
 namespace Teshigoto.Generators.Equable;
 
@@ -78,12 +77,9 @@ internal class RecordClassEquableGenerator : EquableGeneratorBase
         }
 
         IncrementIndention("return ".Length);
-
         WriteMembersEqualityComparison(addAndOperator);
         WriteLine(";");
-
         DecrementIndention("return ".Length);
-
         WriteCloseBracket();
     }
 

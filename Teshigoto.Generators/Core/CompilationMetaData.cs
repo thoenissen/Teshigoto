@@ -18,6 +18,7 @@ internal class CompilationMetaData
         EquatableAttribute = compilation.GetTypeByMetadataName(typeof(EquableAttribute).FullName!);
         IgnoreAttribute = compilation.GetTypeByMetadataName(typeof(IgnoreAttribute).FullName!);
         IncludeAttribute = compilation.GetTypeByMetadataName(typeof(IncludeAttribute).FullName!);
+        OrderAttribute = compilation.GetTypeByMetadataName(typeof(OrderAttribute).FullName!);
     }
 
     #endregion // Constructor
@@ -38,6 +39,11 @@ internal class CompilationMetaData
     /// Symbol information of <see cref="IncludeAttribute"/>
     /// </summary>
     public INamedTypeSymbol IncludeAttribute { get; }
+
+    /// <summary>
+    /// Symbol information of <see cref="OrderAttribute"/>
+    /// </summary>
+    public INamedTypeSymbol OrderAttribute { get; set; }
 
     #endregion // Properties
 }

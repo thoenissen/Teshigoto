@@ -1,5 +1,4 @@
 ﻿using Teshigoto.Generators.Core;
-using Teshigoto.Generators.Core.Extensions;
 
 namespace Teshigoto.Generators.Equable;
 
@@ -103,15 +102,11 @@ internal class StructEquableGenerator : EquableGeneratorBase
         WriteGeneratedCodeAttribute();
         WriteLine($"public bool Equals({SymbolName} other)");
         WriteOpenBracket();
-
         Write("return ");
         IncrementIndention("return ".Length);
-
         WriteMembersEqualityComparison(false);
         WriteLine(";");
-
         DecrementIndention("return ".Length);
-
         WriteCloseBracket();
     }
 
