@@ -3,27 +3,27 @@
 namespace Teshigoto.Annotation;
 
 /// <summary>
-/// Mark a member to be ignored
+/// Mark a member to be included
 /// </summary>
-[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-public class IgnoreAttribute : Attribute
+[AttributeUsage(AttributeTargets.Property)]
+public class IncludeAttribute : Attribute
 {
     #region Constructor
 
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <remarks>If you use this constructor the member is ignored for all generators.</remarks>
-    public IgnoreAttribute()
+    /// <remarks>If you use this constructor the member is included for all generators.</remarks>
+    public IncludeAttribute()
     {
     }
 
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <remarks>If you use this constructor the member is ignored for all mentioned generators.</remarks>
+    /// <remarks>If you use this constructor the member is included for all mentioned generators.</remarks>
     /// <param name="generators">Generator which should ignore this member</param>
-    public IgnoreAttribute(GeneratorType[] generators)
+    public IncludeAttribute(GeneratorType[] generators)
     {
         Generators = generators;
     }
@@ -33,7 +33,7 @@ public class IgnoreAttribute : Attribute
     #region Properties
 
     /// <summary>
-    /// Generators which should ignore this member
+    /// Generators which should included this member
     /// </summary>
     public GeneratorType[]? Generators { get; }
 

@@ -63,6 +63,11 @@ internal abstract class EquableGeneratorBase
     protected ITypeSymbol Symbol { get; private set; }
 
     /// <summary>
+    /// Fields of the current symbol
+    /// </summary>
+    protected List<IFieldSymbol> SymbolFields { get; private set; }
+
+    /// <summary>
     /// Fully qualified name of the symbol
     /// </summary>
     protected string SymbolName { get; private set; }
@@ -182,10 +187,6 @@ internal abstract class EquableGeneratorBase
     /// <param name="addAndOperator">Should the && operator added on the first member?</param>
     protected void WriteMembersEqualityComparison(bool addAndOperator)
     {
-        var fields = Symbol.GetMembers()
-                           .OfType<IFieldSymbol>()
-                           .ToList();
-
         foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol)
                                            .OrderBy(obj => obj.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start))
         {
@@ -206,8 +207,7 @@ internal abstract class EquableGeneratorBase
             {
                 case IPropertySymbol propertySymbol:
                     {
-                        if (propertySymbol.GetMethod != null
-                            && fields.Any(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, propertySymbol)))
+                        if (IsPropertyRelevant(propertySymbol))
                         {
                             WriteEqualityComparison(propertySymbol, propertySymbol.Type);
                         }
@@ -227,14 +227,35 @@ internal abstract class EquableGeneratorBase
     }
 
     /// <summary>
+    /// Check if the property relevant for the implementation
+    /// </summary>
+    /// <param name="symbol">Symbol</param>
+    /// <returns>Is the property relevant for the implementation?</returns>
+    private bool IsPropertyRelevant(IPropertySymbol symbol)
+    {
+        var isRelevant = symbol.GetMethod != null
+                      && SymbolFields.Any(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, symbol));
+
+        if (isRelevant == false)
+        {
+            var includeAttribute = symbol.GetAttributes()
+                                         .FirstOrDefault(obj => SymbolEqualityComparer.Default.Equals(obj.AttributeClass, MetaData.IncludeAttribute));
+
+            if (includeAttribute != null)
+            {
+                isRelevant = includeAttribute.ConstructorArguments.Length == 0
+                          || includeAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable);
+            }
+        }
+
+        return isRelevant;
+    }
+
+    /// <summary>
     /// Write the call of add method for each member
     /// </summary>
     protected void WriteMembersGetHashCode()
     {
-        var fields = Symbol.GetMembers()
-                           .OfType<IFieldSymbol>()
-                           .ToList();
-
         foreach (var member in SymbolWalker.GetPropertiesAndFields(Symbol))
         {
             if (IsSymbolIgnored(member))
@@ -246,8 +267,7 @@ internal abstract class EquableGeneratorBase
             {
                 case IPropertySymbol propertySymbol:
                     {
-                        if (propertySymbol.GetMethod != null
-                            && fields.Any(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, propertySymbol)))
+                        if (IsPropertyRelevant(propertySymbol))
                         {
                             WriteLine($"hash.Add(this.{propertySymbol.ToFullQualifiedDisplayString()});");
                         }
@@ -318,6 +338,9 @@ internal abstract class EquableGeneratorBase
     {
         Symbol = symbol;
         SymbolName = Symbol.ToFullQualifiedDisplayString();
+        SymbolFields = Symbol.GetMembers()
+                             .OfType<IFieldSymbol>()
+                             .ToList();
 
         _buffer = new StringWriter(new StringBuilder(4096));
         _writer = new IndentedTextWriter(_buffer, " ");
