@@ -22,11 +22,11 @@ public class SourceGeneratorTestBase<TGenerator>
     /// <summary>
     /// Asserts the generation result
     /// </summary>
-    /// <param name="source">Source</param>
     /// <param name="expectedGeneratedSource">Generated source</param>
-    protected void AssertGenerationResult(string source, string expectedGeneratedSource)
+    /// <param name="sources">Sources</param>
+    protected void AssertGenerationResult(string expectedGeneratedSource, params string[] sources)
     {
-        var runResult = RunCompilation(source);
+        var runResult = RunCompilation(sources);
 
         Assert.AreEqual(runResult.Diagnostics.Length, 0, $"Compilation failed with {runResult.Diagnostics.Length} diagnostics:{Environment.NewLine}{string.Join(Environment.NewLine, runResult.Diagnostics)}");
         Assert.AreEqual(1, runResult.Results.Length, "Count of generator results mismatched");
@@ -68,11 +68,11 @@ public class SourceGeneratorTestBase<TGenerator>
     /// <summary>
     /// Runs the compilation
     /// </summary>
-    /// <param name="source">Source</param>
+    /// <param name="sources">Sources</param>
     /// <returns>Results</returns>
-    private GeneratorDriverRunResult RunCompilation(string source)
+    private GeneratorDriverRunResult RunCompilation(string[] sources)
     {
-        var compilation = CreateCompilation(source);
+        var compilation = CreateCompilation(sources);
 
         var result = RunGenerator(compilation);
 
@@ -91,13 +91,13 @@ public class SourceGeneratorTestBase<TGenerator>
     /// <summary>
     /// Creates the compilation
     /// </summary>
-    /// <param name="source">Source</param>
+    /// <param name="sources">Sources</param>
     /// <returns>Compilation result</returns>
-    private CSharpCompilation CreateCompilation(string source)
+    private CSharpCompilation CreateCompilation(string[] sources)
     {
-        var syntaxTree = CSharpSyntaxTree.ParseText(source);
+        var syntaxTrees = sources.Select(source => CSharpSyntaxTree.ParseText(source));
         var compilation = CSharpCompilation.Create("SourceGeneratorTestBase_TestAssembly",
-                                                   GetAdditionalSources().Concat([syntaxTree]),
+                                                   GetAdditionalSources().Concat(syntaxTrees),
                                                    GetMetadataReferences(),
                                                    new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
         return compilation;

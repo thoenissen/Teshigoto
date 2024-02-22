@@ -36,10 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Resources\EmptyClass.cs" />
-    <None Include="Resources\EmptyRecordClass.cs" />
-    <None Include="Resources\EmptyRecordStruct.cs" />
-    <None Include="Resources\EmptyStruct.cs" />
+    <None Include="Resources\Dummy\EmptyClass.cs" />
+    <None Include="Resources\Dummy\EmptyRecordClass.cs" />
+    <None Include="Resources\Dummy\EmptyRecordStruct.cs" />
+    <None Include="Resources\Dummy\EmptyStruct.cs" />
     <None Include="Resources\Equable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
     <None Include="Resources\Equable\ClassWithIgnoreAttribute.Generated.cs" />
     <None Include="Resources\Equable\ClassWithThreeProperties.Generated.cs" />

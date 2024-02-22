@@ -17,31 +17,31 @@ public class EquableGeneratorTests : SourceGeneratorTestBase<EquableGenerator>
     /// Class with one property
     /// </summary>
     [TestMethod]
-    public void ClassWithOneProperty() => AssertGenerationResult(EquableResources.ClassWithOneProperty, EquableResources.ClassWithOnePropertyGenerated);
+    public void ClassWithOneProperty() => AssertGenerationResult(EquableResources.ClassWithOnePropertyGenerated, EquableResources.ClassWithOneProperty);
 
     /// <summary>
     /// Class with two properties
     /// </summary>
     [TestMethod]
-    public void ClassWithTwoProperties() => AssertGenerationResult(EquableResources.ClassWithTwoProperties, EquableResources.ClassWithTwoPropertiesGenerated);
+    public void ClassWithTwoProperties() => AssertGenerationResult(EquableResources.ClassWithTwoPropertiesGenerated, EquableResources.ClassWithTwoProperties);
 
     /// <summary>
     /// Class with three properties
     /// </summary>
     [TestMethod]
-    public void ClassWithThreeProperties() => AssertGenerationResult(EquableResources.ClassWithThreeProperties, EquableResources.ClassWithThreePropertiesGenerated);
+    public void ClassWithThreeProperties() => AssertGenerationResult(EquableResources.ClassWithThreePropertiesGenerated, EquableResources.ClassWithThreeProperties);
 
     /// <summary>
     /// Class with <see cref="Annotation.IgnoreAttribute"/>
     /// </summary>
     [TestMethod]
-    public void ClassWithIgnoreAttribute() => AssertGenerationResult(EquableResources.ClassWithIgnoreAttribute, EquableResources.ClassWithIgnoreAttributeGenerated);
+    public void ClassWithIgnoreAttribute() => AssertGenerationResult(EquableResources.ClassWithIgnoreAttributeGenerated, EquableResources.ClassWithIgnoreAttribute);
 
     /// <summary>
     /// Class with <see cref="Annotation.IgnoreAttribute"/> and <see cref="GeneratorType.Equatable"/>
     /// </summary>
     [TestMethod]
-    public void ClassWithExplicitIgnoreAttribute() => AssertGenerationResult(EquableResources.ClassWithExplicitIgnoreAttribute, EquableResources.ClassWithExplicitIgnoreAttributeGenerated);
+    public void ClassWithExplicitIgnoreAttribute() => AssertGenerationResult(EquableResources.ClassWithExplicitIgnoreAttributeGenerated, EquableResources.ClassWithExplicitIgnoreAttribute);
 
     #endregion // Class
 
@@ -51,31 +51,31 @@ public class EquableGeneratorTests : SourceGeneratorTestBase<EquableGenerator>
     /// Record class with one property
     /// </summary>
     [TestMethod]
-    public void RecordClassWithOneProperty() => AssertGenerationResult(EquableResources.RecordClassWithOneProperty, EquableResources.RecordClassWithOnePropertyGenerated);
+    public void RecordClassWithOneProperty() => AssertGenerationResult(EquableResources.RecordClassWithOnePropertyGenerated, EquableResources.RecordClassWithOneProperty);
 
     /// <summary>
     /// Record class with two properties
     /// </summary>
     [TestMethod]
-    public void RecordClassWithTwoProperties() => AssertGenerationResult(EquableResources.RecordClassWithTwoProperties, EquableResources.RecordClassWithTwoPropertiesGenerated);
+    public void RecordClassWithTwoProperties() => AssertGenerationResult(EquableResources.RecordClassWithTwoPropertiesGenerated, EquableResources.RecordClassWithTwoProperties);
 
     /// <summary>
     /// Record class with three properties
     /// </summary>
     [TestMethod]
-    public void RecordClassWithThreeProperties() => AssertGenerationResult(EquableResources.RecordClassWithThreeProperties, EquableResources.RecordClassWithThreePropertiesGenerated);
+    public void RecordClassWithThreeProperties() => AssertGenerationResult(EquableResources.RecordClassWithThreePropertiesGenerated, EquableResources.RecordClassWithThreeProperties);
 
     /// <summary>
     /// Record class with <see cref="Annotation.IgnoreAttribute"/>
     /// </summary>
     [TestMethod]
-    public void RecordClassWithIgnoreAttribute() => AssertGenerationResult(EquableResources.RecordClassWithIgnoreAttribute, EquableResources.RecordClassWithIgnoreAttributeGenerated);
+    public void RecordClassWithIgnoreAttribute() => AssertGenerationResult(EquableResources.RecordClassWithIgnoreAttributeGenerated, EquableResources.RecordClassWithIgnoreAttribute);
 
     /// <summary>
     /// Record class with <see cref="Annotation.IgnoreAttribute"/> and <see cref="GeneratorType.Equatable"/>
     /// </summary>
     [TestMethod]
-    public void RecordClassWithExplicitIgnoreAttribute() => AssertGenerationResult(EquableResources.RecordClassWithExplicitIgnoreAttribute, EquableResources.RecordClassWithExplicitIgnoreAttributeGenerated);
+    public void RecordClassWithExplicitIgnoreAttribute() => AssertGenerationResult(EquableResources.RecordClassWithExplicitIgnoreAttributeGenerated, EquableResources.RecordClassWithExplicitIgnoreAttribute);
 
     #endregion // Record class
 
@@ -85,31 +85,31 @@ public class EquableGeneratorTests : SourceGeneratorTestBase<EquableGenerator>
     /// Struct with one property
     /// </summary>
     [TestMethod]
-    public void StructWithOneProperty() => AssertGenerationResult(EquableResources.StructWithOneProperty, EquableResources.StructWithOnePropertyGenerated);
+    public void StructWithOneProperty() => AssertGenerationResult(EquableResources.StructWithOnePropertyGenerated, EquableResources.StructWithOneProperty);
 
     /// <summary>
     /// Struct with two properties
     /// </summary>
     [TestMethod]
-    public void StructWithTwoProperties() => AssertGenerationResult(EquableResources.StructWithTwoProperties, EquableResources.StructWithTwoPropertiesGenerated);
+    public void StructWithTwoProperties() => AssertGenerationResult(EquableResources.StructWithTwoPropertiesGenerated, EquableResources.StructWithTwoProperties);
 
     /// <summary>
     /// Struct with three properties
     /// </summary>
     [TestMethod]
-    public void StructWithThreeProperties() => AssertGenerationResult(EquableResources.StructWithThreeProperties, EquableResources.StructWithThreePropertiesGenerated);
+    public void StructWithThreeProperties() => AssertGenerationResult(EquableResources.StructWithThreePropertiesGenerated, EquableResources.StructWithThreeProperties);
 
     /// <summary>
     /// Record struct with <see cref="Annotation.IgnoreAttribute"/>
     /// </summary>
     [TestMethod]
-    public void RecordStructWithIgnoreAttribute() => AssertGenerationResult(EquableResources.RecordStructWithIgnoreAttribute, EquableResources.RecordStructWithIgnoreAttributeGenerated);
+    public void RecordStructWithIgnoreAttribute() => AssertGenerationResult(EquableResources.RecordStructWithIgnoreAttributeGenerated, EquableResources.RecordStructWithIgnoreAttribute);
 
     /// <summary>
     /// Record struct with <see cref="Annotation.IgnoreAttribute"/> and <see cref="GeneratorType.Equatable"/>
     /// </summary>
     [TestMethod]
-    public void RecordStructWithExplicitIgnoreAttribute() => AssertGenerationResult(EquableResources.RecordStructWithExplicitIgnoreAttribute, EquableResources.RecordStructWithExplicitIgnoreAttributeGenerated);
+    public void RecordStructWithExplicitIgnoreAttribute() => AssertGenerationResult(EquableResources.RecordStructWithExplicitIgnoreAttributeGenerated, EquableResources.RecordStructWithExplicitIgnoreAttribute);
 
     #endregion // Struct
 
@@ -119,31 +119,31 @@ public class EquableGeneratorTests : SourceGeneratorTestBase<EquableGenerator>
     /// Record struct with one property
     /// </summary>
     [TestMethod]
-    public void RecordStructWithOneProperty() => AssertGenerationResult(EquableResources.RecordStructWithOneProperty, EquableResources.RecordStructWithOnePropertyGenerated);
+    public void RecordStructWithOneProperty() => AssertGenerationResult(EquableResources.RecordStructWithOnePropertyGenerated, EquableResources.RecordStructWithOneProperty);
 
     /// <summary>
     /// Record struct with two properties
     /// </summary>
     [TestMethod]
-    public void RecordStructWithTwoProperties() => AssertGenerationResult(EquableResources.RecordStructWithTwoProperties, EquableResources.RecordStructWithTwoPropertiesGenerated);
+    public void RecordStructWithTwoProperties() => AssertGenerationResult(EquableResources.RecordStructWithTwoPropertiesGenerated, EquableResources.RecordStructWithTwoProperties);
 
     /// <summary>
     /// Record struct with three properties
     /// </summary>
     [TestMethod]
-    public void RecordStructWithThreeProperties() => AssertGenerationResult(EquableResources.RecordStructWithThreeProperties, EquableResources.RecordStructWithThreePropertiesGenerated);
+    public void RecordStructWithThreeProperties() => AssertGenerationResult(EquableResources.RecordStructWithThreePropertiesGenerated, EquableResources.RecordStructWithThreeProperties);
 
     /// <summary>
     /// Struct with <see cref="Annotation.IgnoreAttribute"/>
     /// </summary>
     [TestMethod]
-    public void StructWithIgnoreAttribute() => AssertGenerationResult(EquableResources.StructWithIgnoreAttribute, EquableResources.StructWithIgnoreAttributeGenerated);
+    public void StructWithIgnoreAttribute() => AssertGenerationResult(EquableResources.StructWithIgnoreAttributeGenerated, EquableResources.StructWithIgnoreAttribute);
 
     /// <summary>
     /// Struct with <see cref="Annotation.IgnoreAttribute"/> and <see cref="GeneratorType.Equatable"/>
     /// </summary>
     [TestMethod]
-    public void StructWithExplicitIgnoreAttribute() => AssertGenerationResult(EquableResources.StructWithExplicitIgnoreAttribute, EquableResources.StructWithExplicitIgnoreAttributeGenerated);
+    public void StructWithExplicitIgnoreAttribute() => AssertGenerationResult(EquableResources.StructWithExplicitIgnoreAttributeGenerated, EquableResources.StructWithExplicitIgnoreAttribute);
 
     #endregion // Record struct
 }
