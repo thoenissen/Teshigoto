@@ -4,9 +4,9 @@ using System.Reflection;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-using Teshigoto.UnitTests.Resources;
+using Teshigoto.UnitTests.Generation.Resources;
 
-namespace Teshigoto.UnitTests.Base;
+namespace Teshigoto.UnitTests.Generation.Base;
 
 /// <summary>
 /// Base class for tests of source generators

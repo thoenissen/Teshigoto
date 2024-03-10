@@ -9,97 +9,97 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Resources\Comparable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Comparable\ClassWithIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Comparable\ClassWithOneProperty.Generated.cs" />
-    <Compile Remove="Resources\Comparable\ClassWithThreeProperties.Generated.cs" />
-    <Compile Remove="Resources\Comparable\ClassWithTwoProperties.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordClassWithIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordClassWithOneProperty.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordClassWithThreeProperties.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordClassWithTwoProperties.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordStructWithIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordStructWithOneProperty.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordStructWithThreeProperties.Generated.cs" />
-    <Compile Remove="Resources\Comparable\RecordStructWithTwoProperties.Generated.cs" />
-    <Compile Remove="Resources\Comparable\StructWithExplicitIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Comparable\StructWithIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Comparable\StructWithOneProperty.Generated.cs" />
-    <Compile Remove="Resources\Comparable\StructWithThreeProperties.Generated.cs" />
-    <Compile Remove="Resources\Comparable\StructWithTwoProperties.Generated.cs" />
-    <Compile Remove="Resources\EmptyClass.cs" />
-    <Compile Remove="Resources\EmptyRecordClass.cs" />
-    <Compile Remove="Resources\EmptyRecordStruct.cs" />
-    <Compile Remove="Resources\EmptyStruct.cs" />
-    <Compile Remove="Resources\Equable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Equable\ClassWithIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Equable\ClassWithOneProperty.Generated.cs" />
-    <Compile Remove="Resources\Equable\ClassWithThreeProperties.Generated.cs" />
-    <Compile Remove="Resources\Equable\ClassWithTwoProperties.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordClassWithIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordClassWithOneProperty.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordClassWithThreeProperties.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordClassWithTwoProperties.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordStructWithIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordStructWithOneProperty.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordStructWithThreeProperties.Generated.cs" />
-    <Compile Remove="Resources\Equable\RecordStructWithTwoProperties.Generated.cs" />
-    <Compile Remove="Resources\Equable\StructWithExplicitIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Equable\StructWithIgnoreAttribute.Generated.cs" />
-    <Compile Remove="Resources\Equable\StructWithOneProperty.Generated.cs" />
-    <Compile Remove="Resources\Equable\StructWithThreeProperties.Generated.cs" />
-    <Compile Remove="Resources\Equable\StructWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\ClassWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\ClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\ClassWithThreeProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\ClassWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordClassWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordClassWithThreeProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordClassWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordStructWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordStructWithOneProperty.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordStructWithThreeProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\RecordStructWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\StructWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\StructWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\StructWithOneProperty.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\StructWithThreeProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Comparable\StructWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\EmptyClass.cs" />
+    <Compile Remove="Generation\Resources\EmptyRecordClass.cs" />
+    <Compile Remove="Generation\Resources\EmptyRecordStruct.cs" />
+    <Compile Remove="Generation\Resources\EmptyStruct.cs" />
+    <Compile Remove="Generation\Resources\Equable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\ClassWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\ClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\ClassWithThreeProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\ClassWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordClassWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordClassWithThreeProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordClassWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordStructWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordStructWithOneProperty.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordStructWithThreeProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\RecordStructWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\StructWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\StructWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\StructWithOneProperty.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\StructWithThreeProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Equable\StructWithTwoProperties.Generated.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Resources\Comparable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Comparable\ClassWithIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Comparable\ClassWithOneProperty.Generated.cs" />
-    <None Include="Resources\Comparable\ClassWithThreeProperties.Generated.cs" />
-    <None Include="Resources\Comparable\ClassWithTwoProperties.Generated.cs" />
-    <None Include="Resources\Comparable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Comparable\RecordClassWithIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Comparable\RecordClassWithOneProperty.Generated.cs" />
-    <None Include="Resources\Comparable\RecordClassWithThreeProperties.Generated.cs" />
-    <None Include="Resources\Comparable\RecordClassWithTwoProperties.Generated.cs" />
-    <None Include="Resources\Comparable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Comparable\RecordStructWithIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Comparable\RecordStructWithOneProperty.Generated.cs" />
-    <None Include="Resources\Comparable\RecordStructWithThreeProperties.Generated.cs" />
-    <None Include="Resources\Comparable\RecordStructWithTwoProperties.Generated.cs" />
-    <None Include="Resources\Comparable\StructWithExplicitIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Comparable\StructWithIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Comparable\StructWithOneProperty.Generated.cs" />
-    <None Include="Resources\Comparable\StructWithThreeProperties.Generated.cs" />
-    <None Include="Resources\Comparable\StructWithTwoProperties.Generated.cs" />
-    <None Include="Resources\Dummy\EmptyClass.cs" />
-    <None Include="Resources\Dummy\EmptyRecordClass.cs" />
-    <None Include="Resources\Dummy\EmptyRecordStruct.cs" />
-    <None Include="Resources\Dummy\EmptyStruct.cs" />
-    <None Include="Resources\Equable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Equable\ClassWithIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Equable\ClassWithThreeProperties.Generated.cs" />
-    <None Include="Resources\Equable\ClassWithTwoProperties.Generated.cs" />
-    <None Include="Resources\Equable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Equable\RecordClassWithIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Equable\RecordClassWithThreeProperties.Generated.cs" />
-    <None Include="Resources\Equable\RecordClassWithTwoProperties.Generated.cs" />
-    <None Include="Resources\Equable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Equable\RecordStructWithIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Equable\RecordStructWithOneProperty.Generated.cs" />
-    <None Include="Resources\Equable\RecordClassWithOneProperty.Generated.cs" />
-    <None Include="Resources\Equable\RecordStructWithThreeProperties.Generated.cs" />
-    <None Include="Resources\Equable\RecordStructWithTwoProperties.Generated.cs" />
-    <None Include="Resources\Equable\StructWithExplicitIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Equable\StructWithIgnoreAttribute.Generated.cs" />
-    <None Include="Resources\Equable\StructWithOneProperty.Generated.cs" />
-    <None Include="Resources\Equable\ClassWithOneProperty.Generated.cs" />
-    <None Include="Resources\Equable\StructWithThreeProperties.Generated.cs" />
-    <None Include="Resources\Equable\StructWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\ClassWithIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\ClassWithOneProperty.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\ClassWithThreeProperties.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\ClassWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordClassWithIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordClassWithOneProperty.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordClassWithThreeProperties.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordClassWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordStructWithIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordStructWithOneProperty.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordStructWithThreeProperties.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\RecordStructWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\StructWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\StructWithIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\StructWithOneProperty.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\StructWithThreeProperties.Generated.cs" />
+    <None Include="Generation\Resources\Comparable\StructWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Dummy\EmptyClass.cs" />
+    <None Include="Generation\Resources\Dummy\EmptyRecordClass.cs" />
+    <None Include="Generation\Resources\Dummy\EmptyRecordStruct.cs" />
+    <None Include="Generation\Resources\Dummy\EmptyStruct.cs" />
+    <None Include="Generation\Resources\Equable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Equable\ClassWithIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Equable\ClassWithThreeProperties.Generated.cs" />
+    <None Include="Generation\Resources\Equable\ClassWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordClassWithIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordClassWithThreeProperties.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordClassWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordStructWithIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordStructWithOneProperty.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordClassWithOneProperty.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordStructWithThreeProperties.Generated.cs" />
+    <None Include="Generation\Resources\Equable\RecordStructWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Equable\StructWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Equable\StructWithIgnoreAttribute.Generated.cs" />
+    <None Include="Generation\Resources\Equable\StructWithOneProperty.Generated.cs" />
+    <None Include="Generation\Resources\Equable\ClassWithOneProperty.Generated.cs" />
+    <None Include="Generation\Resources\Equable\StructWithThreeProperties.Generated.cs" />
+    <None Include="Generation\Resources\Equable\StructWithTwoProperties.Generated.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -113,6 +113,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Teshigoto.Annotation\Teshigoto.Annotation.csproj" />
+    <ProjectReference Include="..\Teshigoto.CompilationTests\Teshigoto.CompilationTests.csproj" />
     <ProjectReference Include="..\Teshigoto.Generators\Teshigoto.Generators.csproj" />
 
 
@@ -121,17 +122,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\ComparableResources.Designer.cs">
+    <Compile Update="Generation\Resources\ComparableResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ComparableResources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\DummyTypes.Designer.cs">
+    <Compile Update="Generation\Resources\DummyTypes.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DummyTypes.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\EquableResources.Designer.cs">
+    <Compile Update="Generation\Resources\EquableResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EquableResources.resx</DependentUpon>
@@ -139,15 +140,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\ComparableResources.resx">
+    <EmbeddedResource Update="Generation\Resources\ComparableResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ComparableResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\DummyTypes.resx">
+    <EmbeddedResource Update="Generation\Resources\DummyTypes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DummyTypes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\EquableResources.resx">
+    <EmbeddedResource Update="Generation\Resources\EquableResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EquableResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>

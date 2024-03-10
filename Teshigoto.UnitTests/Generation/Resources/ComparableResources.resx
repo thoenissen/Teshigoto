@@ -119,124 +119,124 @@
    </resheader>
    <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
    <data name="ClassWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\ClassWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\ClassWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithOnePropertyGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\ClassWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\ClassWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithTwoProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\ClassWithTwoProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\ClassWithTwoProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithTwoPropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\ClassWithTwoProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\ClassWithTwoProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithThreeProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\ClassWithThreeProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\ClassWithThreeProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithThreePropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\ClassWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\ClassWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordClassWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordClassWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithOnePropertyGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordClassWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordClassWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordStructWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordStructWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithOnePropertyGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordStructWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordStructWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithOneProperty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\StructWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\StructWithOneProperty.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithOnePropertyGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\StructWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\StructWithOneProperty.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithTwoProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordClassWithTwoProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordClassWithTwoProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithTwoPropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordClassWithTwoProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordClassWithTwoProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithThreeProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordClassWithThreeProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordClassWithThreeProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithThreePropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordClassWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordClassWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithTwoProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\StructWithTwoProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\StructWithTwoProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithTwoPropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\StructWithTwoProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\StructWithTwoProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithThreeProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\StructWithThreeProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\StructWithThreeProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithThreePropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\StructWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\StructWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithTwoProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordStructWithTwoProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordStructWithTwoProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithTwoPropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordStructWithTwoProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordStructWithTwoProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithThreeProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordStructWithThreeProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordStructWithThreeProperties.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithThreePropertiesGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordStructWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordStructWithThreeProperties.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\ClassWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\ClassWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\ClassWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\ClassWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithExplicitIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\ClassWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\ClassWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="ClassWithExplicitIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\ClassWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\ClassWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordClassWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordClassWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordClassWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordClassWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordStructWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordStructWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordStructWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordStructWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\StructWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\StructWithIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\StructWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\StructWithIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithExplicitIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordClassWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordClassWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordClassWithExplicitIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordClassWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordClassWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithExplicitIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\RecordStructWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\RecordStructWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="RecordStructWithExplicitIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\RecordStructWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\RecordStructWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithExplicitIgnoreAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>..\..\Teshigoto.CompilationTests\Equable\StructWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>..\..\..\Teshigoto.CompilationTests\Comparable\StructWithExplicitIgnoreAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
    <data name="StructWithExplicitIgnoreAttributeGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-      <value>Equable\StructWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+      <value>Comparable\StructWithExplicitIgnoreAttribute.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
    </data>
 
 </root>

@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Teshigoto.Annotation;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Comparable;
 
@@ -8,7 +9,10 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Record class with one property
 /// </summary>
 [Comparable]
-internal partial record class RecordClassWithOneProperty : IComparable<RecordClassWithOneProperty>
+internal partial record class RecordClassWithOneProperty : IOneValueFactory<RecordClassWithOneProperty, int>,
+                                                           IComparableOperators<RecordClassWithOneProperty>,
+                                                           IComparable,
+                                                           IComparable<RecordClassWithOneProperty>
 {
     #region Constructor
 
@@ -31,4 +35,18 @@ internal partial record class RecordClassWithOneProperty : IComparable<RecordCla
     public int Property { get; }
 
     #endregion // Properties
+
+    #region IOneProperty
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value">Value</param>
+    /// <returns>Created value</returns>
+    public static RecordClassWithOneProperty Create(int value)
+    {
+        return new RecordClassWithOneProperty(value);
+    }
+
+    #endregion // IOneProperty
 }

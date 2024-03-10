@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Teshigoto.UnitTests.Resources {
+namespace Teshigoto.UnitTests.Generation.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Teshigoto.UnitTests.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ComparableResources {
+    internal class EquableResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ComparableResources() {
+        internal EquableResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Teshigoto.UnitTests.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teshigoto.UnitTests.Resources.ComparableResources", typeof(ComparableResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teshigoto.UnitTests.Generation.Resources.EquableResources", typeof(EquableResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,7 +63,7 @@ namespace Teshigoto.UnitTests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Class with &lt;see cref=&quot;IgnoreAttribute&quot;/&gt; and &lt;see cref=&quot;GeneratorType.Equatable&quot;/&gt; argument
@@ -82,7 +82,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// Ignored field
         ///    /// &lt;/summary&gt;
         ///    [Ignore([GeneratorType.Equatable])]
-        ///    private int _ignored [rest of string was truncated]&quot;;.
+        ///    private int _ignoredFie [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ClassWithExplicitIgnoreAttribute {
             get {
@@ -116,7 +116,7 @@ namespace Teshigoto.UnitTests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Class with &lt;see cref=&quot;IgnoreAttribute&quot;/&gt;
@@ -142,7 +142,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    #region Constructor
         ///
         ///    /// &lt;summary&gt;
-        ///   [rest of string was truncated]&quot;;.
+        ///    / [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ClassWithIgnoreAttribute {
             get {
@@ -178,13 +178,13 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Class with one property
         ////// &lt;/summary&gt;
-        ///[Comparable]
-        ///internal partial class ClassWithOneProperty : IComparable&lt;ClassWithOneProperty&gt;, IComparable
+        ///[Equable]
+        ///internal partial class ClassWithOneProperty : IEquatable&lt;ClassWithOneProperty&gt;
         ///{
         ///    #region Constructor
         ///
@@ -197,7 +197,8 @@ namespace Teshigoto.UnitTests.Resources {
         ///        Property = property;
         ///    }
         ///
-        ///    #endregi [rest of string was truncated]&quot;;.
+        ///    #endregion // Constructor
+        ///        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ClassWithOneProperty {
             get {
@@ -234,7 +235,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///using Teshigoto.Annotation;
         ///using Teshigoto.CompilationTests.DummyTypes;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Class with three properties
@@ -249,7 +250,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// &lt;/summary&gt;
         ///    /// &lt;param name=&quot;propertyOne&quot;&gt;Property 1&lt;/param&gt;
         ///    /// &lt;param name=&quot;propertyTwo&quot;&gt;Property 2&lt;/param&gt;
-        ///    / [rest of string was truncated]&quot;;.
+        ///    ///  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ClassWithThreeProperties {
             get {
@@ -285,7 +286,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Class with two properties
@@ -300,7 +301,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// &lt;/summary&gt;
         ///    /// &lt;param name=&quot;propertyOne&quot;&gt;Property 1&lt;/param&gt;
         ///    /// &lt;param name=&quot;propertyTwo&quot;&gt;Property 2&lt;/param&gt;
-        ///    public ClassWithTwoProperties(int propertyOne, string [rest of string was truncated]&quot;;.
+        ///    public ClassWithTwoProperties(int propertyOne, string pr [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ClassWithTwoProperties {
             get {
@@ -334,7 +335,7 @@ namespace Teshigoto.UnitTests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record class with &lt;see cref=&quot;IgnoreAttribute&quot;/&gt; and &lt;see cref=&quot;GeneratorType.Equatable&quot;/&gt; argument
@@ -353,7 +354,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// Ignored field
         ///    /// &lt;/summary&gt;
         ///    [Ignore([GeneratorType.Equatable])]
-        ///     [rest of string was truncated]&quot;;.
+        ///    pri [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordClassWithExplicitIgnoreAttribute {
             get {
@@ -387,7 +388,7 @@ namespace Teshigoto.UnitTests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record class with &lt;see cref=&quot;IgnoreAttribute&quot;/&gt;
@@ -412,7 +413,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///    #region Constructor
         ///
-        ///  [rest of string was truncated]&quot;;.
+        ///     [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordClassWithIgnoreAttribute {
             get {
@@ -448,7 +449,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record class with one property
@@ -465,7 +466,9 @@ namespace Teshigoto.UnitTests.Resources {
         ///    public RecordClassWithOneProperty(int property)
         ///    {
         ///        Property = property;
-        ///    }        /// [rest of string was truncated]&quot;;.
+        ///    }
+        ///
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordClassWithOneProperty {
             get {
@@ -502,7 +505,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///using Teshigoto.Annotation;
         ///using Teshigoto.CompilationTests.DummyTypes;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record class with three properties
@@ -516,7 +519,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// Constructor
         ///    /// &lt;/summary&gt;
         ///    /// &lt;param name=&quot;propertyOne&quot;&gt;Property 1&lt;/param&gt;
-        ///    /// &lt;param name=&quot;propertyTwo&quot; [rest of string was truncated]&quot;;.
+        ///    /// &lt;param name=&quot;propertyTwo&quot;&gt;Pr [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordClassWithThreeProperties {
             get {
@@ -552,7 +555,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record class with two properties
@@ -567,7 +570,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// &lt;/summary&gt;
         ///    /// &lt;param name=&quot;propertyOne&quot;&gt;Property 1&lt;/param&gt;
         ///    /// &lt;param name=&quot;propertyTwo&quot;&gt;Property 2&lt;/param&gt;
-        ///    public RecordClassWithTwoPr [rest of string was truncated]&quot;;.
+        ///    public RecordClassWithTwoPrope [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordClassWithTwoProperties {
             get {
@@ -601,7 +604,7 @@ namespace Teshigoto.UnitTests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record struct with &lt;see cref=&quot;IgnoreAttribute&quot;/&gt; and &lt;see cref=&quot;GeneratorType.Equatable&quot;/&gt; argument
@@ -620,7 +623,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// Ignored field
         ///    /// &lt;/summary&gt;
         ///    [Ignore([GeneratorType.Equatable])]
-        ///  [rest of string was truncated]&quot;;.
+        ///     [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordStructWithExplicitIgnoreAttribute {
             get {
@@ -653,7 +656,7 @@ namespace Teshigoto.UnitTests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record struct with &lt;see cref=&quot;IgnoreAttribute&quot;/&gt;
@@ -677,7 +680,8 @@ namespace Teshigoto.UnitTests.Resources {
         ///    #endregion // Fields
         ///
         ///    #region Constructor
-        /// [rest of string was truncated]&quot;;.
+        ///
+        ///  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordStructWithIgnoreAttribute {
             get {
@@ -713,7 +717,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record struct with one property
@@ -730,7 +734,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    public RecordStructWithOneProperty(int property)
         ///    {
         ///        Property = property;
-        ///  [rest of string was truncated]&quot;;.
+        ///     [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordStructWithOneProperty {
             get {
@@ -767,7 +771,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///using Teshigoto.Annotation;
         ///using Teshigoto.CompilationTests.DummyTypes;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record struct with three properties
@@ -781,7 +785,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// Constructor
         ///    /// &lt;/summary&gt;
         ///    /// &lt;param name=&quot;propertyOne&quot;&gt;Property 1&lt;/param&gt;
-        ///    /// &lt;param name=&quot;property [rest of string was truncated]&quot;;.
+        ///    /// &lt;param name=&quot;propertyTwo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordStructWithThreeProperties {
             get {
@@ -817,7 +821,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Record struct with two properties
@@ -832,7 +836,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// &lt;/summary&gt;
         ///    /// &lt;param name=&quot;propertyOne&quot;&gt;Property 1&lt;/param&gt;
         ///    /// &lt;param name=&quot;propertyTwo&quot;&gt;Property 2&lt;/param&gt;
-        ///    public RecordStructWith [rest of string was truncated]&quot;;.
+        ///    public RecordStructWithTwo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RecordStructWithTwoProperties {
             get {
@@ -866,7 +870,7 @@ namespace Teshigoto.UnitTests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Struct with &lt;see cref=&quot;IgnoreAttribute&quot;/&gt; and &lt;see cref=&quot;GeneratorType.Equatable&quot;/&gt; argument
@@ -885,7 +889,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// Ignored field
         ///    /// &lt;/summary&gt;
         ///    [Ignore([GeneratorType.Equatable])]
-        ///    private int _igno [rest of string was truncated]&quot;;.
+        ///    private int _ignored [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StructWithExplicitIgnoreAttribute {
             get {
@@ -919,7 +923,7 @@ namespace Teshigoto.UnitTests.Resources {
         /// <summary>
         ///   Looks up a localized string similar to using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Struct with &lt;see cref=&quot;IgnoreAttribute&quot;/&gt;
@@ -944,7 +948,8 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///    #region Constructor
         ///
-        ///    /// &lt;summary&gt;        /// [rest of string was truncated]&quot;;.
+        ///    /// &lt;summary&gt;
+        ///   [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StructWithIgnoreAttribute {
             get {
@@ -980,7 +985,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Struct with one property
@@ -999,7 +1004,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///        Property = property;
         ///    }
         ///
-        ///    #endregion // Constr [rest of string was truncated]&quot;;.
+        ///    #endregion // Construct [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StructWithOneProperty {
             get {
@@ -1036,7 +1041,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///using Teshigoto.Annotation;
         ///using Teshigoto.CompilationTests.DummyTypes;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Struct with three properties
@@ -1051,7 +1056,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// &lt;/summary&gt;
         ///    /// &lt;param name=&quot;propertyOne&quot;&gt;Property 1&lt;/param&gt;
         ///    /// &lt;param name=&quot;propertyTwo&quot;&gt;Property 2&lt;/param&gt;
-        ///  [rest of string was truncated]&quot;;.
+        ///     [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StructWithThreeProperties {
             get {
@@ -1087,7 +1092,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///
         ///using Teshigoto.Annotation;
         ///
-        ///namespace Teshigoto.CompilationTests.Comparable;
+        ///namespace Teshigoto.CompilationTests.Equable;
         ///
         ////// &lt;summary&gt;
         ////// Struct with two properties
@@ -1102,7 +1107,7 @@ namespace Teshigoto.UnitTests.Resources {
         ///    /// &lt;/summary&gt;
         ///    /// &lt;param name=&quot;propertyOne&quot;&gt;Property 1&lt;/param&gt;
         ///    /// &lt;param name=&quot;propertyTwo&quot;&gt;Property 2&lt;/param&gt;
-        ///    public StructWithTwoProperties(int propertyOne, s [rest of string was truncated]&quot;;.
+        ///    public StructWithTwoProperties(int propertyOne, stri [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StructWithTwoProperties {
             get {

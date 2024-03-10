@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Teshigoto.UnitTests.Resources {
+namespace Teshigoto.UnitTests.Generation.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Teshigoto.UnitTests.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teshigoto.UnitTests.Resources.DummyTypes", typeof(DummyTypes).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Teshigoto.UnitTests.Generation.Resources.DummyTypes", typeof(DummyTypes).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

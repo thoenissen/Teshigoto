@@ -1,9 +1,9 @@
 ﻿using Teshigoto.Annotation;
 using Teshigoto.Generators;
-using Teshigoto.UnitTests.Base;
-using Teshigoto.UnitTests.Resources;
+using Teshigoto.UnitTests.Generation.Base;
+using Teshigoto.UnitTests.Generation.Resources;
 
-namespace Teshigoto.UnitTests;
+namespace Teshigoto.UnitTests.Generation;
 
 /// <summary>
 /// Tests for the <see cref="EquableGenerator"/>-class
