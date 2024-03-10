@@ -17,5 +17,20 @@ internal static class SymbolExtensions
         return symbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
     }
 
+    /// <summary>
+    /// Return the type of the field or property
+    /// </summary>
+    /// <param name="symbol">Symbol</param>
+    /// <returns>Type of the field or property</returns>
+    public static ITypeSymbol GetFieldOrPropertyType(this ISymbol symbol)
+    {
+        return symbol switch
+               {
+                   IFieldSymbol fieldSymbol => fieldSymbol.Type,
+                   IPropertySymbol propertySymbol => propertySymbol.Type,
+                   _ => null
+               };
+    }
+
     #endregion // Methods
 }

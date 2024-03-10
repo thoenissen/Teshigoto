@@ -9,6 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resources\Comparable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Resources\Comparable\ClassWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Resources\Comparable\ClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Comparable\ClassWithThreeProperties.Generated.cs" />
+    <Compile Remove="Resources\Comparable\ClassWithTwoProperties.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordClassWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordClassWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordClassWithThreeProperties.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordClassWithTwoProperties.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordStructWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordStructWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordStructWithThreeProperties.Generated.cs" />
+    <Compile Remove="Resources\Comparable\RecordStructWithTwoProperties.Generated.cs" />
+    <Compile Remove="Resources\Comparable\StructWithExplicitIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Resources\Comparable\StructWithIgnoreAttribute.Generated.cs" />
+    <Compile Remove="Resources\Comparable\StructWithOneProperty.Generated.cs" />
+    <Compile Remove="Resources\Comparable\StructWithThreeProperties.Generated.cs" />
+    <Compile Remove="Resources\Comparable\StructWithTwoProperties.Generated.cs" />
     <Compile Remove="Resources\EmptyClass.cs" />
     <Compile Remove="Resources\EmptyRecordClass.cs" />
     <Compile Remove="Resources\EmptyRecordStruct.cs" />
@@ -36,6 +56,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Resources\Comparable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Resources\Comparable\ClassWithIgnoreAttribute.Generated.cs" />
+    <None Include="Resources\Comparable\ClassWithOneProperty.Generated.cs" />
+    <None Include="Resources\Comparable\ClassWithThreeProperties.Generated.cs" />
+    <None Include="Resources\Comparable\ClassWithTwoProperties.Generated.cs" />
+    <None Include="Resources\Comparable\RecordClassWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Resources\Comparable\RecordClassWithIgnoreAttribute.Generated.cs" />
+    <None Include="Resources\Comparable\RecordClassWithOneProperty.Generated.cs" />
+    <None Include="Resources\Comparable\RecordClassWithThreeProperties.Generated.cs" />
+    <None Include="Resources\Comparable\RecordClassWithTwoProperties.Generated.cs" />
+    <None Include="Resources\Comparable\RecordStructWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Resources\Comparable\RecordStructWithIgnoreAttribute.Generated.cs" />
+    <None Include="Resources\Comparable\RecordStructWithOneProperty.Generated.cs" />
+    <None Include="Resources\Comparable\RecordStructWithThreeProperties.Generated.cs" />
+    <None Include="Resources\Comparable\RecordStructWithTwoProperties.Generated.cs" />
+    <None Include="Resources\Comparable\StructWithExplicitIgnoreAttribute.Generated.cs" />
+    <None Include="Resources\Comparable\StructWithIgnoreAttribute.Generated.cs" />
+    <None Include="Resources\Comparable\StructWithOneProperty.Generated.cs" />
+    <None Include="Resources\Comparable\StructWithThreeProperties.Generated.cs" />
+    <None Include="Resources\Comparable\StructWithTwoProperties.Generated.cs" />
     <None Include="Resources\Dummy\EmptyClass.cs" />
     <None Include="Resources\Dummy\EmptyRecordClass.cs" />
     <None Include="Resources\Dummy\EmptyRecordStruct.cs" />
@@ -81,6 +121,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\ComparableResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComparableResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\DummyTypes.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -94,6 +139,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\ComparableResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ComparableResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\DummyTypes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DummyTypes.Designer.cs</LastGenOutput>

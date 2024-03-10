@@ -1,14 +1,15 @@
 ﻿using Teshigoto.Annotation;
+using Teshigoto.Generators.Comparable;
 using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Equable;
 
 namespace Teshigoto.Generators;
 
 /// <summary>
-/// Automatically implements the <see cref="IEquatable{T}"/>-interface for the class
+/// Automatically implements the <see cref="IComparable{T}"/>-interface for the class
 /// </summary>
 [Generator]
-public class EquableGenerator : IIncrementalGenerator
+public class ComparableGenerator : IIncrementalGenerator
 {
     #region Private methods
 
@@ -32,7 +33,7 @@ public class EquableGenerator : IIncrementalGenerator
             if (model.GetDeclaredSymbol(node, context.CancellationToken) is ITypeSymbol symbol)
             {
                 var equatableAttributeData = symbol.GetAttributes()
-                                                   .FirstOrDefault(x => x.AttributeClass?.Equals(metaData.EquatableAttribute, SymbolEqualityComparer.Default) == true);
+                                                   .FirstOrDefault(x => x.AttributeClass?.Equals(metaData.ComparableAttribute, SymbolEqualityComparer.Default) == true);
 
                 if (equatableAttributeData == null)
                 {
@@ -44,13 +45,13 @@ public class EquableGenerator : IIncrementalGenerator
                     continue;
                 }
 
-                var generator = EquableGeneratorFactory.Create(node, metaData);
+                var generator = ComparableGeneratorFactory.Create(node, metaData);
 
                 var source = generator.Generate(symbol);
 
                 if (string.IsNullOrEmpty(source) == false)
                 {
-                    context.AddSource($"{Escape.SymbolName(symbol)}.EquableGenerator.g.cs", source);
+                    context.AddSource($"{Escape.SymbolName(symbol)}.ComparableGenerator.g.cs", source);
                 }
             }
         }
@@ -60,20 +61,20 @@ public class EquableGenerator : IIncrementalGenerator
 
     #region IIncrementalGenerator
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         var provider = context.SyntaxProvider
-                              .ForAttributeWithMetadataName(typeof(EquableAttribute).FullName!,
+                              .ForAttributeWithMetadataName(typeof(ComparableAttribute).FullName!,
                                                             (syntaxNode, _) =>
                                                             {
                                                                 return syntaxNode switch
-                                                                       {
-                                                                           ClassDeclarationSyntax => true,
-                                                                           RecordDeclarationSyntax => true,
-                                                                           StructDeclarationSyntax => true,
-                                                                           _ => false
-                                                                       };
+                                                                {
+                                                                    ClassDeclarationSyntax => true,
+                                                                    RecordDeclarationSyntax => true,
+                                                                    StructDeclarationSyntax => true,
+                                                                    _ => false
+                                                                };
                                                             },
                                                             (syntaxContext, ct) => syntaxContext);
 

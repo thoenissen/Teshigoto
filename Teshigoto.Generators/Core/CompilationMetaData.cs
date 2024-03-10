@@ -16,6 +16,7 @@ internal class CompilationMetaData
     public CompilationMetaData(Compilation compilation)
     {
         EquatableAttribute = compilation.GetTypeByMetadataName(typeof(EquableAttribute).FullName!);
+        ComparableAttribute = compilation.GetTypeByMetadataName(typeof(ComparableAttribute).FullName!);
         IgnoreAttribute = compilation.GetTypeByMetadataName(typeof(IgnoreAttribute).FullName!);
         IncludeAttribute = compilation.GetTypeByMetadataName(typeof(IncludeAttribute).FullName!);
         OrderAttribute = compilation.GetTypeByMetadataName(typeof(OrderAttribute).FullName!);
@@ -29,6 +30,11 @@ internal class CompilationMetaData
     /// Symbol information of <see cref="EquableAttribute"/>
     /// </summary>
     public INamedTypeSymbol EquatableAttribute { get; }
+
+    /// <summary>
+    /// Symbol information of <see cref="ComparableAttribute"/>
+    /// </summary>
+    public INamedTypeSymbol ComparableAttribute { get; set; }
 
     /// <summary>
     /// Symbol information of <see cref="IgnoreAttribute"/>

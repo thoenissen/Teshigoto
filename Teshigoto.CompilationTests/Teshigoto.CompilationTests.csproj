@@ -3,9 +3,9 @@
    <PropertyGroup>
       <TargetFramework>net8.0</TargetFramework>
       <Nullable>enable</Nullable>
-
+      <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+      <CompilerGeneratedFilesOutputPath>$(SolutionDir)\GeneratedSources\Teshigoto.CompilationTests</CompilerGeneratedFilesOutputPath>
       <IsPackable>false</IsPackable>
-      <IsTestProject>true</IsTestProject>
    </PropertyGroup>
 
    <ItemGroup>

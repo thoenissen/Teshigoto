@@ -8,5 +8,10 @@ public enum GeneratorType
     /// <summary>
     /// <see cref="EquableAttribute"/>
     /// </summary>
-    Equatable
+    Equatable,
+
+    /// <summary>
+    /// <see cref="ComparableAttribute"/>
+    /// </summary>
+    Comparable
 }
