@@ -5,7 +5,7 @@
 /// </summary>
 /// <typeparam name="TObject">Type of the object to be created</typeparam>
 /// <typeparam name="TValue">Type of the argument</typeparam>
-public interface IOneValueFactory<out TObject, in TValue>
+public interface IFactory<out TObject, in TValue>
 {
     /// <summary>
     /// Create new instance

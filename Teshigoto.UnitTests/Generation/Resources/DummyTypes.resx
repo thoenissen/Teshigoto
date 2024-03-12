@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="EmptyClass" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dummy\EmptyClass.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="DummyClass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\Teshigoto.CompilationTests\DummyTypes\DummyClass.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="EmptyRecordClass" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dummy\EmptyRecordClass.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="DummyRecordClass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\Teshigoto.CompilationTests\DummyTypes\DummyRecordClass.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="EmptyRecordStruct" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dummy\EmptyRecordStruct.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="DummyRecordStruct" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\Teshigoto.CompilationTests\DummyTypes\DummyRecordStruct.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="EmptyStruct" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Dummy\EmptyStruct.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="DummyStruct" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\Teshigoto.CompilationTests\DummyTypes\DummyStruct.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

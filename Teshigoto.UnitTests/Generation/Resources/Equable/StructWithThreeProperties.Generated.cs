@@ -49,7 +49,7 @@ internal partial struct StructWithThreeProperties : global::System.IEquatable<gl
     {
         return global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.PropertyOne, other.PropertyOne)
                && global::System.Collections.Generic.EqualityComparer<global::System.String>.Default.Equals(this.PropertyTwo, other.PropertyTwo)
-               && global::System.Collections.Generic.EqualityComparer<global::Teshigoto.CompilationTests.DummyTypes.EmptyStruct?>.Default.Equals(this.PropertyThree, other.PropertyThree);
+               && global::System.Collections.Generic.EqualityComparer<global::Teshigoto.CompilationTests.DummyTypes.DummyStruct?>.Default.Equals(this.PropertyThree, other.PropertyThree);
     }
 
     /// <inheritdoc />

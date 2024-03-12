@@ -97,7 +97,7 @@ partial record RecordClassWithThreeProperties : global::System.IComparable<globa
 
             if (comparison == 0)
             {
-                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.EmptyRecordClass>.Default.Compare(PropertyThree, other.PropertyThree);
+                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.DummyRecordClass>.Default.Compare(PropertyThree, other.PropertyThree);
             }
         }
 

@@ -2,6 +2,7 @@
 
 using Teshigoto.Annotation;
 using Teshigoto.CompilationTests.DummyTypes;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Comparable;
 
@@ -9,7 +10,9 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Record struct with three properties
 /// </summary>
 [Comparable]
-internal partial record struct RecordStructWithThreeProperties : IComparable<RecordStructWithThreeProperties>
+internal partial record struct RecordStructWithThreeProperties : IComparable<RecordStructWithThreeProperties>,
+                                                                 IComparableOperators<RecordStructWithThreeProperties>,
+                                                                 IFactory<RecordStructWithThreeProperties, int, string, DummyRecordStruct?>
 {
     #region Constructor
 
@@ -19,7 +22,7 @@ internal partial record struct RecordStructWithThreeProperties : IComparable<Rec
     /// <param name="propertyOne">Property 1</param>
     /// <param name="propertyTwo">Property 2</param>
     /// <param name="propertyThree">Property 3</param>
-    public RecordStructWithThreeProperties(int propertyOne, string propertyTwo, EmptyRecordStruct? propertyThree)
+    public RecordStructWithThreeProperties(int propertyOne, string propertyTwo, DummyRecordStruct? propertyThree)
     {
         PropertyOne = propertyOne;
         PropertyTwo = propertyTwo;
@@ -43,7 +46,23 @@ internal partial record struct RecordStructWithThreeProperties : IComparable<Rec
     /// <summary>
     /// Property 3
     /// </summary>
-    public EmptyRecordStruct? PropertyThree { get; }
+    public DummyRecordStruct? PropertyThree { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <param name="value3">Value 3</param>
+    /// <returns>Created value</returns>
+    public static RecordStructWithThreeProperties Create(int value1, string value2, DummyRecordStruct? value3)
+    {
+        return new RecordStructWithThreeProperties(value1, value2, value3);
+    }
+
+    #endregion // IFactory
 }

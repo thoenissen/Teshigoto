@@ -109,10 +109,10 @@ public class SourceGeneratorTestBase<TGenerator>
     /// <returns>List of <see cref="SyntaxTree"/>-objects of all additional sources</returns>
     private IEnumerable<SyntaxTree> GetAdditionalSources()
     {
-        yield return CSharpSyntaxTree.ParseText(DummyTypes.EmptyClass);
-        yield return CSharpSyntaxTree.ParseText(DummyTypes.EmptyRecordClass);
-        yield return CSharpSyntaxTree.ParseText(DummyTypes.EmptyRecordStruct);
-        yield return CSharpSyntaxTree.ParseText(DummyTypes.EmptyStruct);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyClass);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyRecordClass);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyRecordStruct);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyStruct);
     }
 
     #endregion // Private methods

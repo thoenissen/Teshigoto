@@ -19,7 +19,7 @@ internal partial record class RecordClassWithThreeProperties : IEquatable<Record
     /// <param name="propertyOne">Property 1</param>
     /// <param name="propertyTwo">Property 2</param>
     /// <param name="propertyThree">Property 3</param>
-    public RecordClassWithThreeProperties(int propertyOne, string propertyTwo, EmptyRecordClass? propertyThree)
+    public RecordClassWithThreeProperties(int propertyOne, string propertyTwo, DummyRecordClass? propertyThree)
     {
         PropertyOne = propertyOne;
         PropertyTwo = propertyTwo;
@@ -43,7 +43,7 @@ internal partial record class RecordClassWithThreeProperties : IEquatable<Record
     /// <summary>
     /// Property 3
     /// </summary>
-    public EmptyRecordClass? PropertyThree { get; }
+    public DummyRecordClass? PropertyThree { get; }
 
     #endregion // Properties
 }

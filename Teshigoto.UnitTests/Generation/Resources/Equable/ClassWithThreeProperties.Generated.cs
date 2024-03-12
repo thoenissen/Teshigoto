@@ -69,7 +69,7 @@ internal partial class ClassWithThreeProperties : global::System.IEquatable<glob
         return other.GetType() == this.GetType()
                && global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.PropertyOne, other.PropertyOne)
                && global::System.Collections.Generic.EqualityComparer<global::System.String>.Default.Equals(this.PropertyTwo, other.PropertyTwo)
-               && global::System.Collections.Generic.EqualityComparer<global::Teshigoto.CompilationTests.DummyTypes.EmptyClass?>.Default.Equals(this.PropertyThree, other.PropertyThree);
+               && global::System.Collections.Generic.EqualityComparer<global::Teshigoto.CompilationTests.DummyTypes.DummyClass?>.Default.Equals(this.PropertyThree, other.PropertyThree);
     }
 
     /// <inheritdoc />

@@ -19,7 +19,7 @@ internal partial class ClassWithThreeProperties : IEquatable<ClassWithThreePrope
     /// <param name="propertyOne">Property 1</param>
     /// <param name="propertyTwo">Property 2</param>
     /// <param name="propertyThree">Property 3</param>
-    public ClassWithThreeProperties(int propertyOne, string propertyTwo, EmptyClass? propertyThree)
+    public ClassWithThreeProperties(int propertyOne, string propertyTwo, DummyClass? propertyThree)
     {
         PropertyOne = propertyOne;
         PropertyTwo = propertyTwo;
@@ -43,7 +43,7 @@ internal partial class ClassWithThreeProperties : IEquatable<ClassWithThreePrope
     /// <summary>
     /// Property 3
     /// </summary>
-    public EmptyClass? PropertyThree { get; }
+    public DummyClass? PropertyThree { get; }
 
     #endregion // Properties
 }

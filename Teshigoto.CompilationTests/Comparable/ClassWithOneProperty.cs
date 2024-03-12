@@ -9,7 +9,7 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Class with one property
 /// </summary>
 [Comparable]
-internal partial class ClassWithOneProperty : IOneValueFactory<ClassWithOneProperty, int>,
+internal partial class ClassWithOneProperty : IFactory<ClassWithOneProperty, int>,
                                               IComparableOperators<ClassWithOneProperty>,
                                               IComparable,
                                               IComparable<ClassWithOneProperty>

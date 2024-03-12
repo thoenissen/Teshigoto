@@ -9,7 +9,7 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Record struct with one property
 /// </summary>
 [Comparable]
-internal partial record struct RecordStructWithOneProperty : IOneValueFactory<RecordStructWithOneProperty, int>,
+internal partial record struct RecordStructWithOneProperty : IFactory<RecordStructWithOneProperty, int>,
                                                              IComparableOperators<RecordStructWithOneProperty>,
                                                              IComparable,
                                                              IComparable<RecordStructWithOneProperty>

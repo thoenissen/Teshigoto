@@ -82,7 +82,7 @@ partial struct StructWithThreeProperties : global::System.IComparable<global::Te
 
             if (comparison == 0)
             {
-                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.EmptyStruct?>.Default.Compare(PropertyThree, other.PropertyThree);
+                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.DummyStruct?>.Default.Compare(PropertyThree, other.PropertyThree);
             }
         }
 

@@ -29,10 +29,6 @@
     <Compile Remove="Generation\Resources\Comparable\StructWithOneProperty.Generated.cs" />
     <Compile Remove="Generation\Resources\Comparable\StructWithThreeProperties.Generated.cs" />
     <Compile Remove="Generation\Resources\Comparable\StructWithTwoProperties.Generated.cs" />
-    <Compile Remove="Generation\Resources\EmptyClass.cs" />
-    <Compile Remove="Generation\Resources\EmptyRecordClass.cs" />
-    <Compile Remove="Generation\Resources\EmptyRecordStruct.cs" />
-    <Compile Remove="Generation\Resources\EmptyStruct.cs" />
     <Compile Remove="Generation\Resources\Equable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
     <Compile Remove="Generation\Resources\Equable\ClassWithIgnoreAttribute.Generated.cs" />
     <Compile Remove="Generation\Resources\Equable\ClassWithOneProperty.Generated.cs" />
@@ -76,10 +72,6 @@
     <None Include="Generation\Resources\Comparable\StructWithOneProperty.Generated.cs" />
     <None Include="Generation\Resources\Comparable\StructWithThreeProperties.Generated.cs" />
     <None Include="Generation\Resources\Comparable\StructWithTwoProperties.Generated.cs" />
-    <None Include="Generation\Resources\Dummy\EmptyClass.cs" />
-    <None Include="Generation\Resources\Dummy\EmptyRecordClass.cs" />
-    <None Include="Generation\Resources\Dummy\EmptyRecordStruct.cs" />
-    <None Include="Generation\Resources\Dummy\EmptyStruct.cs" />
     <None Include="Generation\Resources\Equable\ClassWithExplicitIgnoreAttribute.Generated.cs" />
     <None Include="Generation\Resources\Equable\ClassWithIgnoreAttribute.Generated.cs" />
     <None Include="Generation\Resources\Equable\ClassWithThreeProperties.Generated.cs" />

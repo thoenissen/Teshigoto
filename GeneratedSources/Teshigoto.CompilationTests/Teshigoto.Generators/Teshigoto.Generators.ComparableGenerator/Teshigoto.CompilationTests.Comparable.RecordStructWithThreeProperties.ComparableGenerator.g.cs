@@ -82,7 +82,7 @@ partial record struct RecordStructWithThreeProperties : global::System.IComparab
 
             if (comparison == 0)
             {
-                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.EmptyRecordStruct?>.Default.Compare(PropertyThree, other.PropertyThree);
+                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.DummyRecordStruct?>.Default.Compare(PropertyThree, other.PropertyThree);
             }
         }
 

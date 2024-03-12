@@ -19,7 +19,7 @@ internal partial struct StructWithThreeProperties : IEquatable<StructWithThreePr
     /// <param name="propertyOne">Property 1</param>
     /// <param name="propertyTwo">Property 2</param>
     /// <param name="propertyThree">Property 3</param>
-    public StructWithThreeProperties(int propertyOne, string propertyTwo, EmptyStruct? propertyThree)
+    public StructWithThreeProperties(int propertyOne, string propertyTwo, DummyStruct? propertyThree)
     {
         PropertyOne = propertyOne;
         PropertyTwo = propertyTwo;
@@ -43,7 +43,7 @@ internal partial struct StructWithThreeProperties : IEquatable<StructWithThreePr
     /// <summary>
     /// Property 3
     /// </summary>
-    public EmptyStruct? PropertyThree { get; }
+    public DummyStruct? PropertyThree { get; }
 
     #endregion // Properties
 }

@@ -61,69 +61,135 @@ namespace Teshigoto.UnitTests.Generation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace Teshigoto.CompilationTests.DummyTypes;
+        ///   Looks up a localized string similar to using System;
+        ///
+        ///namespace Teshigoto.CompilationTests.DummyTypes;
         ///
         ////// &lt;summary&gt;
-        ////// Empty class
+        ////// Dummy class
         ////// &lt;/summary&gt;
-        ///public class EmptyClass
+        ///public class DummyClass : IComparable&lt;DummyClass&gt;,
+        ///                          IComparable
         ///{
-        ///}.
+        ///    #region Constructor
+        ///
+        ///    /// &lt;summary&gt;
+        ///    /// Constructor
+        ///    /// &lt;/summary&gt;
+        ///    public DummyClass()
+        ///    {
+        ///    }
+        ///
+        ///    /// &lt;summary&gt;
+        ///    /// Constructor
+        ///    /// &lt;/summary&gt;
+        ///    /// &lt;param name=&quot;value&quot;&gt;Value&lt;/param&gt;
+        ///    public DummyClass(int value)
+        ///    {
+        ///        Value = value;
+        ///    } [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string EmptyClass {
+        internal static string DummyClass {
             get {
-                return ResourceManager.GetString("EmptyClass", resourceCulture);
+                return ResourceManager.GetString("DummyClass", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace Teshigoto.CompilationTests.DummyTypes
+        ///   Looks up a localized string similar to using System;
+        ///
+        ///namespace Teshigoto.CompilationTests.DummyTypes;
+        ///
+        ////// &lt;summary&gt;
+        ////// Dummy record class
+        ////// &lt;/summary&gt;
+        ///public class DummyRecordClass : IComparable&lt;DummyRecordClass&gt;,
+        ///                                IComparable
         ///{
+        ///    #region Constructor
+        ///
         ///    /// &lt;summary&gt;
-        ///    /// Empty record class
+        ///    /// Constructor
         ///    /// &lt;/summary&gt;
-        ///    public record class EmptyRecordClass
+        ///    public DummyRecordClass()
         ///    {
         ///    }
-        ///}.
+        ///
+        ///    /// &lt;summary&gt;
+        ///    /// Constructor
+        ///    /// &lt;/summary&gt;
+        ///    /// &lt;param name=&quot;value&quot;&gt;Value&lt;/param&gt;
+        ///    public DummyRecordClass(int value)        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string EmptyRecordClass {
+        internal static string DummyRecordClass {
             get {
-                return ResourceManager.GetString("EmptyRecordClass", resourceCulture);
+                return ResourceManager.GetString("DummyRecordClass", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace Teshigoto.CompilationTests.DummyTypes
+        ///   Looks up a localized string similar to using System;
+        ///
+        ///namespace Teshigoto.CompilationTests.DummyTypes;
+        ///
+        ////// &lt;summary&gt;
+        ////// Dummy class
+        ////// &lt;/summary&gt;
+        ///public record struct DummyRecordStruct : IComparable&lt;DummyRecordStruct&gt;,
+        ///                                         IComparable
         ///{
+        ///    #region Constructor
+        ///
         ///    /// &lt;summary&gt;
-        ///    /// Empty record struct
+        ///    /// Constructor
         ///    /// &lt;/summary&gt;
-        ///    public record struct EmptyRecordStruct
+        ///    public DummyRecordStruct()
         ///    {
         ///    }
-        ///}.
+        ///
+        ///    /// &lt;summary&gt;
+        ///    /// Constructor
+        ///    /// &lt;/summary&gt;
+        ///    /// &lt;param name=&quot;value&quot;&gt;Value&lt;/param&gt;
+        ///    public DummyRecordStru [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string EmptyRecordStruct {
+        internal static string DummyRecordStruct {
             get {
-                return ResourceManager.GetString("EmptyRecordStruct", resourceCulture);
+                return ResourceManager.GetString("DummyRecordStruct", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace Teshigoto.CompilationTests.DummyTypes
+        ///   Looks up a localized string similar to using System;
+        ///
+        ///namespace Teshigoto.CompilationTests.DummyTypes;
+        ///
+        ////// &lt;summary&gt;
+        ////// Dummy class
+        ////// &lt;/summary&gt;
+        ///public struct DummyStruct : IComparable&lt;DummyStruct&gt;,
+        ///                            IComparable
         ///{
+        ///    #region Constructor
+        ///
         ///    /// &lt;summary&gt;
-        ///    /// Empty struct
+        ///    /// Constructor
         ///    /// &lt;/summary&gt;
-        ///    public struct EmptyStruct
+        ///    public DummyStruct()
         ///    {
         ///    }
-        ///}.
+        ///
+        ///    /// &lt;summary&gt;
+        ///    /// Constructor
+        ///    /// &lt;/summary&gt;
+        ///    /// &lt;param name=&quot;value&quot;&gt;Value&lt;/param&gt;
+        ///    public DummyStruct(int value)
+        ///    {
+        ///        Value = value; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string EmptyStruct {
+        internal static string DummyStruct {
             get {
-                return ResourceManager.GetString("EmptyStruct", resourceCulture);
+                return ResourceManager.GetString("DummyStruct", resourceCulture);
             }
         }
     }

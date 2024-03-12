@@ -2,6 +2,7 @@
 
 using Teshigoto.Annotation;
 using Teshigoto.CompilationTests.DummyTypes;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Comparable;
 
@@ -9,7 +10,9 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Class with three properties
 /// </summary>
 [Comparable]
-internal partial class ClassWithThreeProperties : IComparable<ClassWithThreeProperties>
+internal partial class ClassWithThreeProperties : IComparable<ClassWithThreeProperties>,
+                                                  IComparableOperators<ClassWithThreeProperties>,
+                                                  IFactory<ClassWithThreeProperties, int, string, DummyClass?>
 {
     #region Constructor
 
@@ -19,7 +22,7 @@ internal partial class ClassWithThreeProperties : IComparable<ClassWithThreeProp
     /// <param name="propertyOne">Property 1</param>
     /// <param name="propertyTwo">Property 2</param>
     /// <param name="propertyThree">Property 3</param>
-    public ClassWithThreeProperties(int propertyOne, string propertyTwo, EmptyClass? propertyThree)
+    public ClassWithThreeProperties(int propertyOne, string propertyTwo, DummyClass? propertyThree)
     {
         PropertyOne = propertyOne;
         PropertyTwo = propertyTwo;
@@ -43,7 +46,23 @@ internal partial class ClassWithThreeProperties : IComparable<ClassWithThreeProp
     /// <summary>
     /// Property 3
     /// </summary>
-    public EmptyClass? PropertyThree { get; }
+    public DummyClass? PropertyThree { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <param name="value3">Value 3</param>
+    /// <returns>Created value</returns>
+    public static ClassWithThreeProperties Create(int value1, string value2, DummyClass? value3)
+    {
+        return new ClassWithThreeProperties(value1, value2, value3);
+    }
+
+    #endregion // IFactory
 }

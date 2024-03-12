@@ -17,7 +17,7 @@ internal partial record struct RecordStructWithThreeProperties : global::System.
     {
         return global::System.Collections.Generic.EqualityComparer<global::System.Int32>.Default.Equals(this.PropertyOne, other.PropertyOne)
                && global::System.Collections.Generic.EqualityComparer<global::System.String>.Default.Equals(this.PropertyTwo, other.PropertyTwo)
-               && global::System.Collections.Generic.EqualityComparer<global::Teshigoto.CompilationTests.DummyTypes.EmptyRecordStruct?>.Default.Equals(this.PropertyThree, other.PropertyThree);
+               && global::System.Collections.Generic.EqualityComparer<global::Teshigoto.CompilationTests.DummyTypes.DummyRecordStruct?>.Default.Equals(this.PropertyThree, other.PropertyThree);
     }
 
     /// <inheritdoc />

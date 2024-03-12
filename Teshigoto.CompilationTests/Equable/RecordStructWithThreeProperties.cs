@@ -19,7 +19,7 @@ internal partial record struct RecordStructWithThreeProperties : IEquatable<Reco
     /// <param name="propertyOne">Property 1</param>
     /// <param name="propertyTwo">Property 2</param>
     /// <param name="propertyThree">Property 3</param>
-    public RecordStructWithThreeProperties(int propertyOne, string propertyTwo, EmptyRecordStruct? propertyThree)
+    public RecordStructWithThreeProperties(int propertyOne, string propertyTwo, DummyRecordStruct? propertyThree)
     {
         PropertyOne = propertyOne;
         PropertyTwo = propertyTwo;
@@ -43,7 +43,7 @@ internal partial record struct RecordStructWithThreeProperties : IEquatable<Reco
     /// <summary>
     /// Property 3
     /// </summary>
-    public EmptyRecordStruct? PropertyThree { get; }
+    public DummyRecordStruct? PropertyThree { get; }
 
     #endregion // Properties
 }

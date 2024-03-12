@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Teshigoto.Annotation;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Comparable;
 
@@ -8,7 +9,9 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Record struct with two properties
 /// </summary>
 [Comparable]
-internal partial record struct RecordStructWithTwoProperties : IComparable<RecordStructWithTwoProperties>
+internal partial record struct RecordStructWithTwoProperties : IComparable<RecordStructWithTwoProperties>,
+                                                               IComparableOperators<RecordStructWithTwoProperties>,
+                                                               IFactory<RecordStructWithTwoProperties, int, string>
 {
     #region Constructor
 
@@ -38,4 +41,19 @@ internal partial record struct RecordStructWithTwoProperties : IComparable<Recor
     public string PropertyTwo { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <returns>Created value</returns>
+    public static RecordStructWithTwoProperties Create(int value1, string value2)
+    {
+        return new RecordStructWithTwoProperties(value1, value2);
+    }
+
+    #endregion // IFactory
 }

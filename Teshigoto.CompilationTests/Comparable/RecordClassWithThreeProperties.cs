@@ -2,6 +2,7 @@
 
 using Teshigoto.Annotation;
 using Teshigoto.CompilationTests.DummyTypes;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Comparable;
 
@@ -9,7 +10,9 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Record class with three properties
 /// </summary>
 [Comparable]
-internal partial record class RecordClassWithThreeProperties : IComparable<RecordClassWithThreeProperties>
+internal partial record class RecordClassWithThreeProperties : IComparable<RecordClassWithThreeProperties>,
+                                                               IComparableOperators<RecordClassWithThreeProperties>,
+                                                               IFactory<RecordClassWithThreeProperties, int, string, DummyRecordClass?>
 {
     #region Constructor
 
@@ -19,7 +22,7 @@ internal partial record class RecordClassWithThreeProperties : IComparable<Recor
     /// <param name="propertyOne">Property 1</param>
     /// <param name="propertyTwo">Property 2</param>
     /// <param name="propertyThree">Property 3</param>
-    public RecordClassWithThreeProperties(int propertyOne, string propertyTwo, EmptyRecordClass? propertyThree)
+    public RecordClassWithThreeProperties(int propertyOne, string propertyTwo, DummyRecordClass? propertyThree)
     {
         PropertyOne = propertyOne;
         PropertyTwo = propertyTwo;
@@ -43,7 +46,23 @@ internal partial record class RecordClassWithThreeProperties : IComparable<Recor
     /// <summary>
     /// Property 3
     /// </summary>
-    public EmptyRecordClass? PropertyThree { get; }
+    public DummyRecordClass? PropertyThree { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <param name="value3">Value 3</param>
+    /// <returns>Created value</returns>
+    public static RecordClassWithThreeProperties Create(int value1, string value2, DummyRecordClass? value3)
+    {
+        return new RecordClassWithThreeProperties(value1, value2, value3);
+    }
+
+    #endregion // IFactory
 }

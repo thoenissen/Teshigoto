@@ -2,6 +2,7 @@
 
 using Teshigoto.Annotation;
 using Teshigoto.CompilationTests.DummyTypes;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Comparable;
 
@@ -9,7 +10,9 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Struct with three properties
 /// </summary>
 [Comparable]
-internal partial struct StructWithThreeProperties : IComparable<StructWithThreeProperties>
+internal partial struct StructWithThreeProperties : IComparable<StructWithThreeProperties>,
+                                                    IComparableOperators<StructWithThreeProperties>,
+                                                    IFactory<StructWithThreeProperties, int, string, DummyStruct?>
 {
     #region Constructor
 
@@ -19,7 +22,7 @@ internal partial struct StructWithThreeProperties : IComparable<StructWithThreeP
     /// <param name="propertyOne">Property 1</param>
     /// <param name="propertyTwo">Property 2</param>
     /// <param name="propertyThree">Property 3</param>
-    public StructWithThreeProperties(int propertyOne, string propertyTwo, EmptyStruct? propertyThree)
+    public StructWithThreeProperties(int propertyOne, string propertyTwo, DummyStruct? propertyThree)
     {
         PropertyOne = propertyOne;
         PropertyTwo = propertyTwo;
@@ -43,7 +46,23 @@ internal partial struct StructWithThreeProperties : IComparable<StructWithThreeP
     /// <summary>
     /// Property 3
     /// </summary>
-    public EmptyStruct? PropertyThree { get; }
+    public DummyStruct? PropertyThree { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <param name="value3">Value 3</param>
+    /// <returns>Created value</returns>
+    public static StructWithThreeProperties Create(int value1, string value2, DummyStruct? value3)
+    {
+        return new StructWithThreeProperties(value1, value2, value3);
+    }
+
+    #endregion // IFactory
 }
