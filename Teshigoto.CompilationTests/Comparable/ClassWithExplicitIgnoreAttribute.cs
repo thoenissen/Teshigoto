@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Teshigoto.Annotation;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Comparable;
 
@@ -8,7 +9,9 @@ namespace Teshigoto.CompilationTests.Comparable;
 /// Class with <see cref="IgnoreAttribute"/> and <see cref="GeneratorType.Comparable"/> argument
 /// </summary>
 [Comparable]
-internal partial class ClassWithExplicitIgnoreAttribute : IComparable<ClassWithExplicitIgnoreAttribute>
+internal partial class ClassWithExplicitIgnoreAttribute : IComparable<ClassWithExplicitIgnoreAttribute>,
+                                                          IComparableOperators<ClassWithExplicitIgnoreAttribute>,
+                                                          IFactory<ClassWithExplicitIgnoreAttribute, int, int, int, int>
 {
     #region Fields
 
@@ -58,4 +61,21 @@ internal partial class ClassWithExplicitIgnoreAttribute : IComparable<ClassWithE
     public int IgnoredProperty { get; set; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <param name="value3">Value 3</param>
+    /// <param name="value4">Value 4</param>
+    /// <returns>Created value</returns>
+    public static ClassWithExplicitIgnoreAttribute Create(int value1, int value2, int value3, int value4)
+    {
+        return new ClassWithExplicitIgnoreAttribute(value1, value2, value3, value4);
+    }
+
+    #endregion // IFactory
 }
