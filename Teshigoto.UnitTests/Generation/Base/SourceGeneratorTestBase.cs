@@ -113,6 +113,13 @@ public class SourceGeneratorTestBase<TGenerator>
         yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyRecordClass);
         yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyRecordStruct);
         yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyStruct);
+
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IComparableOperators);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IEqualityOperators);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory1);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory2);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory3);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory4);
     }
 
     #endregion // Private methods

@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Teshigoto.Annotation;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Equable;
 
@@ -8,7 +9,9 @@ namespace Teshigoto.CompilationTests.Equable;
 /// Class with two properties
 /// </summary>
 [Equable]
-internal partial class ClassWithTwoProperties : IEquatable<ClassWithTwoProperties>
+internal partial class ClassWithTwoProperties : IEquatable<ClassWithTwoProperties>,
+                                                IEqualityOperators<ClassWithTwoProperties>,
+                                                IFactory<ClassWithTwoProperties, int, string>
 {
     #region Constructor
 
@@ -38,4 +41,19 @@ internal partial class ClassWithTwoProperties : IEquatable<ClassWithTwoPropertie
     public string PropertyTwo { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <returns>Created value</returns>
+    public static ClassWithTwoProperties Create(int value1, string value2)
+    {
+        return new ClassWithTwoProperties(value1, value2);
+    }
+
+    #endregion // IFactory
 }

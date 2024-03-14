@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Teshigoto.Annotation;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Equable;
 
@@ -8,7 +9,9 @@ namespace Teshigoto.CompilationTests.Equable;
 /// Record class with one property
 /// </summary>
 [Equable]
-internal partial record class RecordClassWithOneProperty : IEquatable<RecordClassWithOneProperty>
+internal partial record class RecordClassWithOneProperty : IEquatable<RecordClassWithOneProperty>,
+                                                           IEqualityOperators<RecordClassWithOneProperty>,
+                                                           IFactory<RecordClassWithOneProperty, int>
 {
     #region Constructor
 
@@ -31,4 +34,18 @@ internal partial record class RecordClassWithOneProperty : IEquatable<RecordClas
     public int Property { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <returns>Created value</returns>
+    public static RecordClassWithOneProperty Create(int value1)
+    {
+        return new RecordClassWithOneProperty(value1);
+    }
+
+    #endregion // IFactory
 }

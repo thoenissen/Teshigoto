@@ -2,6 +2,7 @@
 
 using Teshigoto.Annotation;
 using Teshigoto.CompilationTests.DummyTypes;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Equable;
 
@@ -9,7 +10,9 @@ namespace Teshigoto.CompilationTests.Equable;
 /// Class with three properties
 /// </summary>
 [Equable]
-internal partial class ClassWithThreeProperties : IEquatable<ClassWithThreeProperties>
+internal partial class ClassWithThreeProperties : IEquatable<ClassWithThreeProperties>,
+                                                  IEqualityOperators<ClassWithThreeProperties>,
+                                                  IFactory<ClassWithThreeProperties, int, string, DummyClass?>
 {
     #region Constructor
 
@@ -46,4 +49,20 @@ internal partial class ClassWithThreeProperties : IEquatable<ClassWithThreePrope
     public DummyClass? PropertyThree { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <param name="value3">Value 3</param>
+    /// <returns>Created value</returns>
+    public static ClassWithThreeProperties Create(int value1, string value2, DummyClass? value3)
+    {
+        return new ClassWithThreeProperties(value1, value2, value3);
+    }
+
+    #endregion // IFactory
 }

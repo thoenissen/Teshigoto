@@ -1,6 +1,7 @@
 ﻿using Teshigoto.CompilationTests.Comparable;
 using Teshigoto.CompilationTests.DummyTypes;
 using Teshigoto.Generators;
+using Teshigoto.UnitTests.Function.Comparable;
 
 namespace Teshigoto.UnitTests.Function;
 

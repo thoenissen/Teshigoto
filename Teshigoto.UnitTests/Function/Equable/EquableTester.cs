@@ -1,16 +1,15 @@
 ﻿using Teshigoto.CompilationTests.Interfaces;
 
-namespace Teshigoto.UnitTests.Function;
+namespace Teshigoto.UnitTests.Function.Equable;
 
 /// <summary>
 /// Equals tester
 /// </summary>
 /// <typeparam name="T">Test type</typeparam>
-public class ComparableTesterOneValue<T> : ComparableTesterBase<T>
-    where T : IComparableOperators<T>,
+public class EquableTesterOneValue<T> : EquableTesterBase<T>
+    where T : IEqualityOperators<T>,
               IFactory<T, int>,
-              IComparable<T>,
-              IComparable
+              IEquatable<T>
 {
     /// <summary>
     /// Equals tests
@@ -26,22 +25,16 @@ public class ComparableTesterOneValue<T> : ComparableTesterBase<T>
     /// <summary>
     /// Greater tests
     /// </summary>
-    public static void AssertGreater()
+    public static void AssertNotEquals()
     {
         var left = T.Create(1);
         var right = T.Create(2);
 
-        AssertGreater(left, right);
-    }
+        AssertNotEquals(left, right);
 
-    /// <summary>
-    /// Less tests
-    /// </summary>
-    public static void AssertLess()
-    {
-        var left = T.Create(2);
-        var right = T.Create(1);
+        left = T.Create(2);
+        right = T.Create(1);
 
-        AssertLess(left, right);
+        AssertNotEquals(left, right);
     }
 }

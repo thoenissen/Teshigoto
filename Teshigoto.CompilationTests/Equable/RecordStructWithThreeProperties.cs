@@ -2,6 +2,7 @@
 
 using Teshigoto.Annotation;
 using Teshigoto.CompilationTests.DummyTypes;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Equable;
 
@@ -9,7 +10,9 @@ namespace Teshigoto.CompilationTests.Equable;
 /// Record struct with three properties
 /// </summary>
 [Equable]
-internal partial record struct RecordStructWithThreeProperties : IEquatable<RecordStructWithThreeProperties>
+internal partial record struct RecordStructWithThreeProperties : IEquatable<RecordStructWithThreeProperties>,
+                                                                 IEqualityOperators<RecordStructWithThreeProperties>,
+                                                                 IFactory<RecordStructWithThreeProperties, int, string, DummyRecordStruct?>
 {
     #region Constructor
 
@@ -46,4 +49,20 @@ internal partial record struct RecordStructWithThreeProperties : IEquatable<Reco
     public DummyRecordStruct? PropertyThree { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <param name="value2">Value 2</param>
+    /// <param name="value3">Value 3</param>
+    /// <returns>Created value</returns>
+    public static RecordStructWithThreeProperties Create(int value1, string value2, DummyRecordStruct? value3)
+    {
+        return new RecordStructWithThreeProperties(value1, value2, value3);
+    }
+
+    #endregion // IFactory
 }

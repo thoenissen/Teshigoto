@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Teshigoto.Annotation;
+using Teshigoto.CompilationTests.Interfaces;
 
 namespace Teshigoto.CompilationTests.Equable;
 
@@ -8,7 +9,9 @@ namespace Teshigoto.CompilationTests.Equable;
 /// Struct with one property
 /// </summary>
 [Equable]
-internal partial struct StructWithOneProperty : IEquatable<StructWithOneProperty>
+internal partial struct StructWithOneProperty : IEquatable<StructWithOneProperty>,
+                                                IEqualityOperators<StructWithOneProperty>,
+                                                IFactory<StructWithOneProperty, int>
 {
     #region Constructor
 
@@ -31,4 +34,18 @@ internal partial struct StructWithOneProperty : IEquatable<StructWithOneProperty
     public int Property { get; }
 
     #endregion // Properties
+
+    #region IFactory
+
+    /// <summary>
+    /// Create new instance
+    /// </summary>
+    /// <param name="value1">Value 1</param>
+    /// <returns>Created value</returns>
+    public static StructWithOneProperty Create(int value1)
+    {
+        return new StructWithOneProperty(value1);
+    }
+
+    #endregion // IFactory
 }

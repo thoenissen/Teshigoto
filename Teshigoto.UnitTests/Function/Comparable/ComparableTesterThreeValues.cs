@@ -1,6 +1,6 @@
 ﻿using Teshigoto.CompilationTests.Interfaces;
 
-namespace Teshigoto.UnitTests.Function;
+namespace Teshigoto.UnitTests.Function.Comparable;
 
 /// <summary>
 /// Comparable tester
