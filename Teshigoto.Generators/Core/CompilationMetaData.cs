@@ -20,6 +20,7 @@ internal class CompilationMetaData
         IgnoreAttribute = compilation.GetTypeByMetadataName(typeof(IgnoreAttribute).FullName!);
         IncludeAttribute = compilation.GetTypeByMetadataName(typeof(IncludeAttribute).FullName!);
         OrderAttribute = compilation.GetTypeByMetadataName(typeof(OrderAttribute).FullName!);
+        ProxyAttribute = compilation.GetTypeByMetadataName(typeof(ProxyAttribute<>).FullName!)!.ConstructUnboundGenericType();
     }
 
     #endregion // Constructor
@@ -50,6 +51,11 @@ internal class CompilationMetaData
     /// Symbol information of <see cref="OrderAttribute"/>
     /// </summary>
     public INamedTypeSymbol OrderAttribute { get; set; }
+
+    /// <summary>
+    /// Symbol information of <see cref="ProxyAttribute{T}"/>
+    /// </summary>
+    public INamedTypeSymbol ProxyAttribute { get; set; }
 
     #endregion // Properties
 }

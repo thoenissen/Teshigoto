@@ -97,7 +97,7 @@ partial class ClassWithThreeProperties : global::System.IComparable<global::Tesh
 
             if (comparison == 0)
             {
-                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.DummyClass>.Default.Compare(PropertyThree, other.PropertyThree);
+                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.DummyClass?>.Default.Compare(PropertyThree, other.PropertyThree);
             }
         }
 
