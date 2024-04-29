@@ -49,17 +49,17 @@ public class ProxyBenchmark
     /// <summary>
     /// Direct call
     /// </summary>
-    private IProxyTest _direct = new ProxyTest();
+    private readonly IProxyTest _direct = new ProxyTest();
 
     /// <summary>
     /// Proxy
     /// </summary>
-    private IProxyTest _proxy = new ProxyTest.Proxy();
+    private readonly IProxyTest _proxy = new ProxyTest.Proxy();
 
     /// <summary>
     /// Lazy
     /// </summary>
-    private Lazy<IProxyTest> _lazy = new(() => new ProxyTest(), true);
+    private readonly Lazy<IProxyTest> _lazy = new(() => new ProxyTest(), true);
 
     #endregion // Fields
 

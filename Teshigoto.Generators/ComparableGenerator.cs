@@ -1,7 +1,6 @@
 ﻿using Teshigoto.Annotation;
 using Teshigoto.Generators.Comparable;
 using Teshigoto.Generators.Core;
-using Teshigoto.Generators.Equable;
 
 namespace Teshigoto.Generators;
 

@@ -1,4 +1,5 @@
 ﻿using Teshigoto.Generators.Base;
+using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Core.Extensions;
 
 namespace Teshigoto.Generators.Proxy;
@@ -8,6 +9,19 @@ namespace Teshigoto.Generators.Proxy;
 /// </summary>
 public abstract class ProxyGeneratorBase : GeneratorBase
 {
+    #region Constructor
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="metaData">Meta information</param>
+    private protected ProxyGeneratorBase(CompilationMetaData metaData)
+        : base(metaData)
+    {
+    }
+
+    #endregion // Constructor
+
     #region Properties
 
     /// <summary>

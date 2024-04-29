@@ -45,7 +45,7 @@ public class ProxyGenerator : IIncrementalGenerator
                     continue;
                 }
 
-                var generator = ProxyGeneratorFactory.Create(node);
+                var generator = ProxyGeneratorFactory.Create(node, metaData);
 
                 var source = generator.Generate(symbol, proxyAttributeData);
 

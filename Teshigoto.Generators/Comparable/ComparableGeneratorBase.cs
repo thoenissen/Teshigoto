@@ -1,8 +1,6 @@
 ﻿using Teshigoto.Annotation;
 using Teshigoto.Generators.Base;
 using Teshigoto.Generators.Core;
-using Teshigoto.Generators.Data;
-using Teshigoto.Generators.Enumerations;
 using Teshigoto.Generators.Equable;
 
 namespace Teshigoto.Generators.Comparable;
@@ -19,18 +17,13 @@ internal abstract class ComparableGeneratorBase : GeneratorBase
     /// </summary>
     /// <param name="metaData">Meta information</param>
     protected ComparableGeneratorBase(CompilationMetaData metaData)
+        : base(metaData)
     {
-        MetaData = metaData;
     }
 
     #endregion // Constructor
 
     #region Properties
-
-    /// <summary>
-    /// Meta information about the current compilation
-    /// </summary>
-    protected CompilationMetaData MetaData { get; }
 
     /// <summary>
     /// Fields of the current symbol
@@ -131,9 +124,7 @@ internal abstract class ComparableGeneratorBase : GeneratorBase
     /// </summary>
     protected void WriteLessOperatorSummary()
     {
-        WriteLine("/// <summary>");
-        WriteLine($"/// Returns a value that indicates whether a <see cref=\"T:{SymbolName}\" /> value is less than another <see cref=\"T:{SymbolName}\" /> value.");
-        WriteLine("/// </summary>");
+        WriteXmlDocSummary($"Returns a value that indicates whether a <see cref=\"T:{SymbolName}\" /> value is less than another <see cref=\"T:{SymbolName}\" /> value.");
         WriteLine("/// <param name=\"left\">The first value to compare.</param>");
         WriteLine("/// <param name=\"right\">The second value to compare.</param>");
         WriteLine("/// <returns>true if <paramref name=\"left\" /> is less than <paramref name=\"right\" />; otherwise, false.</returns>");
@@ -144,9 +135,7 @@ internal abstract class ComparableGeneratorBase : GeneratorBase
     /// </summary>
     protected void WriteLessEqualOperatorSummary()
     {
-        WriteLine("/// <summary>");
-        WriteLine($"/// Returns a value that indicates whether a <see cref=\"T:{SymbolName}\" /> value is less than or equal to another <see cref=\"T:{SymbolName}\" /> value.");
-        WriteLine("/// </summary>");
+        WriteXmlDocSummary($"Returns a value that indicates whether a <see cref=\"T:{SymbolName}\" /> value is less than or equal to another <see cref=\"T:{SymbolName}\" /> value.");
         WriteLine("/// <param name=\"left\">The first value to compare.</param>");
         WriteLine("/// <param name=\"right\">The second value to compare.</param>");
         WriteLine("/// <returns>true if <paramref name=\"left\" /> is less than or equal to <paramref name=\"right\" />; otherwise, false.</returns>");
@@ -157,9 +146,7 @@ internal abstract class ComparableGeneratorBase : GeneratorBase
     /// </summary>
     protected void WriteGreaterOperatorSummary()
     {
-        WriteLine("/// <summary>");
-        WriteLine($"/// Returns a value that indicates whether a <see cref=\"T:{SymbolName}\" /> value is greater than another <see cref=\"T:{SymbolName}\" /> value.");
-        WriteLine("/// </summary>");
+        WriteXmlDocSummary($"Returns a value that indicates whether a <see cref=\"T:{SymbolName}\" /> value is greater than another <see cref=\"T:{SymbolName}\" /> value.");
         WriteLine("/// <param name=\"left\">The first value to compare.</param>");
         WriteLine("/// <param name=\"right\">The second value to compare.</param>");
         WriteLine("/// <returns>true if <paramref name=\"left\" /> is greater than <paramref name=\"right\" />; otherwise, false.</returns>");
@@ -170,9 +157,7 @@ internal abstract class ComparableGeneratorBase : GeneratorBase
     /// </summary>
     protected void WriteGreaterEqualOperatorSummary()
     {
-        WriteLine("/// <summary>");
-        WriteLine($"/// Returns a value that indicates whether a <see cref=\"T:{SymbolName}\" /> value is greater than or equal to another <see cref=\"T:{SymbolName}\" /> value.");
-        WriteLine("/// </summary>");
+        WriteXmlDocSummary($"Returns a value that indicates whether a <see cref=\"T:{SymbolName}\" /> value is greater than or equal to another <see cref=\"T:{SymbolName}\" /> value.");
         WriteLine("/// <param name=\"left\">The first value to compare.</param>");
         WriteLine("/// <param name=\"right\">The second value to compare.</param>");
         WriteLine("/// <returns>true if <paramref name=\"left\" /> is greater than <paramref name=\"right\" />; otherwise, false.</returns>");
@@ -181,26 +166,6 @@ internal abstract class ComparableGeneratorBase : GeneratorBase
     #endregion // Protected methods
 
     #region Private methods
-
-    /// <summary>
-    /// Create the sorting key for the member
-    /// </summary>
-    /// <param name="symbol">Member symbol</param>
-    /// <returns>Sorting key</returns>
-    private MemberSortingKey GetMemberSortKey(ISymbol symbol)
-    {
-        foreach (var orderAttribute in symbol.GetAttributes()
-                     .Where(obj => SymbolEqualityComparer.Default.Equals(obj.AttributeClass, MetaData.OrderAttribute)))
-        {
-            if (orderAttribute.ConstructorArguments.Length == 0
-                || orderAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Comparable))
-            {
-                return new MemberSortingKey(MemberSortingType.Attribute, (long?)orderAttribute.ConstructorArguments[1].Value ?? 0);
-            }
-        }
-
-        return new MemberSortingKey(MemberSortingType.Location, symbol.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start ?? 0);
-    }
 
     /// <summary>
     /// Write namespace and parent types

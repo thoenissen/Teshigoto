@@ -1,11 +1,7 @@
-﻿using System.Reflection;
-
-using Teshigoto.Annotation;
+﻿using Teshigoto.Annotation;
 using Teshigoto.Generators.Base;
 using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Core.Extensions;
-using Teshigoto.Generators.Data;
-using Teshigoto.Generators.Enumerations;
 
 namespace Teshigoto.Generators.Equable;
 
@@ -21,18 +17,13 @@ internal abstract class EquableGeneratorBase : GeneratorBase
     /// </summary>
     /// <param name="metaData">Meta information</param>
     protected EquableGeneratorBase(CompilationMetaData metaData)
+        : base(metaData)
     {
-        MetaData = metaData;
     }
 
     #endregion // Constructor
 
     #region Properties
-
-    /// <summary>
-    /// Meta information about the current compilation
-    /// </summary>
-    protected CompilationMetaData MetaData { get; }
 
     /// <summary>
     /// Fields of the current symbol
@@ -94,7 +85,7 @@ internal abstract class EquableGeneratorBase : GeneratorBase
     /// <summary>
     /// Write the equality comparison of each member
     /// </summary>
-    /// <param name="addAndOperator">Should the && operator added on the first member?</param>
+    /// <param name="addAndOperator">Should the &amp;&amp; operator added on the first member?</param>
     protected void WriteMembersEqualityComparison(bool addAndOperator)
     {
         foreach (var member in SymbolMembers)
@@ -131,26 +122,6 @@ internal abstract class EquableGeneratorBase : GeneratorBase
     }
 
     /// <summary>
-    /// Create the sorting key for the member
-    /// </summary>
-    /// <param name="symbol">Member symbol</param>
-    /// <returns>Sorting key</returns>
-    private MemberSortingKey GetMemberSortKey(ISymbol symbol)
-    {
-        foreach (var orderAttribute in symbol.GetAttributes()
-                                             .Where(obj => SymbolEqualityComparer.Default.Equals(obj.AttributeClass, MetaData.OrderAttribute)))
-        {
-            if (orderAttribute.ConstructorArguments.Length == 0
-                || orderAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable))
-            {
-                return new MemberSortingKey(MemberSortingType.Attribute, (long?)orderAttribute.ConstructorArguments[1].Value ?? 0);
-            }
-        }
-
-        return new MemberSortingKey(MemberSortingType.Location, symbol.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start ?? 0);
-    }
-
-    /// <summary>
     /// Check if the property relevant for the implementation
     /// </summary>
     /// <param name="symbol">Symbol</param>
@@ -158,7 +129,7 @@ internal abstract class EquableGeneratorBase : GeneratorBase
     private bool IsPropertyRelevant(IPropertySymbol symbol)
     {
         var isRelevant = symbol.GetMethod != null
-                         && SymbolFields.Any(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, symbol));
+                         && SymbolFields.Exists(field => SymbolEqualityComparer.Default.Equals(field.AssociatedSymbol, symbol));
 
         if (isRelevant == false)
         {

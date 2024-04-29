@@ -45,9 +45,7 @@ internal class StructEquableGenerator : EquableGeneratorBase
     /// </summary>
     private void WriteEqualsOperator()
     {
-        WriteLine("/// <summary>");
-        WriteLine($"/// Returns a value that indicates whether the values of two <see cref=\"{SymbolName}\"/> objects are equal.");
-        WriteLine("/// </summary>");
+        WriteXmlDocSummary($"Returns a value that indicates whether the values of two <see cref=\"{SymbolName}\"/> objects are equal.");
         WriteLine("/// <param name=\"left\">The first value to compare.</param>");
         WriteLine("/// <param name=\"right\">The second value to compare.</param>");
         WriteLine("/// <returns>true if the <paramref name=\"left\"/> and <paramref name=\"right\"/> parameters have the same value; otherwise, false.</returns>");
@@ -64,9 +62,7 @@ internal class StructEquableGenerator : EquableGeneratorBase
     /// </summary>
     private void WriteNotEqualsOperator()
     {
-        WriteLine("/// <summary>");
-        WriteLine($"/// Returns a value that indicates whether the values of two <see cref=\"{SymbolName}\"/> objects have different values.");
-        WriteLine("/// </summary>");
+        WriteXmlDocSummary($"Returns a value that indicates whether the values of two <see cref=\"{SymbolName}\"/> objects have different values.");
         WriteLine("/// <param name=\"left\">The first value to compare.</param>");
         WriteLine("/// <param name=\"right\">The second value to compare.</param>");
         WriteLine("/// <returns>true if <paramref name=\"left\"/> and <paramref name=\"right\"/> are not equal; otherwise, false.</returns>");

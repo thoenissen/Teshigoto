@@ -129,7 +129,7 @@ public class ProxyGeneratorTests
 
         proxyInterface.MethodVoid("Value0", ref value1, out var value2);
 
-        Assert.AreEqual(true, implementation.IsMethodVoidCalled);
+        Assert.IsTrue(implementation.IsMethodVoidCalled);
         Assert.AreEqual("Value0", implementation.MethodVoidValue0);
         Assert.AreEqual("Value1", implementation.MethodVoidValue1);
         Assert.AreEqual("RefValue1", value1);

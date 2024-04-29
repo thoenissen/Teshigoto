@@ -2,7 +2,11 @@
 using System.IO;
 using System.Reflection;
 
+using Teshigoto.Annotation;
+using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Core.Extensions;
+using Teshigoto.Generators.Data;
+using Teshigoto.Generators.Enumerations;
 using Teshigoto.Generators.Equable;
 
 namespace Teshigoto.Generators.Base;
@@ -36,7 +40,25 @@ public class GeneratorBase
 
     #endregion // Fields
 
+    #region Constructor
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="metaData">Meta information</param>
+    private protected GeneratorBase(CompilationMetaData metaData)
+    {
+        MetaData = metaData;
+    }
+
+    #endregion // Constructor
+
     #region Properties
+
+    /// <summary>
+    /// Meta information about the current compilation
+    /// </summary>
+    private protected CompilationMetaData MetaData { get; }
 
     /// <summary>
     /// Symbol to generate the implementation for
@@ -102,12 +124,10 @@ public class GeneratorBase
     protected void WriteOpenParentTypes()
     {
         foreach (var symbol in SymbolWalker.ContainingNamespaceAndTypes(Symbol)
-                     .Reverse())
+                                           .Where(obj => obj is not INamespaceSymbol)
+                                           .Reverse())
         {
-            if (symbol is not INamespaceSymbol)
-            {
-                WriteParentSymbol(symbol);
-            }
+            WriteParentSymbol(symbol);
         }
 
         WriteDeclaredAccessibility(Symbol.DeclaredAccessibility);
@@ -404,6 +424,27 @@ public class GeneratorBase
         {
             yield return parenInterface;
         }
+    }
+
+    /// <summary>
+    /// Create the sorting key for the member
+    /// </summary>
+    /// <param name="symbol">Member symbol</param>
+    /// <returns>Sorting key</returns>
+    private protected MemberSortingKey GetMemberSortKey(ISymbol symbol)
+    {
+        foreach (var constructorArguments in symbol.GetAttributes()
+                                                   .Where(obj => SymbolEqualityComparer.Default.Equals(obj.AttributeClass, MetaData.OrderAttribute))
+                                                   .Select(obj => obj.ConstructorArguments))
+        {
+            if (constructorArguments.Length == 0
+                || constructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Comparable))
+            {
+                return new MemberSortingKey(MemberSortingType.Attribute, (long?)constructorArguments[1].Value ?? 0);
+            }
+        }
+
+        return new MemberSortingKey(MemberSortingType.Location, symbol.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start ?? 0);
     }
 
     #endregion // Methods

@@ -5,7 +5,7 @@ namespace Teshigoto.Benchmarks;
 /// <summary>
 /// Main class
 /// </summary>
-internal class Program
+internal static class Program
 {
     /// <summary>
     /// Main entry

@@ -28,7 +28,7 @@ public class SourceGeneratorTestBase<TGenerator>
     {
         var runResult = RunCompilation(sources);
 
-        Assert.AreEqual(runResult.Diagnostics.Length, 0, $"Compilation failed with {runResult.Diagnostics.Length} diagnostics:{Environment.NewLine}{string.Join(Environment.NewLine, runResult.Diagnostics)}");
+        Assert.AreEqual(0, runResult.Diagnostics.Length, $"Compilation failed with {runResult.Diagnostics.Length} diagnostics:{Environment.NewLine}{string.Join(Environment.NewLine, runResult.Diagnostics)}");
         Assert.AreEqual(1, runResult.Results.Length, "Count of generator results mismatched");
         Assert.AreEqual(1, runResult.Results[0].GeneratedSources.Length, "Count of generated sources mismatched");
         Assert.AreEqual(expectedGeneratedSource, runResult.Results[0].GeneratedSources[0].SourceText.ToString());
@@ -49,6 +49,25 @@ public class SourceGeneratorTestBase<TGenerator>
     #endregion // Protected methods
 
     #region Private methods
+
+    /// <summary>
+    /// Get additional sources
+    /// </summary>
+    /// <returns>List of <see cref="SyntaxTree"/>-objects of all additional sources</returns>
+    private static IEnumerable<SyntaxTree> GetAdditionalSources()
+    {
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyClass);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyRecordClass);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyRecordStruct);
+        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyStruct);
+
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IComparableOperators);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IEqualityOperators);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory1);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory2);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory3);
+        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory4);
+    }
 
     /// <summary>
     /// Runs the generator
@@ -101,25 +120,6 @@ public class SourceGeneratorTestBase<TGenerator>
                                                    GetMetadataReferences(),
                                                    new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
         return compilation;
-    }
-
-    /// <summary>
-    /// Get additional sources
-    /// </summary>
-    /// <returns>List of <see cref="SyntaxTree"/>-objects of all additional sources</returns>
-    private IEnumerable<SyntaxTree> GetAdditionalSources()
-    {
-        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyClass);
-        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyRecordClass);
-        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyRecordStruct);
-        yield return CSharpSyntaxTree.ParseText(DummyTypes.DummyStruct);
-
-        yield return CSharpSyntaxTree.ParseText(Interfaces.IComparableOperators);
-        yield return CSharpSyntaxTree.ParseText(Interfaces.IEqualityOperators);
-        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory1);
-        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory2);
-        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory3);
-        yield return CSharpSyntaxTree.ParseText(Interfaces.IFactory4);
     }
 
     #endregion // Private methods
