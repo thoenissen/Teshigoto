@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{815DC310-1
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
+		README.md = README.md
+		.github\workflows\SonarCloud.yml = .github\workflows\SonarCloud.yml
 		StyleCop.Debug.ruleset = StyleCop.Debug.ruleset
 		stylecop.json = stylecop.json
 		StyleCop.Release.ruleset = StyleCop.Release.ruleset
@@ -27,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{815DC310-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", "{7C97E996-167E-4A9C-87DA-F2E95C9B78B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teshigoto.Benchmarks", "Teshigoto.Benchmarks\Teshigoto.Benchmarks.csproj", "{019A3EB0-B989-413C-A02D-29255B83841D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teshigoto.Benchmarks", "Teshigoto.Benchmarks\Teshigoto.Benchmarks.csproj", "{019A3EB0-B989-413C-A02D-29255B83841D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
