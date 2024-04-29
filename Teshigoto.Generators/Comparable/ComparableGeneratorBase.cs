@@ -1,10 +1,6 @@
-﻿using System.CodeDom.Compiler;
-using System.IO;
-using System.Reflection;
-
-using Teshigoto.Annotation;
+﻿using Teshigoto.Annotation;
+using Teshigoto.Generators.Base;
 using Teshigoto.Generators.Core;
-using Teshigoto.Generators.Core.Extensions;
 using Teshigoto.Generators.Data;
 using Teshigoto.Generators.Enumerations;
 using Teshigoto.Generators.Equable;
@@ -14,32 +10,8 @@ namespace Teshigoto.Generators.Comparable;
 /// <summary>
 /// Base class for generating IComparable implementation
 /// </summary>
-internal abstract class ComparableGeneratorBase
+internal abstract class ComparableGeneratorBase : GeneratorBase
 {
-    #region Fields
-
-    /// <summary>
-    /// Size of the indention
-    /// </summary>
-    private const int IndentionSize = 4;
-
-    /// <summary>
-    /// <see cref="GeneratedCodeAttribute"/> for the generated code
-    /// </summary>
-    private static readonly string GenerateCodeAttribute = $"[global::System.CodeDom.Compiler.GeneratedCodeAttribute(\"{Assembly.GetExecutingAssembly().GetName().Name}\", \"{Assembly.GetExecutingAssembly().GetName().Version}\")]";
-
-    /// <summary>
-    /// Buffer for the generated code
-    /// </summary>
-    private StringWriter _buffer;
-
-    /// <summary>
-    /// Writer for the generated code
-    /// </summary>
-    private IndentedTextWriter _writer;
-
-    #endregion // Fields
-
     #region Constructor
 
     /// <summary>
@@ -61,11 +33,6 @@ internal abstract class ComparableGeneratorBase
     protected CompilationMetaData MetaData { get; }
 
     /// <summary>
-    /// Symbol to generate the implementation for
-    /// </summary>
-    protected ITypeSymbol Symbol { get; private set; }
-
-    /// <summary>
     /// Fields of the current symbol
     /// </summary>
     protected List<IFieldSymbol> SymbolFields { get; private set; }
@@ -75,11 +42,6 @@ internal abstract class ComparableGeneratorBase
     /// </summary>
     /// <remarks>The list is already sorted.</remarks>
     protected List<ISymbol> SymbolMembers { get; private set; }
-
-    /// <summary>
-    /// Fully qualified name of the symbol
-    /// </summary>
-    protected string SymbolName { get; private set; }
 
     #endregion // Properties
 
@@ -95,9 +57,11 @@ internal abstract class ComparableGeneratorBase
     public string Generate(ITypeSymbol symbol)
     {
         Initialize(symbol);
-        WriteOpenNamespaceAndTypeDeclaration();
-        WriteImplementation();
-        WriteCloseNamespaceAndTypeDeclaration();
+
+        using (WriteGroup(WriteOpenNamespaceAndTypeDeclaration, WriteCloseNamespaceAndParentType))
+        {
+            WriteImplementation();
+        }
 
         return BuildSourceString();
     }
@@ -122,131 +86,14 @@ internal abstract class ComparableGeneratorBase
     protected abstract void WriteCompareToSpecifiedType();
 
     /// <summary>
-    /// Write an opening bracket (<c>'{'</c>) and increase the indention
-    /// </summary>
-    protected void WriteOpenBracket()
-    {
-        WriteLine("{");
-
-        _writer.Indent += IndentionSize;
-    }
-
-    /// <summary>
-    /// Write a closing bracket (<c>'}'</c>) and decrease the indention
-    /// </summary>
-    protected void WriteCloseBracket()
-    {
-        _writer.Indent -= IndentionSize;
-
-        WriteLine("}");
-    }
-
-    /// <summary>
-    /// Write the <see cref="GeneratedCodeAttribute"/>
-    /// </summary>
-    protected void WriteGeneratedCodeAttribute()
-    {
-        WriteLine(GenerateCodeAttribute);
-    }
-
-    /// <summary>
-    /// Write a characters (without line break) to the generated code
-    /// </summary>
-    /// <param name="characters">Characters</param>
-    protected void Write(string characters)
-    {
-        _writer.Write(characters);
-    }
-
-    /// <summary>
-    /// Writes an empty line to the generated code
-    /// </summary>
-    protected void WriteLine()
-    {
-        var currentIndent = _writer.Indent;
-
-        _writer.Indent = 0;
-        _writer.WriteLine();
-        _writer.Indent = currentIndent;
-    }
-
-    /// <summary>
-    /// Writes a line to the generated code
-    /// </summary>
-    /// <param name="line">Line</param>
-    protected void WriteLine(string line)
-    {
-        _writer.WriteLine(line);
-    }
-
-    /// <summary>
-    /// Decrements the indention
-    /// </summary>
-    /// <param name="characters">Characters to decrement</param>
-    protected void DecrementIndention(int? characters = null)
-    {
-        _writer.Indent -= characters ?? IndentionSize;
-    }
-
-    /// <summary>
-    /// Increments the indention
-    /// </summary>
-    /// <param name="characters">Characters to increment</param>
-    protected void IncrementIndention(int? characters = null)
-    {
-        _writer.Indent += characters ?? IndentionSize;
-    }
-
-    /// <summary>
-    /// Create the sorting key for the member
-    /// </summary>
-    /// <param name="symbol">Member symbol</param>
-    /// <returns>Sorting key</returns>
-    private MemberSortingKey GetMemberSortKey(ISymbol symbol)
-    {
-        foreach (var orderAttribute in symbol.GetAttributes()
-                                             .Where(obj => SymbolEqualityComparer.Default.Equals(obj.AttributeClass, MetaData.OrderAttribute)))
-        {
-            if (orderAttribute.ConstructorArguments.Length == 0
-                || orderAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Comparable))
-            {
-                return new MemberSortingKey(MemberSortingType.Attribute, (long?)orderAttribute.ConstructorArguments[1].Value ?? 0);
-            }
-        }
-
-        return new MemberSortingKey(MemberSortingType.Location, symbol.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start ?? 0);
-    }
-
-    /// <summary>
-    /// Writes the declared accessibility
-    /// </summary>
-    /// <param name="accessibility">Accessibility</param>
-    protected void WriteDeclaredAccessibility(Accessibility accessibility)
-    {
-        var accessibilityString = accessibility switch
-                                  {
-                                      Accessibility.Public => "public",
-                                      Accessibility.Internal => "internal",
-                                      Accessibility.Protected => "protected",
-                                      Accessibility.ProtectedAndInternal => "private protected",
-                                      Accessibility.ProtectedOrInternal => "protected internal",
-                                      Accessibility.Private => "private",
-                                      _ => throw new ArgumentOutOfRangeException($"Accessibility {accessibility} not supported")
-                                  };
-
-        Write(accessibilityString);
-        Write(" ");
-    }
-
-    /// <summary>
     /// Check if the symbol is ignored
     /// </summary>
     /// <param name="symbol">Symbol</param>
     /// <returns>Is the symbol ignored?</returns>
     protected bool IsSymbolIgnored(ISymbol symbol)
     {
-        bool isIgnored = Symbol.IsRecord
-                         && symbol.Name == "EqualityContract";
+        var isIgnored = Symbol.IsRecord
+                        && symbol.Name == "EqualityContract";
 
         if (isIgnored == false)
         {
@@ -336,33 +183,23 @@ internal abstract class ComparableGeneratorBase
     #region Private methods
 
     /// <summary>
-    /// Initialize the generator
+    /// Create the sorting key for the member
     /// </summary>
-    /// <param name="symbol">Symbol</param>
-    private void Initialize(ITypeSymbol symbol)
+    /// <param name="symbol">Member symbol</param>
+    /// <returns>Sorting key</returns>
+    private MemberSortingKey GetMemberSortKey(ISymbol symbol)
     {
-        Symbol = symbol;
-        SymbolName = Symbol.ToFullQualifiedDisplayString();
-        SymbolFields = Symbol.GetMembers()
-                             .OfType<IFieldSymbol>()
-                             .ToList();
-        SymbolMembers = SymbolWalker.GetPropertiesAndFields(Symbol)
-                                    .Where(obj => IsSymbolIgnored(obj) == false)
-                                    .OrderBy(GetMemberSortKey)
-                                    .ToList();
+        foreach (var orderAttribute in symbol.GetAttributes()
+                     .Where(obj => SymbolEqualityComparer.Default.Equals(obj.AttributeClass, MetaData.OrderAttribute)))
+        {
+            if (orderAttribute.ConstructorArguments.Length == 0
+                || orderAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Comparable))
+            {
+                return new MemberSortingKey(MemberSortingType.Attribute, (long?)orderAttribute.ConstructorArguments[1].Value ?? 0);
+            }
+        }
 
-        _buffer = new StringWriter(new StringBuilder(4096));
-        _writer = new IndentedTextWriter(_buffer, " ");
-
-        WriteLine("// <auto-generated>");
-        WriteLine("//     This code was generated by Teshigoto.Generators.");
-        WriteLine($"//     Version: {Assembly.GetExecutingAssembly().GetName().Version}");
-        WriteLine("//");
-        WriteLine("//     Changes to this file may cause incorrect behavior and will be lost if the code is regenerated.");
-        WriteLine("// </auto-generated>");
-        WriteLine();
-        WriteLine("#nullable enable");
-        WriteLine();
+        return new MemberSortingKey(MemberSortingType.Location, symbol.Locations.FirstOrDefault(location => location.IsInSource)?.SourceSpan.Start ?? 0);
     }
 
     /// <summary>
@@ -392,20 +229,6 @@ internal abstract class ComparableGeneratorBase
     }
 
     /// <summary>
-    /// Write the file-scoped namespace
-    /// </summary>
-    /// <param name="symbol">Symbol of the namespace</param>
-    private void WriteNamespace(INamespaceSymbol symbol)
-    {
-        var namespaceName = symbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat.WithGlobalNamespaceStyle(SymbolDisplayGlobalNamespaceStyle.Omitted));
-
-        if (string.IsNullOrEmpty(namespaceName) == false)
-        {
-            WriteLine($"namespace {namespaceName};");
-        }
-    }
-
-    /// <summary>
     /// Write a parent type
     /// </summary>
     /// <param name="symbol">Symbol of the parent type</param>
@@ -429,23 +252,6 @@ internal abstract class ComparableGeneratorBase
     }
 
     /// <summary>
-    /// Write all missing closing brackets
-    /// </summary>
-    private void WriteCloseNamespaceAndTypeDeclaration()
-    {
-        while (_writer.Indent > 0)
-        {
-            _writer.Indent -= 4;
-            _writer.Write("}");
-
-            if (_writer.Indent > 0)
-            {
-                _writer.WriteLine();
-            }
-        }
-    }
-
-    /// <summary>
     /// Write the implementation of <see cref="IComparable"/>, <see cref="IComparable{T}"/>
     /// </summary>
     private void WriteImplementation()
@@ -463,30 +269,25 @@ internal abstract class ComparableGeneratorBase
         WriteCompareToSpecifiedType();
     }
 
-    /// <summary>
-    /// Build the source string
-    /// </summary>
-    /// <returns>Source string</returns>
-    private string BuildSourceString()
-    {
-        var builder = _buffer.GetStringBuilder();
-
-        for (var i = builder.Length - 1; i >= 0; i--)
-        {
-            if (char.IsWhiteSpace(builder[i]))
-            {
-                builder.Length = i;
-            }
-            else
-            {
-                break;
-            }
-        }
-
-        return builder.ToString();
-    }
-
     #endregion // Private methods
 
     #endregion // Methods
+
+    #region GeneratorBase
+
+    /// <inheritdoc/>
+    protected override void Initialize(ITypeSymbol symbol)
+    {
+        base.Initialize(symbol);
+
+        SymbolFields = Symbol.GetMembers()
+                             .OfType<IFieldSymbol>()
+                             .ToList();
+        SymbolMembers = SymbolWalker.GetPropertiesAndFields(Symbol)
+                                    .Where(obj => IsSymbolIgnored(obj) == false)
+                                    .OrderBy(GetMemberSortKey)
+                                    .ToList();
+    }
+
+    #endregion // GeneratorBase
 }

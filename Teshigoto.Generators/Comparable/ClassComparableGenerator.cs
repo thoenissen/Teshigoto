@@ -111,7 +111,7 @@ internal class ClassComparableGenerator : ComparableGeneratorBase
             WriteLine($"comparison = global::System.Collections.Generic.Comparer<{member.GetFieldOrPropertyType().ToFullQualifiedDisplayString()}>.Default.Compare({member.Name}, other.{member.Name});");
         }
 
-        for (int i = 1; i < SymbolMembers.Count; i++)
+        for (var i = 1; i < SymbolMembers.Count; i++)
         {
             WriteCloseBracket();
         }

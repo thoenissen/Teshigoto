@@ -25,6 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{815DC310-1
 		StyleCop.Release.ruleset = StyleCop.Release.ruleset
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", "{7C97E996-167E-4A9C-87DA-F2E95C9B78B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teshigoto.Benchmarks", "Teshigoto.Benchmarks\Teshigoto.Benchmarks.csproj", "{019A3EB0-B989-413C-A02D-29255B83841D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,10 @@ Global
 		{44481064-7D15-40D6-917F-EB45AE51CCBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44481064-7D15-40D6-917F-EB45AE51CCBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44481064-7D15-40D6-917F-EB45AE51CCBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{019A3EB0-B989-413C-A02D-29255B83841D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{019A3EB0-B989-413C-A02D-29255B83841D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{019A3EB0-B989-413C-A02D-29255B83841D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{019A3EB0-B989-413C-A02D-29255B83841D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,7 @@ Global
 		{8891797C-86A4-4479-B2AD-A904990288A0} = {76E7B2F5-E740-4886-97DF-A6CBE7AF959E}
 		{F5151925-64A9-4B06-AE20-491F67FB6FE5} = {3135B811-7C9E-4408-9BE4-B7B359EDE28C}
 		{44481064-7D15-40D6-917F-EB45AE51CCBC} = {3135B811-7C9E-4408-9BE4-B7B359EDE28C}
+		{019A3EB0-B989-413C-A02D-29255B83841D} = {7C97E996-167E-4A9C-87DA-F2E95C9B78B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC65D149-2387-43F6-BB0B-9EDF7872471E}

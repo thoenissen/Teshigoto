@@ -5,6 +5,15 @@
 /// </summary>
 internal static class SymbolExtensions
 {
+    #region Fields
+
+    /// <summary>
+    /// Full qualified format including nullability
+    /// </summary>
+    private static readonly SymbolDisplayFormat _fullQualifiedFormat = SymbolDisplayFormat.FullyQualifiedFormat.AddMiscellaneousOptions(SymbolDisplayMiscellaneousOptions.IncludeNullableReferenceTypeModifier);
+
+    #endregion // Fields
+
     #region Methods
 
     /// <summary>
@@ -14,7 +23,7 @@ internal static class SymbolExtensions
     /// <returns>Full qualified display string</returns>
     public static string ToFullQualifiedDisplayString(this ISymbol symbol)
     {
-        return symbol.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
+        return symbol.ToDisplayString(_fullQualifiedFormat);
     }
 
     /// <summary>
