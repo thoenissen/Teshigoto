@@ -74,13 +74,11 @@ partial record struct RecordStructWithExplicitIgnoreAttribute : global::System.I
     /// <inheritdoc/>
     public int CompareTo(global::Teshigoto.CompilationTests.Comparable.RecordStructWithExplicitIgnoreAttribute other)
     {
-        var comparison = global::System.Collections.Generic.Comparer<int>.Default.Compare(_field, other._field);
-
-        if (comparison == 0)
+        if (global::System.Collections.Generic.EqualityComparer<int>.Default.Equals(_field, other._field) == false)
         {
-            comparison = global::System.Collections.Generic.Comparer<int>.Default.Compare(Property, other.Property);
+            return global::System.Collections.Generic.Comparer<int>.Default.Compare(_field, other._field);
         }
 
-        return comparison;
+        return global::System.Collections.Generic.Comparer<int>.Default.Compare(Property, other.Property);
     }
 }

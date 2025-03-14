@@ -74,18 +74,16 @@ partial record struct RecordStructWithThreeProperties : global::System.IComparab
     /// <inheritdoc/>
     public int CompareTo(global::Teshigoto.CompilationTests.Comparable.RecordStructWithThreeProperties other)
     {
-        var comparison = global::System.Collections.Generic.Comparer<int>.Default.Compare(PropertyOne, other.PropertyOne);
-
-        if (comparison == 0)
+        if (global::System.Collections.Generic.EqualityComparer<int>.Default.Equals(PropertyOne, other.PropertyOne) == false)
         {
-            comparison = global::System.Collections.Generic.Comparer<string>.Default.Compare(PropertyTwo, other.PropertyTwo);
-
-            if (comparison == 0)
-            {
-                comparison = global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.DummyRecordStruct?>.Default.Compare(PropertyThree, other.PropertyThree);
-            }
+            return global::System.Collections.Generic.Comparer<int>.Default.Compare(PropertyOne, other.PropertyOne);
         }
 
-        return comparison;
+        if (global::System.Collections.Generic.EqualityComparer<string>.Default.Equals(PropertyTwo, other.PropertyTwo) == false)
+        {
+            return global::System.Collections.Generic.Comparer<string>.Default.Compare(PropertyTwo, other.PropertyTwo);
+        }
+
+        return global::System.Collections.Generic.Comparer<global::Teshigoto.CompilationTests.DummyTypes.DummyRecordStruct?>.Default.Compare(PropertyThree, other.PropertyThree);
     }
 }

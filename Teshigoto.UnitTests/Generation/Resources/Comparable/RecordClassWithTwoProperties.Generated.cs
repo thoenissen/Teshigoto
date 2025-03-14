@@ -89,13 +89,11 @@ partial record RecordClassWithTwoProperties : global::System.IComparable<global:
             return 0;
         }
 
-        var comparison = global::System.Collections.Generic.Comparer<int>.Default.Compare(PropertyOne, other.PropertyOne);
-
-        if (comparison == 0)
+        if (global::System.Collections.Generic.EqualityComparer<int>.Default.Equals(PropertyOne, other.PropertyOne) == false)
         {
-            comparison = global::System.Collections.Generic.Comparer<string>.Default.Compare(PropertyTwo, other.PropertyTwo);
+            return global::System.Collections.Generic.Comparer<int>.Default.Compare(PropertyOne, other.PropertyOne);
         }
 
-        return comparison;
+        return global::System.Collections.Generic.Comparer<string>.Default.Compare(PropertyTwo, other.PropertyTwo);
     }
 }

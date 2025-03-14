@@ -89,8 +89,6 @@ partial class ClassWithOneProperty : global::System.IComparable<global::Teshigot
             return 0;
         }
 
-        var comparison = global::System.Collections.Generic.Comparer<int>.Default.Compare(Property, other.Property);
-
-        return comparison;
+        return global::System.Collections.Generic.Comparer<int>.Default.Compare(Property, other.Property);
     }
 }

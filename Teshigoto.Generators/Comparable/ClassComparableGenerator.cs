@@ -101,23 +101,22 @@ internal class ClassComparableGenerator : ComparableGeneratorBase
         WriteLine("return 0;");
         WriteCloseBracket();
         WriteLine();
-        WriteLine($"var comparison = global::System.Collections.Generic.Comparer<{SymbolMembers[0].GetFieldOrPropertyType().ToFullQualifiedDisplayString()}>.Default.Compare({SymbolMembers[0].Name}, other.{SymbolMembers[0].Name});");
 
-        foreach (var member in SymbolMembers.Skip(1))
+        foreach (var member in SymbolMembers.Take(SymbolMembers.Count - 1))
         {
+            WriteLine($"if (global::System.Collections.Generic.EqualityComparer<{member.GetFieldOrPropertyType().ToFullQualifiedDisplayString()}>.Default.Equals({member.Name}, other.{member.Name}) == false)");
+
+            using (WriteBracket())
+            {
+                WriteLine($"return global::System.Collections.Generic.Comparer<{member.GetFieldOrPropertyType().ToFullQualifiedDisplayString()}>.Default.Compare({member.Name}, other.{member.Name});");
+            }
+
             WriteLine();
-            WriteLine("if (comparison == 0)");
-            WriteOpenBracket();
-            WriteLine($"comparison = global::System.Collections.Generic.Comparer<{member.GetFieldOrPropertyType().ToFullQualifiedDisplayString()}>.Default.Compare({member.Name}, other.{member.Name});");
         }
 
-        for (var i = 1; i < SymbolMembers.Count; i++)
-        {
-            WriteCloseBracket();
-        }
+        var lastMember = SymbolMembers.Last();
 
-        WriteLine();
-        WriteLine("return comparison;");
+        WriteLine($"return global::System.Collections.Generic.Comparer<{lastMember.GetFieldOrPropertyType().ToFullQualifiedDisplayString()}>.Default.Compare({lastMember.Name}, other.{lastMember.Name});");
         WriteCloseBracket();
     }
 

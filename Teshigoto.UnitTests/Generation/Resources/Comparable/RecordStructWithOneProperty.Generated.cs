@@ -74,8 +74,6 @@ partial record struct RecordStructWithOneProperty : global::System.IComparable<g
     /// <inheritdoc/>
     public int CompareTo(global::Teshigoto.CompilationTests.Comparable.RecordStructWithOneProperty other)
     {
-        var comparison = global::System.Collections.Generic.Comparer<int>.Default.Compare(Property, other.Property);
-
-        return comparison;
+        return global::System.Collections.Generic.Comparer<int>.Default.Compare(Property, other.Property);
     }
 }

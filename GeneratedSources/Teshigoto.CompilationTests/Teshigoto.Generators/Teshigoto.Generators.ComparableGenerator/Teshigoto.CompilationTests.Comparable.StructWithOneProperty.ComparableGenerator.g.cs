@@ -74,8 +74,6 @@ partial struct StructWithOneProperty : global::System.IComparable<global::Teshig
     /// <inheritdoc/>
     public int CompareTo(global::Teshigoto.CompilationTests.Comparable.StructWithOneProperty other)
     {
-        var comparison = global::System.Collections.Generic.Comparer<int>.Default.Compare(Property, other.Property);
-
-        return comparison;
+        return global::System.Collections.Generic.Comparer<int>.Default.Compare(Property, other.Property);
     }
 }
