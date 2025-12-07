@@ -99,7 +99,7 @@ internal class StructComparableGenerator : ComparableGeneratorBase
             WriteLine();
         }
 
-        var lastMember = SymbolMembers.Last();
+        var lastMember = SymbolMembers[SymbolMembers.Count - 1];
 
         WriteLine($"return global::System.Collections.Generic.Comparer<{lastMember.GetFieldOrPropertyType().ToFullQualifiedDisplayString()}>.Default.Compare({lastMember.Name}, other.{lastMember.Name});");
         WriteCloseBracket();

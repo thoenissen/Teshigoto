@@ -110,7 +110,7 @@ internal class MapperGeneratorBase : GeneratorBase
 
             foreach (var targetMember in targetArgument.Type.GetMembers().Where(IsAssignable))
             {
-                var sourceMember = gettableMembers.FirstOrDefault(x => x.Name == targetMember.Name);
+                var sourceMember = gettableMembers.Find(x => x.Name == targetMember.Name);
 
                 if (sourceMember == null)
                 {

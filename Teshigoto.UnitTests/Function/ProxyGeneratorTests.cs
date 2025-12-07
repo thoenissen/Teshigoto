@@ -37,7 +37,7 @@ public class ProxyGeneratorTests
         var implementation = GetImplementation(proxyObject);
 
         Assert.IsNotNull(implementation);
-        Assert.IsNotInstanceOfType(implementation, typeof(ProxyTest));
+        Assert.IsNotInstanceOfType<ProxyTest>(implementation);
 
         // Dummy call to create implementation
         proxyInterface.MethodString();
@@ -45,7 +45,7 @@ public class ProxyGeneratorTests
         implementation = GetImplementation(proxyObject);
 
         Assert.IsNotNull(implementation);
-        Assert.IsInstanceOfType(implementation, typeof(ProxyTest));
+        Assert.IsInstanceOfType<ProxyTest>(implementation);
     }
 
     /// <summary>
