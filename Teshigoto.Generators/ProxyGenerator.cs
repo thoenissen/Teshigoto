@@ -1,5 +1,4 @@
-﻿using Teshigoto.Annotation;
-using Teshigoto.Generators.Core;
+﻿using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Proxy;
 
 namespace Teshigoto.Generators;
@@ -65,7 +64,7 @@ public class ProxyGenerator : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         var provider = context.SyntaxProvider
-                              .ForAttributeWithMetadataName(typeof(ProxyAttribute<>).FullName!,
+                              .ForAttributeWithMetadataName("Teshigoto.Annotation.ProxyAttribute`1",
                                                             (syntaxNode, _) =>
                                                             {
                                                                 return syntaxNode switch

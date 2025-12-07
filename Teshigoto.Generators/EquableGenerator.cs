@@ -1,5 +1,4 @@
-﻿using Teshigoto.Annotation;
-using Teshigoto.Generators.Core;
+﻿using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Equable;
 
 namespace Teshigoto.Generators;
@@ -44,7 +43,7 @@ public class EquableGenerator : IIncrementalGenerator
                     continue;
                 }
 
-                var generator = EquableGeneratorFactory.Create(node, metaData);
+                var generator = MapperGeneratorFactory.Create(node, metaData);
 
                 var source = generator.Generate(symbol);
 
@@ -64,7 +63,7 @@ public class EquableGenerator : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         var provider = context.SyntaxProvider
-                              .ForAttributeWithMetadataName(typeof(EquableAttribute).FullName!,
+                              .ForAttributeWithMetadataName("Teshigoto.Annotation.EquableAttribute",
                                                             (syntaxNode, _) =>
                                                             {
                                                                 return syntaxNode switch

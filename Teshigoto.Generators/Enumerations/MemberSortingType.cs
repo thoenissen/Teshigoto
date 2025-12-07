@@ -1,6 +1,4 @@
-﻿using Teshigoto.Annotation;
-
-namespace Teshigoto.Generators.Enumerations;
+﻿namespace Teshigoto.Generators.Enumerations;
 
 /// <summary>
 /// Typ of sorting key
@@ -8,7 +6,7 @@ namespace Teshigoto.Generators.Enumerations;
 internal enum MemberSortingType
 {
     /// <summary>
-    /// Defined by <see cref="OrderAttribute"/>
+    /// Defined by OrderAttribute
     /// </summary>
     Attribute,
 

@@ -2,7 +2,6 @@
 using System.IO;
 using System.Reflection;
 
-using Teshigoto.Annotation;
 using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Core.Extensions;
 using Teshigoto.Generators.Data;
@@ -14,7 +13,7 @@ namespace Teshigoto.Generators.Base;
 /// <summary>
 /// Base class for generating implementations
 /// </summary>
-public class GeneratorBase
+public abstract class GeneratorBase
 {
     #region Fields
 
@@ -69,6 +68,11 @@ public class GeneratorBase
     /// Fully qualified name of the symbol
     /// </summary>
     protected string SymbolName { get; private set; }
+
+    /// <summary>
+    /// Generator type
+    /// </summary>
+    protected virtual int GeneratorType => -1;
 
     #endregion // Properties
 
@@ -172,6 +176,27 @@ public class GeneratorBase
 
         WriteLine($"partial {keyword} {typeName}");
         WriteOpenBracket();
+    }
+
+    /// <summary>
+    /// Write namespace and parent types
+    /// </summary>
+    protected void WriteOpenNamespaceAndParentType()
+    {
+        foreach (var symbol in SymbolWalker.ContainingNamespaceAndTypes(Symbol)
+                                           .Reverse())
+        {
+            if (symbol is INamespaceSymbol namespaceSymbol)
+            {
+                WriteNamespace(namespaceSymbol);
+            }
+            else
+            {
+                WriteParentSymbol(symbol);
+            }
+        }
+
+        WriteLine();
     }
 
     /// <summary>
@@ -438,7 +463,7 @@ public class GeneratorBase
                                                    .Select(obj => obj.ConstructorArguments))
         {
             if (constructorArguments.Length == 0
-                || constructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Comparable))
+                || constructorArguments[0].Values.Any(obj => (int?)obj.Value == GeneratorType))
             {
                 return new MemberSortingKey(MemberSortingType.Attribute, (long?)constructorArguments[1].Value ?? 0);
             }

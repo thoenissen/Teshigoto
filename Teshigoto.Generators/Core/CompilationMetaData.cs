@@ -1,6 +1,4 @@
-﻿using Teshigoto.Annotation;
-
-namespace Teshigoto.Generators.Core;
+﻿namespace Teshigoto.Generators.Core;
 
 /// <summary>
 /// Meta information about the current compilation
@@ -15,12 +13,13 @@ internal class CompilationMetaData
     /// <param name="compilation">Compilation</param>
     public CompilationMetaData(Compilation compilation)
     {
-        EquatableAttribute = compilation.GetTypeByMetadataName(typeof(EquableAttribute).FullName!);
-        ComparableAttribute = compilation.GetTypeByMetadataName(typeof(ComparableAttribute).FullName!);
-        IgnoreAttribute = compilation.GetTypeByMetadataName(typeof(IgnoreAttribute).FullName!);
-        IncludeAttribute = compilation.GetTypeByMetadataName(typeof(IncludeAttribute).FullName!);
-        OrderAttribute = compilation.GetTypeByMetadataName(typeof(OrderAttribute).FullName!);
-        ProxyAttribute = compilation.GetTypeByMetadataName(typeof(ProxyAttribute<>).FullName!)!.ConstructUnboundGenericType();
+        EquatableAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.EquableAttribute");
+        ComparableAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.ComparableAttribute");
+        IgnoreAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.IgnoreAttribute");
+        IncludeAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.IncludeAttribute");
+        OrderAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.OrderAttribute");
+        ProxyAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.ProxyAttribute`1")!.ConstructUnboundGenericType();
+        GenerateMapperAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.GenerateMapperAttribute");
     }
 
     #endregion // Constructor
@@ -28,34 +27,39 @@ internal class CompilationMetaData
     #region Properties
 
     /// <summary>
-    /// Symbol information of <see cref="EquableAttribute"/>
+    /// Symbol information of EquableAttribute
     /// </summary>
     public INamedTypeSymbol EquatableAttribute { get; }
 
     /// <summary>
-    /// Symbol information of <see cref="ComparableAttribute"/>
+    /// Symbol information of ComparableAttribute
     /// </summary>
     public INamedTypeSymbol ComparableAttribute { get; set; }
 
     /// <summary>
-    /// Symbol information of <see cref="IgnoreAttribute"/>
+    /// Symbol information of IgnoreAttribute
     /// </summary>
     public INamedTypeSymbol IgnoreAttribute { get; }
 
     /// <summary>
-    /// Symbol information of <see cref="IncludeAttribute"/>
+    /// Symbol information of IncludeAttribute
     /// </summary>
     public INamedTypeSymbol IncludeAttribute { get; }
 
     /// <summary>
-    /// Symbol information of <see cref="OrderAttribute"/>
+    /// Symbol information of OrderAttribute
     /// </summary>
     public INamedTypeSymbol OrderAttribute { get; set; }
 
     /// <summary>
-    /// Symbol information of <see cref="ProxyAttribute{T}"/>
+    /// Symbol information of ProxyAttribute{T}
     /// </summary>
     public INamedTypeSymbol ProxyAttribute { get; set; }
+
+    /// <summary>
+    /// Symbol information of GenerateMapperAttribute
+    /// </summary>
+    public INamedTypeSymbol GenerateMapperAttribute { get; set; }
 
     #endregion // Properties
 }

@@ -1,5 +1,4 @@
-﻿using Teshigoto.Annotation;
-using Teshigoto.Generators.Base;
+﻿using Teshigoto.Generators.Base;
 using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Equable;
 
@@ -24,6 +23,9 @@ internal abstract class ComparableGeneratorBase : GeneratorBase
     #endregion // Constructor
 
     #region Properties
+
+    /// <inheritdoc/>
+    protected override int GeneratorType => 1;
 
     /// <summary>
     /// Fields of the current symbol
@@ -96,7 +98,7 @@ internal abstract class ComparableGeneratorBase : GeneratorBase
             if (ignoreAttribute != null)
             {
                 isIgnored = ignoreAttribute.ConstructorArguments.Length == 0
-                            || ignoreAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Comparable);
+                            || ignoreAttribute.ConstructorArguments[0].Values.Any(obj => (int?)obj.Value == GeneratorType);
             }
         }
 

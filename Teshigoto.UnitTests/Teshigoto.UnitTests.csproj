@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
@@ -49,6 +49,8 @@
     <Compile Remove="Generation\Resources\Equable\StructWithOneProperty.Generated.cs" />
     <Compile Remove="Generation\Resources\Equable\StructWithThreeProperties.Generated.cs" />
     <Compile Remove="Generation\Resources\Equable\StructWithTwoProperties.Generated.cs" />
+    <Compile Remove="Generation\Resources\Mapper\SimpleMapping.cs" />
+    <Compile Remove="Generation\Resources\Mapper\SimpleMapping.Generated.cs" />
     <Compile Remove="Generation\Resources\Proxy\Class.Generated.cs" />
   </ItemGroup>
 
@@ -93,6 +95,8 @@
     <None Include="Generation\Resources\Equable\ClassWithOneProperty.Generated.cs" />
     <None Include="Generation\Resources\Equable\StructWithThreeProperties.Generated.cs" />
     <None Include="Generation\Resources\Equable\StructWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Mapper\SimpleMapping.cs" />
+    <None Include="Generation\Resources\Mapper\SimpleMapping.Generated.cs" />
     <None Include="Generation\Resources\Proxy\Class.Generated.cs" />
   </ItemGroup>
 
@@ -139,6 +143,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Interfaces.resx</DependentUpon>
     </Compile>
+    <Compile Update="Generation\Resources\MapperResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MapperResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Generation\Resources\ProxyResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -162,6 +171,10 @@
     <EmbeddedResource Update="Generation\Resources\Interfaces.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Interfaces.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Generation\Resources\MapperResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MapperResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Generation\Resources\ProxyResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

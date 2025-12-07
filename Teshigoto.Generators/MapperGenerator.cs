@@ -1,13 +1,13 @@
-﻿using Teshigoto.Generators.Comparable;
-using Teshigoto.Generators.Core;
+﻿using Teshigoto.Generators.Core;
+using Teshigoto.Generators.Mapper;
 
 namespace Teshigoto.Generators;
 
 /// <summary>
-/// Automatically implements the <see cref="IComparable{T}"/>-interface for the class
+/// Automatically implements IMapper-interface for the class
 /// </summary>
 [Generator]
-public class ComparableGenerator : IIncrementalGenerator
+public class MapperGenerator : IIncrementalGenerator
 {
     #region Private methods
 
@@ -30,10 +30,10 @@ public class ComparableGenerator : IIncrementalGenerator
 
             if (model.GetDeclaredSymbol(node, context.CancellationToken) is ITypeSymbol symbol)
             {
-                var equatableAttributeData = symbol.GetAttributes()
-                                                   .FirstOrDefault(x => x.AttributeClass?.Equals(metaData.ComparableAttribute, SymbolEqualityComparer.Default) == true);
+                var attributeData = symbol.GetAttributes()
+                                                   .FirstOrDefault(x => x.AttributeClass?.Equals(metaData.GenerateMapperAttribute, SymbolEqualityComparer.Default) == true);
 
-                if (equatableAttributeData == null)
+                if (attributeData == null)
                 {
                     continue;
                 }
@@ -43,13 +43,13 @@ public class ComparableGenerator : IIncrementalGenerator
                     continue;
                 }
 
-                var generator = ComparableGeneratorFactory.Create(node, metaData);
+                var generator = MapperGeneratorFactory.Create(node, metaData);
 
                 var source = generator.Generate(symbol);
 
                 if (string.IsNullOrEmpty(source) == false)
                 {
-                    context.AddSource($"{Escape.SymbolName(symbol)}.ComparableGenerator.g.cs", source);
+                    context.AddSource($"{Escape.SymbolName(symbol)}.Mapper.Generator.g.cs", source);
                 }
             }
         }
@@ -63,18 +63,16 @@ public class ComparableGenerator : IIncrementalGenerator
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         var provider = context.SyntaxProvider
-                              .ForAttributeWithMetadataName("Teshigoto.Annotation.ComparableAttribute",
+                              .ForAttributeWithMetadataName("Teshigoto.Annotation.GenerateMapperAttribute",
                                                             (syntaxNode, _) =>
                                                             {
                                                                 return syntaxNode switch
-                                                                {
-                                                                    ClassDeclarationSyntax => true,
-                                                                    RecordDeclarationSyntax => true,
-                                                                    StructDeclarationSyntax => true,
-                                                                    _ => false
-                                                                };
+                                                                       {
+                                                                           ClassDeclarationSyntax => true,
+                                                                           _ => false
+                                                                       };
                                                             },
-                                                            (syntaxContext, _) => syntaxContext);
+                                                            (syntaxContext, ct) => syntaxContext);
 
         var combined = context.CompilationProvider.Combine(provider.Collect());
 

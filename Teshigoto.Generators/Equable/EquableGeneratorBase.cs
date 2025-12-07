@@ -1,5 +1,4 @@
-﻿using Teshigoto.Annotation;
-using Teshigoto.Generators.Base;
+﻿using Teshigoto.Generators.Base;
 using Teshigoto.Generators.Core;
 using Teshigoto.Generators.Core.Extensions;
 
@@ -24,6 +23,9 @@ internal abstract class EquableGeneratorBase : GeneratorBase
     #endregion // Constructor
 
     #region Properties
+
+    /// <inheritdoc/>
+    protected override int GeneratorType => 0;
 
     /// <summary>
     /// Fields of the current symbol
@@ -139,7 +141,7 @@ internal abstract class EquableGeneratorBase : GeneratorBase
             if (includeAttribute != null)
             {
                 isRelevant = includeAttribute.ConstructorArguments.Length == 0
-                             || includeAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable);
+                             || includeAttribute.ConstructorArguments[0].Values.Any(obj => (int?)obj.Value == GeneratorType);
             }
         }
 
@@ -189,7 +191,7 @@ internal abstract class EquableGeneratorBase : GeneratorBase
         if (ignoreAttribute != null)
         {
             return ignoreAttribute.ConstructorArguments.Length == 0
-                   || ignoreAttribute.ConstructorArguments[0].Values.Any(obj => (GeneratorType?)(int?)obj.Value == GeneratorType.Equatable);
+                   || ignoreAttribute.ConstructorArguments[0].Values.Any(obj => (int?)obj.Value == GeneratorType);
         }
 
         return false;
@@ -198,27 +200,6 @@ internal abstract class EquableGeneratorBase : GeneratorBase
     #endregion // Protected methods
 
     #region Private methods
-
-    /// <summary>
-    /// Write namespace and parent types
-    /// </summary>
-    private void WriteOpenNamespaceAndParentType()
-    {
-        foreach (var symbol in SymbolWalker.ContainingNamespaceAndTypes(Symbol)
-                                           .Reverse())
-        {
-            if (symbol is INamespaceSymbol namespaceSymbol)
-            {
-                WriteNamespace(namespaceSymbol);
-            }
-            else
-            {
-                WriteParentSymbol(symbol);
-            }
-        }
-
-        WriteLine();
-    }
 
     /// <summary>
     /// Write equality comparison for a member

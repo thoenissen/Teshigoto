@@ -5,7 +5,7 @@ namespace Teshigoto.Generators.Equable;
 /// <summary>
 /// Creation of the matching <see cref="EquableGeneratorBase"/> for a given <see cref="SyntaxNode"/>
 /// </summary>
-internal static class EquableGeneratorFactory
+internal static class MapperGeneratorFactory
 {
     /// <summary>
     /// Create the matching <see cref="EquableGeneratorBase"/> for the given <see cref="SyntaxNode"/>
