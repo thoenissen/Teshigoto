@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="SimpleMapping" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Mapper\SimpleMapping.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Mapping" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Mapper\Mapping.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="SimpleMappingGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-	  <value>Mapper\SimpleMapping.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MappingGenerated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+	  <value>Mapper\Mapping.Generated.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -13,5 +13,9 @@ public partial class Mapper
     /// </summary>
     /// <param name="source">The source object containing the data to be mapped.</param>
     /// <param name="destination">The destination object that receives the mapped data.</param>
-    public static partial void Map(in MapperSource source, in MapperDestination destination);
+    [MapMember("Value", "Value")]
+    [MapMember("IntValue", "LongValue")]
+    [MapMember("LongValue", "IntValue", Cast = true)]
+    [MapMember("DecimalValue", "FloatValue", Converter = typeof(DecimalConverter))]
+    public static partial void Map(MapperSource source, MapperDestination destination);
 }

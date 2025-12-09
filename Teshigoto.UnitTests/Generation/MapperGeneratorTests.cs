@@ -11,8 +11,8 @@ namespace Teshigoto.UnitTests.Generation;
 public class MapperGeneratorTests : SourceGeneratorTestBase<MapperGenerator>
 {
     /// <summary>
-    /// Simple member mapping by name
+    /// Mapping
     /// </summary>
     [TestMethod]
-    public void SimpleMapping() => AssertGenerationResult(MapperResources.SimpleMappingGenerated, MapperResources.SimpleMapping);
+    public void Mapping() => AssertGenerationResult(MapperResources.MappingGenerated, MapperResources.Mapping);
 }

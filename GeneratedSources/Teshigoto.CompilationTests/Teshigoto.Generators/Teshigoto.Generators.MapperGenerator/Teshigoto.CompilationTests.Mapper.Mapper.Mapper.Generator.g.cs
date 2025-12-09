@@ -11,8 +11,11 @@ namespace Teshigoto.CompilationTests.Mapper;
 
 public partial class Mapper
 {
-    public static partial void Map(in global::Teshigoto.CompilationTests.Mapper.MapperSource source, in global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
+    public static partial void Map(global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
     {
         destination.Value = source.Value;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
     }
 }

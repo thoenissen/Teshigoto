@@ -31,7 +31,7 @@ public class MapperGenerator : IIncrementalGenerator
             if (model.GetDeclaredSymbol(node, context.CancellationToken) is ITypeSymbol symbol)
             {
                 var attributeData = symbol.GetAttributes()
-                                                   .FirstOrDefault(x => x.AttributeClass?.Equals(metaData.GenerateMapperAttribute, SymbolEqualityComparer.Default) == true);
+                                          .FirstOrDefault(x => x.AttributeClass?.Equals(metaData.GenerateMapperAttribute, SymbolEqualityComparer.Default) == true);
 
                 if (attributeData == null)
                 {

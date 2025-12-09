@@ -13,6 +13,7 @@ internal class CompilationMetaData
     /// <param name="compilation">Compilation</param>
     public CompilationMetaData(Compilation compilation)
     {
+        Compilation = compilation;
         EquatableAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.EquableAttribute");
         ComparableAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.ComparableAttribute");
         IgnoreAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.IgnoreAttribute");
@@ -20,11 +21,17 @@ internal class CompilationMetaData
         OrderAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.OrderAttribute");
         ProxyAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.ProxyAttribute`1")!.ConstructUnboundGenericType();
         GenerateMapperAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.GenerateMapperAttribute");
+        MapMemberAttribute = compilation.GetTypeByMetadataName("Teshigoto.Annotation.MapMemberAttribute");
     }
 
     #endregion // Constructor
 
     #region Properties
+
+    /// <summary>
+    /// Current compilation
+    /// </summary>
+    public Compilation Compilation { get; set; }
 
     /// <summary>
     /// Symbol information of EquableAttribute
@@ -60,6 +67,11 @@ internal class CompilationMetaData
     /// Symbol information of GenerateMapperAttribute
     /// </summary>
     public INamedTypeSymbol GenerateMapperAttribute { get; set; }
+
+    /// <summary>
+    /// Symbol information of MapMemberAttribute
+    /// </summary>
+    public INamedTypeSymbol MapMemberAttribute { get; set; }
 
     #endregion // Properties
 }
