@@ -13,12 +13,14 @@ internal static class MapperGeneratorFactory
     /// <param name="node">Node</param>
     /// <param name="metaData">Meta data</param>
     /// <returns>Created generator</returns>
-    public static MapperGeneratorBase Create(SyntaxNode node, CompilationMetaData metaData)
+    public static MapperGeneratorBase Create(INamedTypeSymbol node, CompilationMetaData metaData)
     {
-        return node switch
-               {
-                   ClassDeclarationSyntax _ => new ClassMapperGenerator(metaData),
-                   _ => throw new NotSupportedException($"The type '{node.GetType()}' is not supported")
-               };
+        if (node.IsValueType == false
+            && node.IsRecord == false)
+        {
+            return new ClassMapperGenerator(metaData);
+        }
+
+        throw new NotSupportedException($"The type '{node.GetType()}' is not supported");
     }
 }

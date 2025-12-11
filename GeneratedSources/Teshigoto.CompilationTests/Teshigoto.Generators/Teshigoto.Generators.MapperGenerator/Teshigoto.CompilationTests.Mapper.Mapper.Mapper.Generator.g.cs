@@ -18,4 +18,44 @@ public partial class Mapper
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
     }
+
+    public partial void Instance(global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
+    {
+        destination.Value = source.Value;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void RefSource(ref global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
+    {
+        destination.Value = source.Value;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void InSource(in global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
+    {
+        destination.Value = source.Value;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void RefReadonlySource(ref readonly global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
+    {
+        destination.Value = source.Value;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void RefDestination(global::Teshigoto.CompilationTests.Mapper.MapperSource source, ref global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
+    {
+        destination.Value = source.Value;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
+    }
 }

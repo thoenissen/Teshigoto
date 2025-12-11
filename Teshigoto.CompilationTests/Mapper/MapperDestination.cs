@@ -5,6 +5,8 @@
 /// </summary>
 public class MapperDestination
 {
+    #region Properties
+
     /// <summary>
     /// Value
     /// </summary>
@@ -24,4 +26,6 @@ public class MapperDestination
     /// Float value
     /// </summary>
     public float FloatValue { get; set; }
+
+    #endregion // Properties
 }

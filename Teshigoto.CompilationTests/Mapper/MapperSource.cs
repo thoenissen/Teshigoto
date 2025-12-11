@@ -5,6 +5,8 @@
 /// </summary>
 public class MapperSource
 {
+    #region Properties
+
     /// <summary>
     /// Value
     /// </summary>
@@ -24,4 +26,6 @@ public class MapperSource
     /// Decimal value
     /// </summary>
     public decimal DecimalValue { get; set; }
+
+    #endregion // Properties
 }

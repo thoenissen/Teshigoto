@@ -8,5 +8,5 @@ namespace Teshigoto.Annotation;
 /// public static partial void Map(SourceType source, DestinationType destination);
 /// </code>
 /// </summary>
-[AttributeUsage(AttributeTargets.Class)]
+[AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor)]
 public class GenerateMapperAttribute : Attribute;

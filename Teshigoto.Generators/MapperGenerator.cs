@@ -28,28 +28,19 @@ public class MapperGenerator : IIncrementalGenerator
             var node = item.TargetNode;
             var model = item.SemanticModel;
 
-            if (model.GetDeclaredSymbol(node, context.CancellationToken) is ITypeSymbol symbol)
+            if (model.GetDeclaredSymbol(node, context.CancellationToken) is IMethodSymbol symbol)
             {
-                var attributeData = symbol.GetAttributes()
-                                          .FirstOrDefault(x => x.AttributeClass?.Equals(metaData.GenerateMapperAttribute, SymbolEqualityComparer.Default) == true);
-
-                if (attributeData == null)
+                if (handledSymbols.Add(symbol.ContainingType.ToDisplayString()) == false)
                 {
                     continue;
                 }
 
-                if (handledSymbols.Add(symbol.ToDisplayString()) == false)
-                {
-                    continue;
-                }
-
-                var generator = MapperGeneratorFactory.Create(node, metaData);
-
-                var source = generator.Generate(symbol);
+                var generator = MapperGeneratorFactory.Create(symbol.ContainingType, metaData);
+                var source = generator.Generate(symbol.ContainingType);
 
                 if (string.IsNullOrEmpty(source) == false)
                 {
-                    context.AddSource($"{Escape.SymbolName(symbol)}.Mapper.Generator.g.cs", source);
+                    context.AddSource($"{Escape.SymbolName(symbol.ContainingType)}.Mapper.Generator.g.cs", source);
                 }
             }
         }
@@ -68,7 +59,7 @@ public class MapperGenerator : IIncrementalGenerator
                                                             {
                                                                 return syntaxNode switch
                                                                        {
-                                                                           ClassDeclarationSyntax => true,
+                                                                           MethodDeclarationSyntax => true,
                                                                            _ => false
                                                                        };
                                                             },

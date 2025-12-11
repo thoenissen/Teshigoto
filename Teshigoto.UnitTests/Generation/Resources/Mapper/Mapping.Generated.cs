@@ -11,9 +11,55 @@ namespace Teshigoto.UnitTests;
 
 public partial class Mapper
 {
-    public static partial void Map(global::Teshigoto.UnitTests.MapperSource source, global::Teshigoto.UnitTests.MapperDestination destination)
+    public static partial void Static(global::Teshigoto.UnitTests.MapperSource source, global::Teshigoto.UnitTests.MapperDestination destination)
     {
-        destination.Value = source.Value;
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.UnitTests.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void Instance(global::Teshigoto.UnitTests.MapperSource source, global::Teshigoto.UnitTests.MapperDestination destination)
+    {
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.UnitTests.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void RefSource(ref global::Teshigoto.UnitTests.MapperSource source, global::Teshigoto.UnitTests.MapperDestination destination)
+    {
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.UnitTests.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void InSource(in global::Teshigoto.UnitTests.MapperSource source, global::Teshigoto.UnitTests.MapperDestination destination)
+    {
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.UnitTests.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void RefReadonlySource(ref readonly global::Teshigoto.UnitTests.MapperSource source, global::Teshigoto.UnitTests.MapperDestination destination)
+    {
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
+        destination.LongValue = source.IntValue;
+        destination.IntValue = (int)source.LongValue;
+        destination.FloatValue = global::Teshigoto.UnitTests.DecimalConverter.Convert(source.DecimalValue);
+    }
+
+    public partial void RefDestination(global::Teshigoto.UnitTests.MapperSource source, ref global::Teshigoto.UnitTests.MapperDestination destination)
+    {
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
         destination.LongValue = source.IntValue;
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.UnitTests.DecimalConverter.Convert(source.DecimalValue);

@@ -51,8 +51,19 @@ internal class MapperGeneratorBase : GeneratorBase
 
         using (WriteBracket())
         {
+            var isFirstMethod = true;
+
             foreach (var method in GetMemberMethods())
             {
+                if (isFirstMethod == false)
+                {
+                    WriteLine();
+                }
+                else
+                {
+                    isFirstMethod = false;
+                }
+
                 WriteMapMethod(method);
             }
         }
@@ -66,18 +77,33 @@ internal class MapperGeneratorBase : GeneratorBase
     {
         foreach (var member in Symbol.GetMembers())
         {
-            if (member is IMethodSymbol
-                       {
-                           MethodKind: MethodKind.Ordinary,
-                           DeclaredAccessibility: Accessibility.Public,
-                           IsStatic: true,
-                           IsPartialDefinition: true,
-                           ReturnsVoid: true,
-                           Name: "Map",
-                           Parameters: { Length: 2 } parameters,
-                       } method
-                && parameters[0] is { RefKind: RefKind.None } && parameters[1] is { RefKind: RefKind.None })
+            if (member is IMethodSymbol method
+                && member.GetAttributes().Any(x => x.AttributeClass?.Equals(MetaData.GenerateMapperAttribute, SymbolEqualityComparer.Default) == true))
             {
+                if (method.ReturnsVoid == false)
+                {
+                    WriteLine($"#error Method: {member.Name} - Only void methods are supported.");
+                    continue;
+                }
+
+                if (method.MethodKind is not MethodKind.Ordinary)
+                {
+                    WriteLine($"#error Method: {member.Name} - Only ordinary methods are supported.");
+                    continue;
+                }
+
+                if (method.IsPartialDefinition == false)
+                {
+                    WriteLine($"#error Method: {member.Name} - Only partial methods are supported.");
+                    continue;
+                }
+
+                if (method.Parameters.Length != 2)
+                {
+                    WriteLine($"#error Method: {member.Name} - Only methods with two parameters are supported.");
+                    continue;
+                }
+
                 yield return method;
             }
         }
@@ -92,13 +118,22 @@ internal class MapperGeneratorBase : GeneratorBase
         var sourceArgument = method.Parameters[0];
         var targetArgument = method.Parameters[1];
 
-        Write("public static partial void ");
+        WriteDeclaredAccessibility(method.DeclaredAccessibility);
+
+        if (method.IsStatic)
+        {
+            Write("static ");
+        }
+
+        Write("partial void ");
         Write(method.Name);
         Write("(");
+        WriteRefKind(sourceArgument.RefKind);
         Write(sourceArgument.Type.ToFullQualifiedDisplayString());
         Write(" ");
         Write(sourceArgument.Name);
         Write(", ");
+        WriteRefKind(targetArgument.RefKind);
         Write(targetArgument.Type.ToFullQualifiedDisplayString());
         Write(" ");
         Write(targetArgument.Name);
@@ -167,6 +202,36 @@ internal class MapperGeneratorBase : GeneratorBase
                     }
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// Write ref kind
+    /// </summary>
+    /// <param name="refKind">Reference kind</param>
+    private void WriteRefKind(RefKind refKind)
+    {
+        switch (refKind)
+        {
+            case RefKind.Ref:
+                Write("ref ");
+                break;
+
+            case RefKind.Out:
+                Write("out ");
+                break;
+
+            case RefKind.In:
+                Write("in ");
+                break;
+
+            case RefKind.RefReadOnlyParameter:
+                Write("ref readonly ");
+                break;
+
+            case RefKind.None:
+            default:
+                break;
         }
     }
 
