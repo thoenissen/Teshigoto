@@ -157,52 +157,11 @@ internal class MapperGeneratorBase : GeneratorBase
                                  ? method.Parameters[1]
                                  : null;
 
-        WriteDeclaredAccessibility(method.DeclaredAccessibility);
-
-        if (method.IsStatic)
-        {
-            Write("static ");
-        }
-
-        Write("partial ");
-
-        if (method.MethodKind == MethodKind.Constructor)
-        {
-            Write(Symbol.Name);
-        }
-        else
-        {
-            Write("void ");
-            Write(method.Name);
-        }
-
-        Write("(");
-
-        if (method.IsExtensionMethod)
-        {
-            Write("this ");
-        }
-
-        WriteRefKind(sourceArgument.RefKind);
-        Write(sourceArgument.Type.ToFullQualifiedDisplayString());
-        Write(" ");
-        Write(sourceArgument.Name);
-
-        if (targetArgument != null)
-        {
-            Write(", ");
-            WriteRefKind(targetArgument.RefKind);
-            Write(targetArgument.Type.ToFullQualifiedDisplayString());
-            Write(" ");
-            Write(targetArgument.Name);
-        }
-
-        WriteLine(")");
+        WriteMethodSignature(method, sourceArgument, targetArgument);
 
         using (WriteBracket())
         {
             var gettableMembers = sourceArgument.Type.GetMembers().Where(IsGettable).ToList();
-
             var targetName = targetArgument?.Name ?? "this";
             var targetType = targetArgument?.Type ?? Symbol;
 
@@ -262,11 +221,62 @@ internal class MapperGeneratorBase : GeneratorBase
                     }
                     else
                     {
-                        WriteLine($"#error The member {sourceArgument.Name}.{targetMember.Name} can't be implicit converter to the type of {targetArgument.Name}{sourceMember.Name}.");
+                        WriteLine($"#error The member {sourceArgument.Name}.{targetMember.Name} can't be implicit converter to the type of {targetArgument?.Name ?? "this"}.{sourceMember.Name}.");
                     }
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Write method signature
+    /// </summary>
+    /// <param name="method">Method</param>
+    /// <param name="sourceArgument">Source argument</param>
+    /// <param name="targetArgument">Target argument</param>
+    private void WriteMethodSignature(IMethodSymbol method, IParameterSymbol sourceArgument, IParameterSymbol targetArgument)
+    {
+        WriteDeclaredAccessibility(method.DeclaredAccessibility);
+
+        if (method.IsStatic)
+        {
+            Write("static ");
+        }
+
+        Write("partial ");
+
+        if (method.MethodKind == MethodKind.Constructor)
+        {
+            Write(Symbol.Name);
+        }
+        else
+        {
+            Write("void ");
+            Write(method.Name);
+        }
+
+        Write("(");
+
+        if (method.IsExtensionMethod)
+        {
+            Write("this ");
+        }
+
+        WriteRefKind(sourceArgument.RefKind);
+        Write(sourceArgument.Type.ToFullQualifiedDisplayString());
+        Write(" ");
+        Write(sourceArgument.Name);
+
+        if (targetArgument != null)
+        {
+            Write(", ");
+            WriteRefKind(targetArgument.RefKind);
+            Write(targetArgument.Type.ToFullQualifiedDisplayString());
+            Write(" ");
+            Write(targetArgument.Name);
+        }
+
+        WriteLine(")");
     }
 
     /// <summary>
