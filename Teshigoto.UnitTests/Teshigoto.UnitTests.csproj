@@ -191,7 +191,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="Reihitsu.Analyzer" Version="0.7.2" />
+    <PackageReference Update="Reihitsu.Analyzer" Version="0.8.0" />
   </ItemGroup>
 
 </Project>

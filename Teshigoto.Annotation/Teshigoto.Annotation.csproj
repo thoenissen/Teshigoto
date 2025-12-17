@@ -6,4 +6,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Teshigoto.Core\Teshigoto.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Reihitsu.Analyzer" Version="0.8.0" />
+  </ItemGroup>
 </Project>

@@ -14,5 +14,8 @@ public class ProxyGeneratorTests : SourceGeneratorTestBase<ProxyGenerator>
     /// Test class generation
     /// </summary>
     [TestMethod]
-    public void Class() => AssertGenerationResult(ProxyResources.ClassGenerated, ProxyResources.Class);
+    public void Class()
+    {
+        AssertGenerationResult(ProxyResources.ClassGenerated, ProxyResources.Class);
+    }
 }

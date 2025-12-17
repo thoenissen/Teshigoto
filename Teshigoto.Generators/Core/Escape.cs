@@ -10,7 +10,7 @@ internal static class Escape
     /// <summary>
     /// Characters of a symbol which should be replaced
     /// </summary>
-    private static readonly char[] SymbolCharacters = ['<', '>', ',', ' '];
+    private static readonly char[] _symbolCharacters = ['<', '>', ',', ' '];
 
     #endregion // Fields
 
@@ -28,7 +28,7 @@ internal static class Escape
 
         foreach (var character in displayString)
         {
-            if (SymbolCharacters.Contains(character))
+            if (_symbolCharacters.Contains(character))
             {
                 stringBuilder.Append('_');
             }

@@ -214,6 +214,7 @@ internal class MapperGeneratorBase : GeneratorBase
                 if (sourceMember == null)
                 {
                     WriteLine($"#error No source member for {targetMember.Name} found.");
+
                     continue;
                 }
 

@@ -14,17 +14,26 @@ public class MapperGeneratorTests : SourceGeneratorTestBase<MapperGenerator>
     /// Mapping method
     /// </summary>
     [TestMethod]
-    public void Mapping() => AssertGenerationResult(MapperResources.MappingGenerated, MapperResources.Mapping);
+    public void Mapping()
+    {
+        AssertGenerationResult(MapperResources.MappingGenerated, MapperResources.Mapping);
+    }
 
     /// <summary>
     /// Extension mapping method
     /// </summary>
     [TestMethod]
-    public void MappingExtension() => AssertGenerationResult(MapperResources.MappingExtensionGenerated, MapperResources.MappingExtension);
+    public void MappingExtension()
+    {
+        AssertGenerationResult(MapperResources.MappingExtensionGenerated, MapperResources.MappingExtension);
+    }
 
     /// <summary>
     /// This assignment mapping method
     /// </summary>
     [TestMethod]
-    public void ThisAssignment() => AssertGenerationResult(MapperResources.ThisAssignmentGenerated, MapperResources.ThisAssignment);
+    public void ThisAssignment()
+    {
+        AssertGenerationResult(MapperResources.ThisAssignmentGenerated, MapperResources.ThisAssignment);
+    }
 }
