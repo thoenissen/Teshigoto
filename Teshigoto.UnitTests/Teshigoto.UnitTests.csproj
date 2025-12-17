@@ -51,6 +51,8 @@
     <Compile Remove="Generation\Resources\Equable\StructWithTwoProperties.Generated.cs" />
     <Compile Remove="Generation\Resources\Mapper\Mapping.cs" />
     <Compile Remove="Generation\Resources\Mapper\Mapping.Generated.cs" />
+    <Compile Remove="Generation\Resources\Mapper\MappingExtension.cs" />
+    <Compile Remove="Generation\Resources\Mapper\MappingExtension.Generated.cs" />
     <Compile Remove="Generation\Resources\Proxy\Class.Generated.cs" />
   </ItemGroup>
 
@@ -95,6 +97,8 @@
     <None Include="Generation\Resources\Equable\ClassWithOneProperty.Generated.cs" />
     <None Include="Generation\Resources\Equable\StructWithThreeProperties.Generated.cs" />
     <None Include="Generation\Resources\Equable\StructWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Mapper\MappingExtension.Generated.cs" />
+    <None Include="Generation\Resources\Mapper\MappingExtension.cs" />
     <None Include="Generation\Resources\Mapper\Mapping.cs" />
     <None Include="Generation\Resources\Mapper\Mapping.Generated.cs" />
     <None Include="Generation\Resources\Proxy\Class.Generated.cs" />

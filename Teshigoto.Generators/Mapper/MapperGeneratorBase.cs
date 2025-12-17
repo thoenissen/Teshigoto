@@ -80,33 +80,52 @@ internal class MapperGeneratorBase : GeneratorBase
             if (member is IMethodSymbol method
                 && member.GetAttributes().Any(x => x.AttributeClass?.Equals(MetaData.GenerateMapperAttribute, SymbolEqualityComparer.Default) == true))
             {
-                if (method.ReturnsVoid == false)
+                if (IsMethodValid(method) == false)
                 {
-                    WriteLine($"#error Method: {member.Name} - Only void methods are supported.");
-                    continue;
-                }
-
-                if (method.MethodKind is not MethodKind.Ordinary)
-                {
-                    WriteLine($"#error Method: {member.Name} - Only ordinary methods are supported.");
-                    continue;
-                }
-
-                if (method.IsPartialDefinition == false)
-                {
-                    WriteLine($"#error Method: {member.Name} - Only partial methods are supported.");
-                    continue;
-                }
-
-                if (method.Parameters.Length != 2)
-                {
-                    WriteLine($"#error Method: {member.Name} - Only methods with two parameters are supported.");
                     continue;
                 }
 
                 yield return method;
             }
         }
+    }
+
+    /// <summary>
+    /// Check, if the method signature is valid
+    /// </summary>
+    /// <param name="method">Method</param>
+    /// <returns>Is the method signature valid?</returns>
+    private bool IsMethodValid(IMethodSymbol method)
+    {
+        if (method.ReturnsVoid == false)
+        {
+            WriteLine($"#error Method: {method.Name} - Only void methods are supported.");
+
+            return false;
+        }
+
+        if (method.MethodKind is not MethodKind.Ordinary)
+        {
+            WriteLine($"#error Method: {method.Name} - Only ordinary methods are supported.");
+
+            return false;
+        }
+
+        if (method.IsPartialDefinition == false)
+        {
+            WriteLine($"#error Method: {method.Name} - Only partial methods are supported.");
+
+            return false;
+        }
+
+        if (method.Parameters.Length != 2)
+        {
+            WriteLine($"#error Method: {method.Name} - Only methods with two parameters are supported.");
+
+            return false;
+        }
+
+        return true;
     }
 
     /// <summary>
@@ -128,6 +147,12 @@ internal class MapperGeneratorBase : GeneratorBase
         Write("partial void ");
         Write(method.Name);
         Write("(");
+
+        if (method.IsExtensionMethod)
+        {
+            Write("this ");
+        }
+
         WriteRefKind(sourceArgument.RefKind);
         Write(sourceArgument.Type.ToFullQualifiedDisplayString());
         Write(" ");
