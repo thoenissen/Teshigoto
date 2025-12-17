@@ -28,9 +28,9 @@ public class SourceGeneratorTestBase<TGenerator>
     {
         var runResult = RunCompilation(sources);
 
-        Assert.AreEqual(0, runResult.Diagnostics.Length, $"Compilation failed with {runResult.Diagnostics.Length} diagnostics:{Environment.NewLine}{string.Join(Environment.NewLine, runResult.Diagnostics)}");
-        Assert.AreEqual(1, runResult.Results.Length, "Count of generator results mismatched");
-        Assert.AreEqual(1, runResult.Results[0].GeneratedSources.Length, "Count of generated sources mismatched");
+        Assert.IsEmpty(runResult.Diagnostics, $"Compilation failed with {runResult.Diagnostics.Length} diagnostics:{Environment.NewLine}{string.Join(Environment.NewLine, runResult.Diagnostics)}");
+        Assert.HasCount(1, runResult.Results, "Count of generator results mismatched");
+        Assert.HasCount(1, runResult.Results[0].GeneratedSources, "Count of generated sources mismatched");
         Assert.AreEqual(expectedGeneratedSource, runResult.Results[0].GeneratedSources[0].SourceText.ToString());
     }
 
@@ -119,6 +119,7 @@ public class SourceGeneratorTestBase<TGenerator>
                                                    GetAdditionalSources().Concat(syntaxTrees),
                                                    GetMetadataReferences(),
                                                    new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+
         return compilation;
     }
 

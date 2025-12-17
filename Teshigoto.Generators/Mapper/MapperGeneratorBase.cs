@@ -104,23 +104,41 @@ internal class MapperGeneratorBase : GeneratorBase
             return false;
         }
 
-        if (method.MethodKind is not MethodKind.Ordinary)
+        switch (method.MethodKind)
         {
-            WriteLine($"#error Method: {method.Name} - Only ordinary methods are supported.");
+            case MethodKind.Ordinary:
+                {
+                    if (method.Parameters.Length is not 1 and not 2)
+                    {
+                        WriteLine($"#error Method: {method.Name} - Only methods with one or two parameters are supported.");
 
-            return false;
+                        return false;
+                    }
+                }
+                break;
+
+            case MethodKind.Constructor:
+                {
+                    if (method.Parameters.Length is not 1)
+                    {
+                        WriteLine($"#error Method: {method.Name} - Only constructors with one parameter are supported.");
+
+                        return false;
+                    }
+
+                    break;
+                }
+            default:
+                {
+                    WriteLine($"#error Method: {method.Name} - Only ordinary methods and constructors are supported.");
+
+                    return false;
+                }
         }
 
         if (method.IsPartialDefinition == false)
         {
             WriteLine($"#error Method: {method.Name} - Only partial methods are supported.");
-
-            return false;
-        }
-
-        if (method.Parameters.Length != 2)
-        {
-            WriteLine($"#error Method: {method.Name} - Only methods with two parameters are supported.");
 
             return false;
         }
@@ -135,7 +153,9 @@ internal class MapperGeneratorBase : GeneratorBase
     private void WriteMapMethod(IMethodSymbol method)
     {
         var sourceArgument = method.Parameters[0];
-        var targetArgument = method.Parameters[1];
+        var targetArgument = method.Parameters.Length == 2
+                                 ? method.Parameters[1]
+                                 : null;
 
         WriteDeclaredAccessibility(method.DeclaredAccessibility);
 
@@ -144,8 +164,18 @@ internal class MapperGeneratorBase : GeneratorBase
             Write("static ");
         }
 
-        Write("partial void ");
-        Write(method.Name);
+        Write("partial ");
+
+        if (method.MethodKind == MethodKind.Constructor)
+        {
+            Write(Symbol.Name);
+        }
+        else
+        {
+            Write("void ");
+            Write(method.Name);
+        }
+
         Write("(");
 
         if (method.IsExtensionMethod)
@@ -157,18 +187,26 @@ internal class MapperGeneratorBase : GeneratorBase
         Write(sourceArgument.Type.ToFullQualifiedDisplayString());
         Write(" ");
         Write(sourceArgument.Name);
-        Write(", ");
-        WriteRefKind(targetArgument.RefKind);
-        Write(targetArgument.Type.ToFullQualifiedDisplayString());
-        Write(" ");
-        Write(targetArgument.Name);
+
+        if (targetArgument != null)
+        {
+            Write(", ");
+            WriteRefKind(targetArgument.RefKind);
+            Write(targetArgument.Type.ToFullQualifiedDisplayString());
+            Write(" ");
+            Write(targetArgument.Name);
+        }
+
         WriteLine(")");
 
         using (WriteBracket())
         {
             var gettableMembers = sourceArgument.Type.GetMembers().Where(IsGettable).ToList();
 
-            foreach (var targetMember in targetArgument.Type.GetMembers().Where(IsAssignable))
+            var targetName = targetArgument?.Name ?? "this";
+            var targetType = targetArgument?.Type ?? Symbol;
+
+            foreach (var targetMember in targetType.GetMembers().Where(IsAssignable))
             {
                 var mappingInformation = GetMappingInformation(method, targetMember);
                 var sourceMember = gettableMembers.Find(x => x.Name == mappingInformation.SourceName);
@@ -181,7 +219,7 @@ internal class MapperGeneratorBase : GeneratorBase
 
                 if (mappingInformation.Converter != null)
                 {
-                    Write(targetArgument.Name);
+                    Write(targetName);
                     Write(".");
                     Write(targetMember.Name);
                     Write(" = ");
@@ -194,7 +232,7 @@ internal class MapperGeneratorBase : GeneratorBase
                 }
                 else if (mappingInformation.Cast)
                 {
-                    Write(targetArgument.Name);
+                    Write(targetName);
                     Write(".");
                     Write(targetMember.Name);
                     Write(" = (");
@@ -212,7 +250,7 @@ internal class MapperGeneratorBase : GeneratorBase
                     if (conversion.Exists
                         || conversion.IsImplicit)
                     {
-                        Write(targetArgument.Name);
+                        Write(targetName);
                         Write(".");
                         Write(targetMember.Name);
                         Write(" = ");

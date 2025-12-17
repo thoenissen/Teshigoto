@@ -13,7 +13,8 @@ public partial class Mapper
 {
     public static partial void Map(global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
     {
-        destination.Value = source.Value;
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
         destination.LongValue = source.IntValue;
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
@@ -21,7 +22,8 @@ public partial class Mapper
 
     public partial void Instance(global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
     {
-        destination.Value = source.Value;
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
         destination.LongValue = source.IntValue;
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
@@ -29,7 +31,8 @@ public partial class Mapper
 
     public partial void RefSource(ref global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
     {
-        destination.Value = source.Value;
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
         destination.LongValue = source.IntValue;
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
@@ -37,7 +40,8 @@ public partial class Mapper
 
     public partial void InSource(in global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
     {
-        destination.Value = source.Value;
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
         destination.LongValue = source.IntValue;
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
@@ -45,7 +49,8 @@ public partial class Mapper
 
     public partial void RefReadonlySource(ref readonly global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
     {
-        destination.Value = source.Value;
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
         destination.LongValue = source.IntValue;
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);
@@ -53,7 +58,8 @@ public partial class Mapper
 
     public partial void RefDestination(global::Teshigoto.CompilationTests.Mapper.MapperSource source, ref global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
     {
-        destination.Value = source.Value;
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
         destination.LongValue = source.IntValue;
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);

@@ -59,6 +59,7 @@ public class MapperGenerator : IIncrementalGenerator
                                                             {
                                                                 return syntaxNode switch
                                                                        {
+                                                                           ConstructorDeclarationSyntax => true,
                                                                            MethodDeclarationSyntax => true,
                                                                            _ => false
                                                                        };

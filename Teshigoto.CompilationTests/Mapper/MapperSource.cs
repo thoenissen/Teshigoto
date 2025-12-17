@@ -10,7 +10,12 @@ public class MapperSource
     /// <summary>
     /// Value
     /// </summary>
-    public int Value { get; set; }
+    public int Value1 { get; set; }
+
+    /// <summary>
+    /// Value
+    /// </summary>
+    public int Value2 { get; set; }
 
     /// <summary>
     /// Int value

@@ -53,6 +53,8 @@
     <Compile Remove="Generation\Resources\Mapper\Mapping.Generated.cs" />
     <Compile Remove="Generation\Resources\Mapper\MappingExtension.cs" />
     <Compile Remove="Generation\Resources\Mapper\MappingExtension.Generated.cs" />
+    <Compile Remove="Generation\Resources\Mapper\ThisAssignment.cs" />
+    <Compile Remove="Generation\Resources\Mapper\ThisAssignment.Generated.cs" />
     <Compile Remove="Generation\Resources\Proxy\Class.Generated.cs" />
   </ItemGroup>
 
@@ -97,6 +99,8 @@
     <None Include="Generation\Resources\Equable\ClassWithOneProperty.Generated.cs" />
     <None Include="Generation\Resources\Equable\StructWithThreeProperties.Generated.cs" />
     <None Include="Generation\Resources\Equable\StructWithTwoProperties.Generated.cs" />
+    <None Include="Generation\Resources\Mapper\ThisAssignment.Generated.cs" />
+    <None Include="Generation\Resources\Mapper\ThisAssignment.cs" />
     <None Include="Generation\Resources\Mapper\MappingExtension.Generated.cs" />
     <None Include="Generation\Resources\Mapper\MappingExtension.cs" />
     <None Include="Generation\Resources\Mapper\Mapping.cs" />
@@ -105,15 +109,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.3.1" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.3.1" />
-    <PackageReference Include="coverlet.collector" Version="6.0.2">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="4.0.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.0.2" />
+    <PackageReference Include="coverlet.collector" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.9.2" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="5.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -184,6 +188,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ProxyResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Reihitsu.Analyzer" Version="0.7.2" />
   </ItemGroup>
 
 </Project>

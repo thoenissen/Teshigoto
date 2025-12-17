@@ -13,7 +13,8 @@ internal partial class MapperExtensions
 {
     public static partial void Map(this global::Teshigoto.CompilationTests.Mapper.MapperSource source, global::Teshigoto.CompilationTests.Mapper.MapperDestination destination)
     {
-        destination.Value = source.Value;
+        destination.Value1 = source.Value1;
+        destination.Value2 = source.Value2;
         destination.LongValue = source.IntValue;
         destination.IntValue = (int)source.LongValue;
         destination.FloatValue = global::Teshigoto.CompilationTests.Mapper.DecimalConverter.Convert(source.DecimalValue);

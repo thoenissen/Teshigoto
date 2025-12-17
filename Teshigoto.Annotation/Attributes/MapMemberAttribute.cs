@@ -5,7 +5,7 @@ namespace Teshigoto.Annotation;
 /// <summary>
 /// Member mapping configuration
 /// </summary>
-[AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+[AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor, AllowMultiple = true)]
 public class MapMemberAttribute : Attribute
 {
     #region Constructor
