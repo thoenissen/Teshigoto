@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{815DC310-1
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
 		README.md = README.md
+		.github\workflows\release.yml = .github\workflows\release.yml
 		.github\workflows\SonarCloud.yml = .github\workflows\SonarCloud.yml
 		StyleCop.Debug.ruleset = StyleCop.Debug.ruleset
 		stylecop.json = stylecop.json
