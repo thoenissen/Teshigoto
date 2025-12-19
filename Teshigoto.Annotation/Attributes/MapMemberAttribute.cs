@@ -38,12 +38,12 @@ public class MapMemberAttribute : Attribute
     /// <summary>
     /// Converter to be used to convert the source value to the target value
     /// </summary>
-    public Type? Converter { get; init; }
+    public Type? Converter { get; set; }
 
     /// <summary>
     /// Indicates if the source value should be casted to the target type
     /// </summary>
-    public bool Cast { get; init; }
+    public bool Cast { get; set; }
 
     #endregion // Properties
 }

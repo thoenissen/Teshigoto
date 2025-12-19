@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Teshigoto</PackageId>
+    <Authors>Thoenissen</Authors>
+    <PackageProjectUrl>https://github.com/thoenissen/Teshigoto</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.MD</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/thoenissen/Teshigoto</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>Teshigoto</Description>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<Copyright>Copyright (c) 2025 Seth (thoenissen)</Copyright>
+		<PackageTags>Teshigoto, source generator</PackageTags>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="..\stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Link="LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\README.MD" Link="README.MD" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Teshigoto.Annotation\Teshigoto.Annotation.csproj" />
+    <ProjectReference Include="..\Teshigoto.Generators\Teshigoto.Generators.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <Target Name="_AddAnalyzersToOutput">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\Teshigoto.Annotation.dll" PackagePath="analyzers/dotnet/cs" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\Teshigoto.Generators.dll" PackagePath="analyzers/dotnet/cs" />
+			<TfmSpecificPackageFile Include="$(OutputPath)\Teshigoto.Annotation.dll" PackagePath="lib/netstandard2.0" />
+		</ItemGroup>
+  </Target>
+</Project>

@@ -31,7 +31,7 @@ public class SourceGeneratorTestBase<TGenerator>
         Assert.IsEmpty(runResult.Diagnostics, $"Compilation failed with {runResult.Diagnostics.Length} diagnostics:{Environment.NewLine}{string.Join(Environment.NewLine, runResult.Diagnostics)}");
         Assert.HasCount(1, runResult.Results, "Count of generator results mismatched");
         Assert.HasCount(1, runResult.Results[0].GeneratedSources, "Count of generated sources mismatched");
-        Assert.AreEqual(expectedGeneratedSource, runResult.Results[0].GeneratedSources[0].SourceText.ToString());
+        Assert.AreEqual(expectedGeneratedSource.Replace("$$CURRENT_VERSION$$", Assembly.GetExecutingAssembly().GetName().Version!.ToString(4)), runResult.Results[0].GeneratedSources[0].SourceText.ToString());
     }
 
     /// <summary>
